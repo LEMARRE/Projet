@@ -26,6 +26,11 @@ class Choice
      */
     private $response;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Questions", inversedBy="choice")
+     */
+    private $questions;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Choice
     public function setResponse(bool $response): self
     {
         $this->response = $response;
+
+        return $this;
+    }
+
+    public function getQuestions(): ?Questions
+    {
+        return $this->questions;
+    }
+
+    public function setQuestions(?Questions $questions): self
+    {
+        $this->questions = $questions;
 
         return $this;
     }
