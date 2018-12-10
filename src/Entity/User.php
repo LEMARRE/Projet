@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,6 +52,23 @@ class User
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nickname;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Avatar", inversedBy="users")
+     */
+    private $avatar;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="users")
+     */
+    private $classroom;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+        $this->avatar = new ArrayCollection();
+        $this->classroom = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,4 +158,57 @@ class User
 
         return $this;
     }
+
+    /**
+     * @return Collection|Avatar[]
+     */
+    public function getAvatar(): Collection
+    {
+        return $this->avatar;
+    }
+
+    public function addAvatar(Avatar $avatar): self
+    {
+        if (!$this->avatar->contains($avatar)) {
+            $this->avatar[] = $avatar;
+        }
+
+        return $this;
+    }
+
+    public function removeAvatar(Avatar $avatar): self
+    {
+        if ($this->avatar->contains($avatar)) {
+            $this->avatar->removeElement($avatar);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Classroom[]
+     */
+    public function getClassroom(): Collection
+    {
+        return $this->classroom;
+    }
+
+    public function addClassroom(Classroom $classroom): self
+    {
+        if (!$this->classroom->contains($classroom)) {
+            $this->classroom[] = $classroom;
+        }
+
+        return $this;
+    }
+
+    public function removeClassroom(Classroom $classroom): self
+    {
+        if ($this->classroom->contains($classroom)) {
+            $this->classroom->removeElement($classroom);
+        }
+
+        return $this;
+    }
+
 }
