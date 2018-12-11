@@ -5,13 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -23,7 +22,7 @@ class User
     /**
      * @ORM\Column(type="array")
      */
-    private $role = [];
+    private $roles = [];
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -51,11 +50,6 @@ class User
     private $experience;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $nickname;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Avatar", inversedBy="users")
      */
     private $avatar;
@@ -64,6 +58,11 @@ class User
      * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="users")
      */
     private $classroom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
 
     public function __construct()
     {
@@ -76,14 +75,14 @@ class User
         return $this->id;
     }
 
-    public function getRole(): ?array
+    public function getroles(): ?array
     {
-        return $this->role;
+        return $this->roles;
     }
 
-    public function setRole(array $role): self
+    public function setroles(array $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -148,18 +147,6 @@ class User
         return $this;
     }
 
-    public function getNickname(): ?string
-    {
-        return $this->nickname;
-    }
-
-    public function setNickname(?string $nickname): self
-    {
-        $this->nickname = $nickname;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Avatar[]
      */
@@ -211,5 +198,28 @@ class User
 
         return $this;
     }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function eraseCredentials ()
+    {
+        
+    }
+
+    public function getSalt() : ?string
+    {
+        return null;
+    }
+
 
 }
