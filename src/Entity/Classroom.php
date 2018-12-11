@@ -33,6 +33,11 @@ class Classroom
      */
     private $qcm;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $classroomCode;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -106,6 +111,18 @@ class Classroom
         if ($this->qcm->contains($qcm)) {
             $this->qcm->removeElement($qcm);
         }
+
+        return $this;
+    }
+
+    public function getClassroomCode(): ?int
+    {
+        return $this->classroomCode;
+    }
+
+    public function setClassroomCode(?int $classroomCode): self
+    {
+        $this->classroomCode = $classroomCode;
 
         return $this;
     }
