@@ -2,30 +2,25 @@
 
 {% block title %}Inscription élève - {{ parent() }}!{% endblock %}
 
-{% block body %}
-
 
 <div class="container">
- 
-      <h2>Inscription Eleve</h2>
+    <div class="row">
+        <div class="col-md-8">
         
-        <div class="row">
+            {% block body %}
+    {{ form_start(form, {
+        'attr': {'novalidate': 'novalidate'}
+    }) }}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    <button type="submit">S'enregistrer</button>
+    {{ form_end(form) }}
 
-          <div class="col-md-6">
-            {{ form_start(form, {
-            'attr': {'novalidate': 'novalidate'}
-            }) }}
-
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
-            <button type="submit">S'enregistrer</button>
-            {{ form_end(form) }}
-          </div>
+        
         </div>
-      </div>
+    </div>
 
 
+</div>
 
-
-   
 {% endblock %}

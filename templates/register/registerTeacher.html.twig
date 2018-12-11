@@ -2,31 +2,29 @@
 
 {% block title %}Inscription professeur{% endblock %}
 
+
+
 {% block body %}
 
+<div class="container-teacher">
+    <div class="container">
 
+    <h2>Inscription Professeur</h2>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form, {
+                'attr': {'novalidate': 'novalidate'}
+                }) }}
+                {{ form_widget(form) }}
+                {{ form_errors(form) }}
+                <button type="submit" class="login">S'enregistrer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+  </div>
 
   
-    <div class="container form">
- 
-      <h2>Inscription Prof</h2>
-        
-        <div class="row ">
-
-          <div class="col-md-6">
-            {{ form_start(form, {
-            'attr': {'novalidate': 'novalidate'}
-            }) }}
-
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
-            <button type="submit">S'enregistrer</button>
-            {{ form_end(form) }}
-          </div>
-        </div>
-      </div> 
-    </div>
-
 {% endblock %}
 
 
