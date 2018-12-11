@@ -3,5 +3,11 @@
 {% block title %}Inscription professeur - {{ parent() }}!{% endblock %}
 
 {% block body %}
-
+    {{ form_start(form, {
+        'attr': {'novalidate': 'novalidate'}
+    }) }}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    <button type="submit">S'enregistrer</button>
+    {{ form_end(form) }}
 {% endblock %}
