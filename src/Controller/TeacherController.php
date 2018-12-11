@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TeacherController extends AbstractController
 {
     /**
-     * @Route("/teacher/home", name="teacher")
+     * @Route("/teacher/home", name="teacher_home")
      */
     public function admin()
     {

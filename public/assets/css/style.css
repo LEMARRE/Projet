@@ -42,6 +42,7 @@ h1, h2, h3 {
   border-bottom: 2px solid #133f5f;
   outline: none; }
 
+/*  LOGGIN    */
 .container-login {
   background: #3caea3;
   height: 100vh;
@@ -68,5 +69,7 @@ h1, h2, h3 {
       font-size: 1,2rem; }
     .container-login .loginBox form .btnconnect {
       margin-top: 50px; }
+
+/*     */
 
 /*# sourceMappingURL=style.css.map */
