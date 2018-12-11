@@ -65,7 +65,6 @@ class User
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
         $this->avatar = new ArrayCollection();
         $this->classroom = new ArrayCollection();
     }
