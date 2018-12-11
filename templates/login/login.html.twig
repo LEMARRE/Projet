@@ -4,4 +4,41 @@
 
 {% block body %}
 
+<div class="container-login">
+
+<div class="loginBox">
+            
+            <div class="logo"></div>
+            
+            <h3>Identifiez-vous</h3> 
+            
+            <form action="">
+                
+                <div class="inputbox">
+                    <input type="text" name="username" placeholder="nom">
+                    <span><i class="fa fa-user"></i></span>
+                </div>
+
+                <div class="inputbox">
+                    <input type="email" name="email" placeholder="email">
+                    <span><i class="fa fa-lock"></i></span>
+                </div>
+
+                
+                <div class="inputbox">
+                    <button type="submit" class="">Connexion</button>
+                </div>
+
+                <p>Vous n'êtes pas inscrit <a href="{{ path('register_student') }}">eleves</a> <a href="{{ path('register_teacher') }}">Prof</a></p>
+         
+
+
+            
+            </form>
+
+        </div>
+</div>
+
+
+<p> vous n'êtes pas inscrit </p>
 {% endblock %}
