@@ -17,11 +17,14 @@ class RedirectRoutesController extends AbstractController
         public function redirectRoutes()
         {
             $user = $this->getUser();
+            $id = $user->getId();
             $user_role = $user->getRoles();
 
             if ($user_role == ['ROLE_STUDENT']) {
-                return $this->redirectToRoute('student_home');
-            } return $this->redirectToRoute('teacher_home');
+                return $this->redirectToRoute('student_home', array(
+                    'id' => $id));
+            } return $this->redirectToRoute('teacher_home', array(
+                'id' => $id));
     }
 }
         
