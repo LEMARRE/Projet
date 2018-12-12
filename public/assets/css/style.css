@@ -162,6 +162,29 @@ h1, h2, h3 {
         left: 35%; }
     .menuflex .section.sectionOne {
       background: #4897d8; }
+      .menuflex .section.sectionOne .container-school {
+        display: none; }
+      .menuflex .section.sectionOne:hover .container-school {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        .menuflex .section.sectionOne:hover .container-school .card-school {
+          width: 70%;
+          height: 80%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #f8f8f8;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
+          .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
+            width: 150px;
+            height: 150px;
+            margin-top: 30px;
+            border-radius: 50%;
+            background: #e2dede; }
     .menuflex .section.sectionTwo {
       background: #ffdb5c; }
       .menuflex .section.sectionTwo .card-eleve {
@@ -192,88 +215,88 @@ h1, h2, h3 {
       background: #fa6e59; }
 
 /* ************************* */
-/*           Jeu             */
+/*        PROFIL ELEVE       */
 /* ************************ */
-.container-jeu {
-  background: #fa6e59;
+.container-profil {
+  background: #ffdb5c;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center; }
-  .container-jeu .checkbox {
-    max-width: 50%;
-    color: #fff;
-    margin: auto; }
-    .container-jeu .checkbox label {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-between;
-      padding: 10px;
-      font-size: 2em; }
-      .container-jeu .checkbox label input[type="checkbox"] {
-        opacity: 0; }
-      .container-jeu .checkbox label span {
-        display: block; }
-        .container-jeu .checkbox label span.check-square {
-          border-radius: 10px;
-          width: 60px;
-          height: 60px;
-          font-size: 1.8em;
-          border: 6px solid #fff;
-          transition: all 0.4s ease-in-out;
-          margin: auto;
-          color: #fff;
-          transform: scale(1);
-          position: relative; }
-          .container-jeu .checkbox label span.check-square i {
-            font-size: 1.2em;
-            position: absolute;
-            top: -25%;
-            left: -25%;
-            color: #ffdb5c; }
-  .container-jeu .box {
+  justify-content: center;
+  align-items: center; }
+  .container-profil .maincontainer {
     position: relative;
-    width: 150px;
-    height: 150px;
-    background: #ffdb5c;
-    margin: 10px;
-    box-sizing: border-box; }
-  .container-jeu .box .imgBox {
-    width: 100%;
-    position: relative;
-    overflow: hidden; }
-  .container-jeu .box .imgBox img {
-    width: 100%;
-    transition: transform 2s; }
-  .container-jeu .box:hover .imgBox img {
-    transform: scale(1.2); }
-  .container-jeu .box .details {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    transform: scaley(0);
-    transition: transform 0.5s; }
-  .container-jeu .box:hover .details {
-    transform: scaley(1); }
-  .container-jeu .box .details .content {
-    position: absolute;
-    top: 50%;
-    transform: translatey(-50%);
-    text-align: center;
-    padding: 10px;
-    color: #fff; }
-  .container-jeu .box .details .content h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    color: #ffdb5c; }
-  .container-jeu .box .details .content p {
-    margin: 10px 0 0;
-    padding: 0;
-    font-size: 14px; }
+    width: 600px;
+    height: 80%; }
+    .container-profil .maincontainer .flip-box-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f8f8f8;
+      border-radius: 15px; }
+      .container-profil .maincontainer .flip-box-front .headcard {
+        height: 200px;
+        width: 100%;
+        background: #fccd32;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backface-visibility: hidden; }
+        .container-profil .maincontainer .flip-box-front .headcard .avatar {
+          width: 120px;
+          height: 120px;
+          background: grey;
+          border-radius: 50%; }
+      .container-profil .maincontainer .flip-box-front .bodycard .box {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        background: #ffdb5c;
+        margin: 10px;
+        box-sizing: border-box; }
+        .container-profil .maincontainer .flip-box-front .bodycard .box .imgBox {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          font-size: 3em; }
+      .container-profil .maincontainer .flip-box-front .bodycard .box .imgBox img {
+        width: 100%;
+        transition: transform 2s; }
+      .container-profil .maincontainer .flip-box-front .bodycard .box:hover .imgBox img {
+        transform: scale(1.2); }
+      .container-profil .maincontainer .flip-box-front .bodycard .box .details {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        transform: scaley(0);
+        transition: transform 0.5s; }
+      .container-profil .maincontainer .flip-box-front .bodycard .box:hover .details {
+        transform: scaley(1); }
+      .container-profil .maincontainer .flip-box-front .bodycard .box .details .content {
+        position: absolute;
+        top: 50%;
+        transform: translatey(-50%);
+        text-align: center;
+        padding: 10px;
+        color: #fff; }
+      .container-profil .maincontainer .flip-box-front .bodycard .box .details .content h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        color: #ffdb5c; }
+      .container-profil .maincontainer .flip-box-front .bodycard .box .details .content p {
+        margin: 10px 0 0;
+        padding: 0;
+        font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */

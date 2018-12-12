@@ -44,7 +44,11 @@
 </div>
 
 <div class="container">
+
+    
             <table class="table">
+
+
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -57,6 +61,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                    {% for i in 0 .. 20 %}
                       <tr>
                         <th scope="row">1</th>
                         <td>Ludovic</td>
@@ -68,39 +73,7 @@
                         recap</button></td>
                       </tr>
 
-                      <tr>
-                            <th scope="row">1</th>
-                            <td>Domnique</td>
-                            <td>Hauw</td>
-                            <td>domHauw@free.fr</td>
-                            <td>6eme1</td>
-                            <td>200000 Points</td>
-                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            recap</button></td>
-                           
-                          </tr>
-
-                          <tr>
-                                <th scope="row">1</th>
-                                <td>Thilbault</td>
-                                <td>Lemarque</td>
-                                <td>Thib@free.fr</td>
-                                <td>6eme1</td>
-                                <td>300000 Points</td>
-                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                recap</button></td>
-                              </tr>
-
-                              <tr>
-                                    <th scope="row">1</th>
-                                    <td>Fred</td>
-                                    <td>Giordani</td>
-                                    <td>fredG@free.fr</td>
-                                    <td>6eme1</td>
-                                    <td>300000 Points</td>
-                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    recap</button></td>
-                                  </tr>
+                    {% endfor %}
                      
                     </tbody>
                   </table>
