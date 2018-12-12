@@ -36,47 +36,63 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
-      </nav>
+    </nav>
 
-      <div class="container-teach">
-        
-      </div>
-</div>
+    <!-- *********************** -->
+    <!--    taBleau des éléves   -->
+     <!-- *********************** -->
 
-<div class="container">
-
-    
-            <table class="table">
-
-
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Classe</th>
-                        <th scope="col">Experience</th>
-                        <th scope="col">Exercices a faire</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    {% for i in 0 .. 20 %}
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Ludovic</td>
-                        <td>Somon</td>
-                        <td>ludosomon@free.fr</td>
-                        <td>6eme1</td>
-                        <td>150000 Points</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        recap</button></td>
-                      </tr>
-
-                    {% endfor %}
+   <div class="container">
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Classe</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Exercices a faire</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in 0 .. 20 %}
+          <tr>
+            <th scope="row">1</th>
+            <td>Ludovic</td>
+            <td>Somon</td>
+            <td>ludosomon@free.fr</td>
+            <td>6eme1</td>
+            <td>150000 Points</td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+             recap</button></td>
+          </tr>
+        {% endfor %}
                      
-                    </tbody>
-                  </table>
+        </tbody>
+      </table>
 
+      <!-- Modal -->
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> Ludovic Somon</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
+
+  </div>
 {% endblock %}

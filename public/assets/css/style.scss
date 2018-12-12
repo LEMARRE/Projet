@@ -384,13 +384,17 @@ h1, h2, h3{
 
             .bodycard{
 
+                display : flex;
+                flex-wrap : wrap;
+
                 .box{
                     position: relative;
-                    width: 120px;
-                    height: 120px;
+                    
+                    width: 100px;
+                    height: 100px;
                     background: $color-eleve;
                     margin: 10px;
-                    box-sizing: border-box;
+                    border-radius : 10px;
                   
                     .imgBox{
                         width: 100%;
@@ -433,7 +437,7 @@ h1, h2, h3{
                     top:50%;
                     transform: translatey(-50%);
                     text-align: center;
-                    padding: 10px;
+                    padding: 5px;
                     color: #fff;
                   }
                   
@@ -445,8 +449,9 @@ h1, h2, h3{
                   }
                   
                    .box .details .content p{
-                    margin: 10px 0 0;  padding: 0;
-                    font-size: 14px;
+                    margin: 5px 0 0;  
+                    padding: 0;
+                    font-size: 12px;
                   
                   }
                 }

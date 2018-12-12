@@ -44,14 +44,14 @@ class RegisterController extends AbstractController
     /**
      * @Route("/register/student", name="register_student")
      */
-    public function createStudent(UserService $UserService, Request $request)
+    public function createStudent(UserPasswordEncoderInterface $encoder, UserService $UserService, Request $request)
     {
         $user = new User();
         $user->setRoles(['ROLE_STUDENT']);
         $form = $this->createForm(StudentRegisterType::class, $user);
             $form->handleRequest($request);
-            // $encoded = $encoder->encodePassword($user, $user->getPassword());
-            // $user->setPassword($encoded);
+             $encoded = $encoder->encodePassword($user, $user->getPassword());
+             $user->setPassword($encoded);
             if ($form->isSubmitted() && $form->isValid()){
                 $UserService->add($user);
                 $this->addFlash(
