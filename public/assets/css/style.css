@@ -1,3 +1,6 @@
+/* ***************** */
+/*       BASE        */
+/* ***************** */
 body {
   margin: 0; }
 
@@ -45,7 +48,9 @@ h1, h2, h3 {
   z-index: 999;
   background-color: #ffdb5c; }
 
-/*  LOGGIN    */
+/* ***************** */
+/*      LOGIN        */
+/* ***************** */
 .container-login {
   background: #3caea3;
   height: 100vh;
@@ -89,7 +94,9 @@ h1, h2, h3 {
       .container-login .loginBox form .inputbox p .eleve {
         color: red; }
 
-/*   Inscription Teacher  */
+/* ************************* */
+/*     Inscription Teacher  */
+/* ************************ */
 .container-teacher {
   background: #3caea3;
   height: 100vh;
@@ -104,7 +111,28 @@ h1, h2, h3 {
       justify-content: center;
       align-items: center; }
 
-/* menu eleve*/
+/* ************************* */
+/*     Inscription Eleve  */
+/* ************************ */
+.container-student {
+  background: #ffdb5c;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; }
+  .container-student .container {
+    text-align: center; }
+    .container-student .container .row {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .container-student .container .row .login.logStudent {
+        background: #ffdb5c; }
+
+/* ************************* */
+/*         Menu eleve        */
+/* ************************ */
 .menuflex {
   display: flex;
   height: 100vh; }
@@ -162,5 +190,90 @@ h1, h2, h3 {
             color: #fa6e59; }
     .menuflex .section.sectionThree {
       background: #fa6e59; }
+
+/* ************************* */
+/*           Jeu             */
+/* ************************ */
+.container-jeu {
+  background: #fa6e59;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .container-jeu .checkbox {
+    max-width: 50%;
+    color: #fff;
+    margin: auto; }
+    .container-jeu .checkbox label {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+      padding: 10px;
+      font-size: 2em; }
+      .container-jeu .checkbox label input[type="checkbox"] {
+        opacity: 0; }
+      .container-jeu .checkbox label span {
+        display: block; }
+        .container-jeu .checkbox label span.check-square {
+          border-radius: 10px;
+          width: 60px;
+          height: 60px;
+          font-size: 1.8em;
+          border: 6px solid #fff;
+          transition: all 0.4s ease-in-out;
+          margin: auto;
+          color: #fff;
+          transform: scale(1);
+          position: relative; }
+          .container-jeu .checkbox label span.check-square i {
+            font-size: 1.2em;
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            color: #ffdb5c; }
+  .container-jeu .box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #ffdb5c;
+    margin: 10px;
+    box-sizing: border-box; }
+  .container-jeu .box .imgBox {
+    width: 100%;
+    position: relative;
+    overflow: hidden; }
+  .container-jeu .box .imgBox img {
+    width: 100%;
+    transition: transform 2s; }
+  .container-jeu .box:hover .imgBox img {
+    transform: scale(1.2); }
+  .container-jeu .box .details {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    transform: scaley(0);
+    transition: transform 0.5s; }
+  .container-jeu .box:hover .details {
+    transform: scaley(1); }
+  .container-jeu .box .details .content {
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    text-align: center;
+    padding: 10px;
+    color: #fff; }
+  .container-jeu .box .details .content h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #ffdb5c; }
+  .container-jeu .box .details .content p {
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */
