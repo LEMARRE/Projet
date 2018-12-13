@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,7 @@ class StudentController extends AbstractController
 {
     /**
      * @Route("/student/{id}/home", name="student_home", requirements={"id"="\d+"})
+     * @IsGranted ("ROLE_STUDENT")
      */
     public function home($id, UserService $userService)
     {

@@ -60,7 +60,7 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Avatar", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Avatar", inversedBy="users", cascade={"persist"} )
      */
     private $avatar;
 
