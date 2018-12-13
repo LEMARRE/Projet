@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
+use App\Entity\Avatar;
 
 class UserService {
 
@@ -27,6 +28,12 @@ class UserService {
     public function add($user) {
         $this->om->persist($user);
         $this->om->flush();
+    }
+
+    public function getOneBy($avatar)
+    {
+        $repo =$this->om->getRepository(Avatar::class);
+        return $repo->findOneBy($avatar);
     }
     
 
