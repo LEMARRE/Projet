@@ -22,20 +22,6 @@ class QcmController extends AbstractController
     {
         $qcm = new Qcm();
 
-
-        $question = new Questions();
-
-        $question->setQuestion('Question 1')
-                ->setExperience(10);
-
-        $question2 = new Questions();
-
-        $question2->setQuestion('Question 2')
-                ->setExperience(20);
-
-        $qcm->addQuestion($question)
-            ->addQuestion($question2);
-
         $form = $this->createForm(QcmType::class, $qcm);
         
         $form->handleRequest($request);

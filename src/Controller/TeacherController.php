@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Controller;
+// namespace App\Form;
 
+use App\Entity\Qcm;
+use App\Form\QcmType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,4 +19,6 @@ class TeacherController extends AbstractController
     {
         return $this->render('teacher/teacher.html.twig');
     }
+
+    
 }
