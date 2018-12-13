@@ -3,7 +3,6 @@
 {% block title %}Espace élève - {{ parent() }}!{% endblock %}
 
 {% block body %}
-   
 
     {# <div class="overlay"></div>     #}
         
@@ -39,20 +38,18 @@
             <div class="container-eleve">
                 <!--pseudo-->      
                 <div class="pseudo">
-                    <h3>{{user.firstname}}</h3>
-
-                    {{ dump (user) }};
-                    
+                    <h3>{{user.firstname}} {{user.lastname}}</h3>
                 </div>
                 
                 <!--Avatar-->
                 <div class="card-eleve">
                     <div class="card-avatar-pict">
-                        <img src="images/avatar.png" alt="">
+                        <img src="asset('assets/img/{{avatar.imageUrl}}')" alt="Avatar">
                     </div>
                         
                     <!--Etoile-->
                     <div class="expe">
+                    <h4>{{user.experience}} XP</h4>                 
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -61,8 +58,8 @@
                     <h4> {{user.email}}</h4>
                     <a href="" class="link btn1">Mon Profil</a>
 
-                 </div>
-             </div>
+                </div>
+            </div>
         </div>  
                     
         <!--  jeu --> 
