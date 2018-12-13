@@ -12,6 +12,7 @@ use App\Services\UserService;
 use App\Form\StudentRegisterType;
 use App\Form\TeacherRegisterType;
 use App\Entity\User;
+use App\Entity\Avatar;
 
 class RegisterController extends AbstractController
 {
@@ -32,7 +33,7 @@ class RegisterController extends AbstractController
                 $id = $user->getId();
                 $this->addFlash(
                     'notice',
-                    'Le professeur a bien été créé!'
+                    'Le professeur a bien été créé! Vous pouvez vous connecter !'
                 );
 
             return $this->redirectToRoute('teacher_home', array(
@@ -55,11 +56,13 @@ class RegisterController extends AbstractController
              $encoded = $encoder->encodePassword($user, $user->getPassword());
              $user->setPassword($encoded);
             if ($form->isSubmitted() && $form->isValid()){
+                $avatar = $UserService->getOneBy($user);
+                $user->setAvatar($avatar);
                 $UserService->add($user);
                 $id = $user->getId();
                 $this->addFlash(
                     'notice',
-                    'L\'élève a bien été créé!'
+                    'L\'élève a bien été créé! Vous pouvez vous connecter !'
                 );
 
             return $this->redirectToRoute('student_home', array(

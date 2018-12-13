@@ -44,12 +44,11 @@
                 <!--Avatar-->
                 <div class="card-eleve">
                     <div class="card-avatar-pict">
-                        {# <img src="asset('assets/img/{{avatar.imageUrl}}')" alt="Avatar"> #}
+                        <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
                         
                     <!--Etoile-->
                     <div class="expe">
-                    <h4>{{user.experience}} XP</h4>                 
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -57,6 +56,9 @@
                     </div>
                     <h4> {{user.email}}</h4>
                     <a href="" class="link btn1">Mon Profil</a>
+                    <h4>{{user.experience}} XP</h4>                 
+                    
+                    <a href="profil.html" class="link btn1">Mon Profil</a>
 
                 </div>
             </div>
