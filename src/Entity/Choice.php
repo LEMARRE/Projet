@@ -71,4 +71,5 @@ class Choice
 
         return $this;
     }
+
 }

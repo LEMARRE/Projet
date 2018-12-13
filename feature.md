@@ -52,5 +52,9 @@ JEUDI
     - Mise en place de la page jeu QCM->Binome Thibaut Fred
 
 _____________________________________________________________________________________________
+VENDREDI
+
+    - continuer le formulaire QCM
+    - débugger le pb id lors de la suppression de question et réponse
 
 

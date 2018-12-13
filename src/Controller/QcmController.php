@@ -29,6 +29,11 @@ class QcmController extends AbstractController
         dump($qcm);
         
         if($form->isSubmitted() && $form->isValid()){
+
+            foreach($qcm->getQuestion() as $question){
+                $question->addQcm($qcm);
+                $manager->persist($question);
+            }
             $manager->persist($qcm);
             $manager->flush();
         }
@@ -37,17 +42,5 @@ class QcmController extends AbstractController
             'form' => $form ->createView(),
         ]);
     }
-
-    // public function Qcm()
-    // {
-    //     $qcm = new Qcm();
-
-    //     $form =$this->createForm( QcmType::class, $qcm);
-
-    //     return $this->render('teacher/createQcm.html.twig', array(
-    //         'form'=>$form->createView(),
-    //     ));
-    // }
-
 
 }
