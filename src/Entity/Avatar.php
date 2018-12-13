@@ -29,6 +29,11 @@ class Avatar
     private $imageUrl;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isDefault;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="avatar")
      */
     private $users;

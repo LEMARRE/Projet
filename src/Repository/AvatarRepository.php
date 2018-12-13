@@ -36,15 +36,15 @@ class AvatarRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Avatar
+    
+    public function findOneBy($avatar, $orderBy = NULL): ?Avatar
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('a.isDefault = :val')
+            ->setParameter('val', 1)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+    
 }
