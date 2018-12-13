@@ -75,3 +75,12 @@ VENDREDI
         - Débugger le pb id lors de la suppression de question et réponse
 
 
+D'ici mercredi :
+
+    - gestion des avatars
+    - Création d'une classe par le prof -> avec génération d'un code classe qui s'affiche sur l'espace prof
+    - L'élève peut rejoindre une classe
+    - Questionnaire d'ajout de QCM fonctionnel
+    - Espace élève fonctionnel (affichage dynamique de l'xp, etc.)
+    - Capacité de jouer aux QCM créés => QCMs fonctionnels
+

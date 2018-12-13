@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création de QCM{% endblock %}
+{% block title %}Création de QCM - {{ parent() }} {% endblock %}
 
 
 {% form_theme form _self %}
@@ -23,7 +23,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Classe
+          Classe
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="classe1.html">6eme1</a>
