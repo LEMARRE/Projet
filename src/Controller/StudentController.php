@@ -17,13 +17,13 @@ class StudentController extends AbstractController
      */
     public function home($id, UserService $userService)
     {
-        // $user = $userService->getById($id);
-        // $id = $user->getId();
-        // $avatar = $user->getAvatar();
+        $user = $userService->getById($id);
+        $id = $user->getId();
+        $avatar = $user->getAvatar();
         return $this->render (
             'student/student.html.twig',
             ['user' => $userService->getById($id),
-            // 'avatar' => $avatar
+            'avatar' => $avatar
             ]); 
     }
 }

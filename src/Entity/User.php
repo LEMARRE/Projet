@@ -50,11 +50,6 @@ class User implements UserInterface
     private $experience;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Avatar", inversedBy="users")
-     */
-    private $avatar;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="users")
      */
     private $classroom;
@@ -63,6 +58,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $username;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Avatar", inversedBy="users")
+     */
+    private $avatar;
 
     public function __construct()
     {
@@ -147,31 +147,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Avatar[]
-     */
-    public function getAvatar(): Collection
-    {
-        return $this->avatar;
-    }
-
-    public function addAvatar(Avatar $avatar): self
-    {
-        if (!$this->avatar->contains($avatar)) {
-            $this->avatar[] = $avatar;
-        }
-
-        return $this;
-    }
-
-    public function removeAvatar(Avatar $avatar): self
-    {
-        if ($this->avatar->contains($avatar)) {
-            $this->avatar->removeElement($avatar);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Classroom[]
@@ -219,6 +194,18 @@ class User implements UserInterface
     public function getSalt() : ?string
     {
         return null;
+    }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?Avatar $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 
 
