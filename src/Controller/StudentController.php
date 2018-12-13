@@ -15,17 +15,20 @@ class StudentController extends AbstractController
      */
     public function home()
     {
-        return $this->render('student/student.html.twig');
+        $user =$this->getUser();
+        return $this->render('student/student.html.twig',[
+            'user' => $user
+        ]);
     }
 
 
     /**
-     * @Route("/student/profil", name="student_profil")
+     * @Route("/student/profil/{id}", name="student_profil")
      */
-    public function show()
+    public function show(UserService $userService, $id)
     {
         return $this->render('student/student-profil.html.twig',[
-            // "user" => $userService->getById($id)
+            "user" => $userService->getById($id)
         ]);
     }
 }

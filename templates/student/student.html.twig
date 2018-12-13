@@ -39,7 +39,10 @@
             <div class="container-eleve">
                 <!--pseudo-->      
                 <div class="pseudo">
-                    <h3>LUDOSOMON</h3>
+                    <h3>{{user.firstname}}</h3>
+
+                    {{ dump (user) }};
+                    
                 </div>
                 
                 <!--Avatar-->
@@ -55,7 +58,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                     </div>
-                    
+                    <h4> {{user.email}}</h4>
                     <a href="" class="link btn1">Mon Profil</a>
 
                  </div>

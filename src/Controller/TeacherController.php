@@ -16,4 +16,7 @@ class TeacherController extends AbstractController
     {
         return $this->render('teacher/teacher.html.twig');
     }
+
+
+    
 }
