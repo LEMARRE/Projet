@@ -77,12 +77,12 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getroles(): ?array
+    public function getRoles(): ?array
     {
         return $this->roles;
     }
 
-    public function setroles(array $roles): self
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
