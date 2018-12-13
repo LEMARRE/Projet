@@ -3,7 +3,7 @@
 {% block title %}Connexion - {{ parent() }}!{% endblock %}
 
 {% block body %}
-
+{# <div class="overlay trans1"></div> #}
 <div class="container-login">
 
 <div class="loginBox">
@@ -30,11 +30,11 @@
 
                 
                 <div class="inputbox">
-                    <input type="submit" value="Login">
+                    <input class="login"type="submit" class="link" value="Login">
                 </div>
 
                 <div class="inputbox">
-                <p>Vous n'êtes pas inscrit <a href="{{ path('register_student') }}">eleves</a> <a href="{{ path('register_teacher') }}">Prof</a></p>
+                <p class="para">Vous n'êtes pas inscrit <a href="{{ path('register_student') }}" class="eleve">eleves </a> <a href="{{ path('register_teacher') }}">Prof</a></p>
                 </div>
 
             
@@ -44,5 +44,5 @@
 </div>
 
 
-<p> vous n'êtes pas inscrit </p>
+
 {% endblock %}

@@ -29,12 +29,14 @@ class RegisterController extends AbstractController
             $user->setPassword($encoded);
             if ($form->isSubmitted() && $form->isValid()){
                 $UserService->add($user);
+                $id = $user->getId();
                 $this->addFlash(
                     'notice',
                     'Le professeur a bien été créé!'
                 );
 
-            return $this->redirectToRoute('teacher_home');
+            return $this->redirectToRoute('teacher_home', array(
+                'id' => $id));
         }
         return $this->render('register/registerTeacher.html.twig', array(
             'form' => $form->createView()
@@ -44,7 +46,7 @@ class RegisterController extends AbstractController
     /**
      * @Route("/register/student", name="register_student")
      */
-    public function createStudent(UserService $UserService, Request $request)
+    public function createStudent(UserPasswordEncoderInterface $encoder, UserService $UserService, Request $request)
     {
         $user = new User();
         $user->setRoles(['ROLE_STUDENT']);
@@ -54,12 +56,14 @@ class RegisterController extends AbstractController
             $user->setPassword($encoded);
             if ($form->isSubmitted() && $form->isValid()){
                 $UserService->add($user);
+                $id = $user->getId();
                 $this->addFlash(
                     'notice',
                     'L\'élève a bien été créé!'
                 );
 
-            return $this->redirectToRoute('student_home');
+            return $this->redirectToRoute('student_home', array(
+                'id' => $id));
         }
 
         return $this->render ('register/registerStudent.html.twig', array(
