@@ -34,6 +34,9 @@
         <!--  eleve -->
             
         <div class="section sectionTwo">
+
+        
+        
                 
             <div class="container-eleve">
                 <!--pseudo-->      
@@ -43,22 +46,41 @@
                 
                 <!--Avatar-->
                 <div class="card-eleve">
+
+                    <div class="scoring-affichage">
+                        <h4> {{user.experience}} Points</h4>
+                    </div> 
                     <div class="card-avatar-pict">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
-                        
+
+
+                    
+                    {% if user.experience > 50 %}    
                     <!--Etoile-->
                     <div class="expe">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
                     </div>
+                    <p>vous etes champion</p>
+
+                    {% else %}
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                    </div>
+                    <p>dommage</p>
+
+                    {% endif %}
                     <h4> {{user.email}}</h4>
-                    <a href="" class="link btn1">Mon Profil</a>
-                    <h4>{{user.experience}} XP</h4>                 
+
+                     <h4> votre Score : {{user.experience}}</h4>
+
                     
-                    <a href="profil.html" class="link btn1">Mon Profil</a>
+                  
+                    <h4>{{user.experience}} XP</h4>                 
+                    {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
+                    <a href="{{ path('student_home', {id: user.id}) }}"  class="login">Mon Profil</a>
 
                 </div>
             </div>

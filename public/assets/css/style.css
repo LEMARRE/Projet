@@ -10,7 +10,10 @@ h1, h2, h3 {
 * {
   box-sizing: border-box; }
 
-.btn1, .login {
+.login {
+  margin: 20px auto;
+  text-align: center;
+  background: #3caea3;
   text-decoration: none;
   color: #fff;
   background: #3caea3;
@@ -20,9 +23,12 @@ h1, h2, h3 {
   font-size: 18px;
   border-radius: 60px;
   box-shadow: 2px 4px 0px 0px #133f5f;
-  transition: all 0.2s; }
-  .btn1:active, .login:active {
-    top: calc(70% + 5px);
+  transition: all 0.2s;
+  border: none;
+  outline: none; }
+  .login:active {
+    position: relative;
+    top: 2px;
     box-shadow: 0px 0px 0px 0px #133f5f; }
 
 .inputbox input[type="text"],
@@ -56,8 +62,10 @@ h1, h2, h3 {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  /* Formulaire de connexion*/ }
   .container-login .loginBox {
+    position: relative;
     width: 300px;
     min-height: 400px;
     background-color: #f8f8f8;
@@ -66,7 +74,23 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0 10px 0; }
+    padding: 30px 0 10px 0;
+    /* gestion des erreurs*/
+    /*contenu de la card */ }
+    .container-login .loginBox .errorLogin {
+      position: absolute;
+      width: 200px;
+      height: 250px;
+      left: -50%;
+      top: -15%; }
+      .container-login .loginBox .errorLogin img {
+        width: 100%; }
+      .container-login .loginBox .errorLogin .text-error {
+        position: absolute;
+        width: 180px;
+        height: 230px;
+        top: 25%;
+        left: 25%; }
     .container-login .loginBox .logo {
       width: 100px;
       height: 100px;
@@ -77,22 +101,13 @@ h1, h2, h3 {
       font-size: 1,2rem; }
     .container-login .loginBox form {
       text-align: center; }
-      .container-login .loginBox form .inputbox .login {
-        margin: 20px auto;
-        text-align: center;
-        background: #3caea3;
-        text-decoration: none;
-        color: #fff;
-        background: #3caea3;
-        padding: 10px 45px;
-        text-transform: uppercase;
-        font-family: sans-serif;
-        font-size: 18px;
-        border-radius: 60px;
-        box-shadow: 2px 4px 0px 0px #133f5f;
-        transition: all 0.2s; }
-      .container-login .loginBox form .inputbox p .eleve {
-        color: red; }
+      .container-login .loginBox form p.para {
+        color: #133f5f;
+        margin: 0; }
+      .container-login .loginBox form a {
+        margin: 0 20px; }
+        .container-login .loginBox form a a.teacher {
+          color: #133f5f; }
 
 /* ************************* */
 /*     Inscription Teacher  */
@@ -110,6 +125,9 @@ h1, h2, h3 {
       display: flex;
       justify-content: center;
       align-items: center; }
+      .container-teacher .container .row .btncolor {
+        background: #133f5f;
+        box-shadow: 2px 4px 0px 0px white; }
 
 /* ************************* */
 /*     Inscription Eleve  */
@@ -121,12 +139,21 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center;
   margin: 0 auto; }
+  .container-student input {
+    background: transparent;
+    border: 2px solid #ffdb5c; }
   .container-student .container {
     text-align: center; }
+    .container-student .container .h2 {
+      margin: 0; }
     .container-student .container .row {
       display: flex;
       justify-content: center;
       align-items: center; }
+      .container-student .container .row .bg-form {
+        background: #f8f8f8;
+        border-radius: 12px;
+        padding: 10px; }
       .container-student .container .row .login.logStudent {
         background: #ffdb5c; }
 
@@ -186,9 +213,17 @@ h1, h2, h3 {
             border-radius: 50%;
             background: #e2dede; }
     .menuflex .section.sectionTwo {
-      background: #ffdb5c; }
+      background: #ffdb5c;
+      box-shadow: 6px 2px 17px 7px rgba(0, 0, 0, 0.54);
+      position: relative; }
       .menuflex .section.sectionTwo .card-eleve {
-        display: none; }
+        display: none;
+        position: relative; }
+      .menuflex .section.sectionTwo:hover .scoring-affichage {
+        position: absolute;
+        top: 10%;
+        left: 100px;
+        transform: rotate(20deg); }
       .menuflex .section.sectionTwo:hover .container-eleve {
         width: 100%;
         height: 100%;
@@ -203,16 +238,22 @@ h1, h2, h3 {
           flex-direction: column;
           align-items: center; }
           .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             margin-top: 30px;
             border-radius: 50%;
-            background: #e2dede; }
-          .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
-            font-size: 3rem;
-            color: #fa6e59; }
+            background: red; }
+            .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict img {
+              width: 100%;
+              border-radius: 50%; }
+          .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe {
+            margin: 10px 0 20px 0; }
+            .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
+              font-size: 3rem;
+              color: #fa6e59; }
     .menuflex .section.sectionThree {
-      background: #fa6e59; }
+      background: #fa6e59;
+      box-shadow: inset 10px 2px 17px -7px rgba(0, 0, 0, 0.35); }
 
 /* ************************* */
 /*        PROFIL ELEVE       */
@@ -301,5 +342,15 @@ h1, h2, h3 {
           margin: 5px 0 0;
           padding: 0;
           font-size: 12px; }
+
+@media (max-width: 720px) {
+  .menuflex {
+    flex-flow: column; }
+
+  .menuflex .section h3 {
+    transform: translate(-50%, -50%) scale(1); }
+
+  .menuflex .section:hover h3 {
+    transform: translate(-50%, -50%) scale(1); } }
 
 /*# sourceMappingURL=style.css.map */
