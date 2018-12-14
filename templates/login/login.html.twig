@@ -18,7 +18,9 @@
         {% endif %}
             
             
-        <div class="logo"></div>
+        <div class="logo">
+            <img src="{{ asset('assets/img/logo.png')}}" alt="">
+        </div>
             
         <h3>Identifiez-vous</h3> 
             
@@ -37,14 +39,14 @@
             <div class="inputbox">
                 <input class="login" type="submit" value="Login">
             </div>
-            
+            <p class="para">Vous n'êtes pas inscrit? </p>
         </form>
 
         {# <div class="nologin"> #}
-            <p class="para">Vous n'êtes pas inscrit </p>
-            <div class="lien">
-                <a href="{{ path('register_student') }}" class="teacher">eleve </a>
-                <a href="{{ path('register_teacher') }}">Prof </a>
+       
+        <div class="lien">
+                <a href="{{ path('register_student') }}" class="student">eleve </a>
+                <a href="{{ path('register_teacher') }}" class="teacher">Prof </a>
             </div>
             
         {# </div> #}

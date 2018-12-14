@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Eleve - {{ parent() }}!{% endblock %}
+
+{% block body %}
+   
+    <div class="container-profil">
+       {# {{ dump(user)}} #}
+        
+        <div class="maincontainer">
+          
+          <div class="profil-card">
+                    
+            <div class="headcard">
+
+                <!--identity-->
+               
+                    <h2>{{user.firstname}}</h2>
+                    <div class="avatar">
+                        <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
+                    </div>
+                
+                 <!--Affichage du score-->
+                {% if user.experience == 0%}
+                <div class="scoring">
+                    <h3>0 point</h3>
+                </div>
+
+                {% else %}
+                <div class="scoring">
+                    <h3> {{user.experience}}</h3>
+                </div>
+
+                {% endif %}
+                
+            </div>
+                    
+            <!--body card -->
+
+            <div class="bodycard">
+
+                <h4>Jeu restant à faire</h4>
+
+                <div class="bodycard-jeu">
+                
+                    {% for i in 0 .. 4 %}
+                        <div class="box">
+                            
+                            <div class="imgBox">
+                                <img src="{{ asset('assets/img/geo.png')}}" alt="logo planete">
+                               
+                            </div>
+                    
+                            <div class="details">
+                                <div class="content">
+                                    <h5>QCM Math</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                
+                
+                </div>
+                
+                        
+                   
+                    </div>
+            
+                </div>
+        </div>
+    </div>
+
+                    
+                  
+             
+    
+{% endblock %}

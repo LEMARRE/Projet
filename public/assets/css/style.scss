@@ -11,13 +11,16 @@ $color-college : #4897d8;
 $color-eleve :#ffdb5c;
 $color-jeu : #fa6e59;
 $font-titre : 'Oswald', sans-serif;
+$font-text : 'Roboto', sans-serif;
 
 body{
     margin : 0;
+    font-family : $font-text;
 }
 
 h1, h2, h3{
     margin : 0;
+    font-family: $font-titre;
 }
 
 *{
@@ -135,7 +138,15 @@ h1, h2, h3{
             width : 100px;
             height: 100px;
             border-radius : 50px;
-            background :#e2dede;
+            background :#3caea3;
+            border : 3px solid $color-secondary ;
+            display : flex;
+            align-items : center;
+            padding : 10px;
+
+            img{
+                width : 100%;
+            }
         }
 
         h3{
@@ -174,34 +185,36 @@ h1, h2, h3{
             
         }
 
-       
-
-           
-
-            p.para{
-                color : #133f5f;
-                margin : 0;
+        .para{
+        color : #133f5f;
+        margin-bottom : 0;
+               
             }
+
+       
     
-            a{
-                margin : 0 20px;
-             
-            a.teacher{
-                color: #133f5f;
-                
-            }
-           
-            }
-
-           
-
-       
-       
+    }
+    .lien{
+      
         
+        a{
+            margin : 20px;
+            text-decoration : none;
+            font-weight : bold;
+            transition: all 0.3;
+            text-transform: uppercase;
 
-       
+            &.student {
+              
+                color : $color-eleve;
+            }
 
+            &.teacher {
+                color : $color-secondary;
+            
+            }
         }
+    }
 
     }
 
@@ -240,7 +253,7 @@ h1, h2, h3{
 }
 
 /* ************************* */
-/*     Inscription Eleve  */
+/*     Register Eleve  */
 /* ************************ */
 
     .container-student{
@@ -254,13 +267,17 @@ h1, h2, h3{
         input{
             background : transparent;
             border :2px solid $color-eleve;
+          
         }
         
         .container{
             text-align :center;
+          
+            
             
             .h2{
-                margin : 0;
+                margin : 10px 0;
+               
             }
     
             .row{
@@ -274,9 +291,10 @@ h1, h2, h3{
                     padding : 10px;
                 }
               
-
                 .login.logStudent{
                     background : $color-eleve;
+                    outline : none;
+
                 }
             }
         }
@@ -330,8 +348,8 @@ h1, h2, h3{
 
         &.sectionOne{
              background : $color-college;
-            //  box-shadow: 6px 2px 17px -7px rgba(0,0,0,0.54);
-
+             text-align : center;
+            
              .container-school{
                  display : none;
              }
@@ -352,7 +370,6 @@ h1, h2, h3{
                         display: flex;
                         flex-direction :column;
                         align-items : center;
-                        background : $color-white;
                         box-shadow : 0 20px 50px rgba(0,0,0,0.1);
                         
                         .avatar-school{
@@ -360,10 +377,25 @@ h1, h2, h3{
                             height: 150px;
                             margin-top : 30px;
                             border-radius : 50%;
-                              background : #e2dede;
+                            background : #e2dede;
+
+                              img{
+                                  width : 100%;
+                                  height: 100%;
+                                  border-radius : 50%;
+                              }
                         }
                         
-                        
+                       .info-college{
+                      
+
+                           p{
+                               font-size : 1.2rem;
+                               font-family: $font-text;
+                               font-weight : 500;
+                               color :white;
+                           }
+                       } 
                     }
                 }
 
@@ -467,7 +499,7 @@ h1, h2, h3{
         width : 600px;
         height :80%;
 
-        .flip-box-front{
+        .profil-card{
             position : absolute;
             width : 100%;
             height : 100%;
@@ -475,6 +507,7 @@ h1, h2, h3{
             border-radius : 15px;
 
             .headcard{
+               padding-left : 20px;
                 height : 200px;
                 width : 100%;
                 background : #fccd32;
@@ -486,22 +519,44 @@ h1, h2, h3{
                 align-items:center;
                 backface-visibility : hidden;
 
-                h2{
 
-                }
+                
+                    h2{
+                        position : relative;
+                        top : 100px;
+                      
+                    }
+    
+                    .avatar{
+                        width : 120px;
+                         height : 120px;
+                         background : grey;
+                         border-radius : 50%;
+    
+                        img{
+                            width : 100%;
+                            border-radius : 50%;
+                        }
+                     }
 
-                .avatar{
-                    width : 120px;
-                    height : 120px;
-                    background : grey;
-                    border-radius : 50%;
-                }
+                
+
+                
             }
 
             .bodycard{
 
-                display : flex;
-                flex-wrap : wrap;
+                text-align : center;
+                overflow : hidden;
+                .bodycard-jeu{
+                    
+                    padding : 10px;
+                    display : flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                   
+
+                }
 
                 .box{
                     position: relative;

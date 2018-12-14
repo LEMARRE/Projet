@@ -12,19 +12,23 @@
         
         <div class="section sectionOne"> 
             
-                <h3>College</h3>
+              <h3>College</h3>
         
                 
             <div class="container-school">
-            
+                  
                 <div class="card-school">
                     <div class="avatar-school">
-                        {# <img src="../../public/assets/images/ecole.jpg" alt="image façade école"> #}
+                         <img src="{{ asset('assets/img/ecole.jpg')}}" alt="Avatar">
                     </div>
-                    <h1>College Jean Rostand</h1>
-                    <h4>2, rue du Marché</h4>
-                    <h4>59000 Lille</h4>
-                    <h4> Tel : 03 20 55 66 88 </h4>
+                <div class="info-college">
+                  <p>College Jean Rostand</p>
+                    <p>2, rue du Marché</p>
+                    <p>59000 Lille</p>
+                    <p> Tel : 03 20 55 66 88 </p>
+                
+                </div>
+                  
                 </div>
             </div>
 
@@ -67,7 +71,7 @@
                     {% else %}
                     <div class="expe">
                          <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
+                        
                     </div>
                     <p>dommage</p>
 
@@ -80,7 +84,7 @@
                   
                     <h4>{{user.experience}} XP</h4>                 
                     {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
-                    <a href="{{ path('student_home', {id: user.id}) }}"  class="login">Mon Profil</a>
+                    <a href="{{ path('student_profil', {id: user.id}) }}"  class="login">Mon Profil</a>
 
                 </div>
             </div>

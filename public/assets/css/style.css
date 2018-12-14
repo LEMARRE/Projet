@@ -2,10 +2,12 @@
 /*       BASE        */
 /* ***************** */
 body {
-  margin: 0; }
+  margin: 0;
+  font-family: "Roboto", sans-serif; }
 
 h1, h2, h3 {
-  margin: 0; }
+  margin: 0;
+  font-family: "Oswald", sans-serif; }
 
 * {
   box-sizing: border-box; }
@@ -95,19 +97,31 @@ h1, h2, h3 {
       width: 100px;
       height: 100px;
       border-radius: 50px;
-      background: #e2dede; }
+      background: #3caea3;
+      border: 3px solid #133f5f;
+      display: flex;
+      align-items: center;
+      padding: 10px; }
+      .container-login .loginBox .logo img {
+        width: 100%; }
     .container-login .loginBox h3 {
       font-family: "Oswald", sans-serif;
       font-size: 1,2rem; }
     .container-login .loginBox form {
       text-align: center; }
-      .container-login .loginBox form p.para {
+      .container-login .loginBox form .para {
         color: #133f5f;
-        margin: 0; }
-      .container-login .loginBox form a {
-        margin: 0 20px; }
-        .container-login .loginBox form a a.teacher {
-          color: #133f5f; }
+        margin-bottom: 0; }
+    .container-login .loginBox .lien a {
+      margin: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3;
+      text-transform: uppercase; }
+      .container-login .loginBox .lien a.student {
+        color: #ffdb5c; }
+      .container-login .loginBox .lien a.teacher {
+        color: #133f5f; }
 
 /* ************************* */
 /*     Inscription Teacher  */
@@ -130,7 +144,7 @@ h1, h2, h3 {
         box-shadow: 2px 4px 0px 0px white; }
 
 /* ************************* */
-/*     Inscription Eleve  */
+/*     Register Eleve  */
 /* ************************ */
 .container-student {
   background: #ffdb5c;
@@ -145,7 +159,7 @@ h1, h2, h3 {
   .container-student .container {
     text-align: center; }
     .container-student .container .h2 {
-      margin: 0; }
+      margin: 10px 0; }
     .container-student .container .row {
       display: flex;
       justify-content: center;
@@ -155,7 +169,8 @@ h1, h2, h3 {
         border-radius: 12px;
         padding: 10px; }
       .container-student .container .row .login.logStudent {
-        background: #ffdb5c; }
+        background: #ffdb5c;
+        outline: none; }
 
 /* ************************* */
 /*         Menu eleve        */
@@ -188,7 +203,8 @@ h1, h2, h3 {
         top: 2%;
         left: 35%; }
     .menuflex .section.sectionOne {
-      background: #4897d8; }
+      background: #4897d8;
+      text-align: center; }
       .menuflex .section.sectionOne .container-school {
         display: none; }
       .menuflex .section.sectionOne:hover .container-school {
@@ -204,7 +220,6 @@ h1, h2, h3 {
           display: flex;
           flex-direction: column;
           align-items: center;
-          background: #f8f8f8;
           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
           .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
             width: 150px;
@@ -212,6 +227,15 @@ h1, h2, h3 {
             margin-top: 30px;
             border-radius: 50%;
             background: #e2dede; }
+            .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
+            font-size: 1.2rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            color: white; }
     .menuflex .section.sectionTwo {
       background: #ffdb5c;
       box-shadow: 6px 2px 17px 7px rgba(0, 0, 0, 0.54);
@@ -269,13 +293,14 @@ h1, h2, h3 {
     position: relative;
     width: 600px;
     height: 80%; }
-    .container-profil .maincontainer .flip-box-front {
+    .container-profil .maincontainer .profil-card {
       position: absolute;
       width: 100%;
       height: 100%;
       background: #f8f8f8;
       border-radius: 15px; }
-      .container-profil .maincontainer .flip-box-front .headcard {
+      .container-profil .maincontainer .profil-card .headcard {
+        padding-left: 20px;
         height: 200px;
         width: 100%;
         background: #fccd32;
@@ -286,22 +311,33 @@ h1, h2, h3 {
         flex-direction: column;
         align-items: center;
         backface-visibility: hidden; }
-        .container-profil .maincontainer .flip-box-front .headcard .avatar {
+        .container-profil .maincontainer .profil-card .headcard h2 {
+          position: relative;
+          top: 100px; }
+        .container-profil .maincontainer .profil-card .headcard .avatar {
           width: 120px;
           height: 120px;
           background: grey;
           border-radius: 50%; }
-      .container-profil .maincontainer .flip-box-front .bodycard {
-        display: flex;
-        flex-wrap: wrap; }
-        .container-profil .maincontainer .flip-box-front .bodycard .box {
+          .container-profil .maincontainer .profil-card .headcard .avatar img {
+            width: 100%;
+            border-radius: 50%; }
+      .container-profil .maincontainer .profil-card .bodycard {
+        text-align: center;
+        overflow: hidden; }
+        .container-profil .maincontainer .profil-card .bodycard .bodycard-jeu {
+          padding: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around; }
+        .container-profil .maincontainer .profil-card .bodycard .box {
           position: relative;
           width: 100px;
           height: 100px;
           background: #ffdb5c;
           margin: 10px;
           border-radius: 10px; }
-          .container-profil .maincontainer .flip-box-front .bodycard .box .imgBox {
+          .container-profil .maincontainer .profil-card .bodycard .box .imgBox {
             width: 100%;
             height: 100%;
             position: relative;
@@ -310,12 +346,12 @@ h1, h2, h3 {
             align-items: center;
             overflow: hidden;
             font-size: 3em; }
-        .container-profil .maincontainer .flip-box-front .bodycard .box .imgBox img {
+        .container-profil .maincontainer .profil-card .bodycard .box .imgBox img {
           width: 100%;
           transition: transform 2s; }
-        .container-profil .maincontainer .flip-box-front .bodycard .box:hover .imgBox img {
+        .container-profil .maincontainer .profil-card .bodycard .box:hover .imgBox img {
           transform: scale(1.2); }
-        .container-profil .maincontainer .flip-box-front .bodycard .box .details {
+        .container-profil .maincontainer .profil-card .bodycard .box .details {
           position: absolute;
           top: 5px;
           left: 5px;
@@ -324,21 +360,21 @@ h1, h2, h3 {
           background: rgba(0, 0, 0, 0.5);
           transform: scaley(0);
           transition: transform 0.5s; }
-        .container-profil .maincontainer .flip-box-front .bodycard .box:hover .details {
+        .container-profil .maincontainer .profil-card .bodycard .box:hover .details {
           transform: scaley(1); }
-        .container-profil .maincontainer .flip-box-front .bodycard .box .details .content {
+        .container-profil .maincontainer .profil-card .bodycard .box .details .content {
           position: absolute;
           top: 50%;
           transform: translatey(-50%);
           text-align: center;
           padding: 5px;
           color: #fff; }
-        .container-profil .maincontainer .flip-box-front .bodycard .box .details .content h2 {
+        .container-profil .maincontainer .profil-card .bodycard .box .details .content h2 {
           margin: 0;
           padding: 0;
           font-size: 20px;
           color: #ffdb5c; }
-        .container-profil .maincontainer .flip-box-front .bodycard .box .details .content p {
+        .container-profil .maincontainer .profil-card .bodycard .box .details .content p {
           margin: 5px 0 0;
           padding: 0;
           font-size: 12px; }
