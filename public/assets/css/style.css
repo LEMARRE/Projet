@@ -135,6 +135,8 @@ h1, h2, h3 {
   margin: 0 auto; }
   .container-teacher .container {
     text-align: center; }
+    .container-teacher .container h2 {
+      color: #133f5f; }
     .container-teacher .container .row {
       display: flex;
       justify-content: center;
@@ -183,7 +185,9 @@ h1, h2, h3 {
     position: relative;
     cursor: pointer;
     transition: 0.5s ease;
-    /* College   */
+    /*------------*/
+    /*   College  */
+    /*-----------*/
     /* Eleve */ }
     .menuflex .section h3 {
       font-family: "Oswald", sans-serif;
@@ -236,6 +240,48 @@ h1, h2, h3 {
             font-family: "Roboto", sans-serif;
             font-weight: 500;
             color: white; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social {
+            margin-top: 50px; }
+            .menuflex .section.sectionOne:hover .container-school .card-school .social ul {
+              display: flex;
+              justify-content: center; }
+              .menuflex .section.sectionOne:hover .container-school .card-school .social ul li {
+                position: relative;
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                border: 4px solid #2277dd;
+                border-radius: 50%;
+                box-sizing: border-box;
+                transition: .5s;
+                margin: 0 20px;
+                overflow: hidden; }
+                .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab, .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  color: #2277dd;
+                  font-size: 1.8em;
+                  transition: .5s; }
+                  .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab:nth-child(1), .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab:nth-child(1), .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far:nth-child(1), .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far:nth-child(1) {
+                    top: -50%;
+                    opacity: 0; }
+                .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover {
+                  background: #2277dd; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .fab:nth-child(1),
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .far:nth-child(1) {
+            top: 50%;
+            opacity: 1;
+            color: #fff; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab:nth-child(2),
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far:nth-child(2) {
+            top: 50%;
+            opacity: 1; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .fab:nth-child(2),
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .far:nth-child(2) {
+            top: 150%;
+            opacity: 0; }
     .menuflex .section.sectionTwo {
       background: #ffdb5c;
       box-shadow: 6px 2px 17px 7px rgba(0, 0, 0, 0.54);
