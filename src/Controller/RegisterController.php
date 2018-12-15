@@ -53,8 +53,8 @@ class RegisterController extends AbstractController
         $user->setRoles(['ROLE_STUDENT']);
         $form = $this->createForm(StudentRegisterType::class, $user);
             $form->handleRequest($request);
-             $encoded = $encoder->encodePassword($user, $user->getPassword());
-             $user->setPassword($encoded);
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
             if ($form->isSubmitted() && $form->isValid()){
                 $avatar = $UserService->getOneBy($user);
                 $user->setAvatar($avatar);

@@ -29,7 +29,7 @@ class StudentController extends AbstractController
             ]); 
     }
 
-     /**
+    /**
      * @Route("/student/{id}/profil", name="student_profil", requirements={"id"="\d+"})
      * @IsGranted ("ROLE_STUDENT")
      */
