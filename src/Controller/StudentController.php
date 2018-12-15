@@ -45,19 +45,17 @@ class StudentController extends AbstractController
             ]); 
     }
 
-    /**
-     * @Route("/student/{id}/games/{game_id}", name="game", requirements={"id"="\d+"})
-     * @IsGranted ("ROLE_STUDENT")
-     */
-    public function studentGames($id, UserService $userService)
-    {
-        $user = $userService->getById($id);
-        $id = $user->getId();
-        $avatar = $user->getAvatar();
-        return $this->render (
-            'student/student.html.twig',
-            ['user' => $userService->getById($id),
-            'avatar' => $avatar
-            ]); 
-    }
+    // /**
+    //  * @Route("/student/{id}/games/{game_id}", name="game", requirements={"id"="\d+"})
+    //  * @IsGranted ("ROLE_STUDENT")
+    //  */
+    // public function studentGames($id, $game_id, UserService $userService)
+    // {
+    //     $user = $userService->getById($id);
+    //     $id = $user->getId();
+    //     return $this->render (
+    //         'student/student.html.twig',
+    //         ['user' => $userService->getById($id)
+    //         ]); 
+    // }
 }
