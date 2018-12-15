@@ -2,15 +2,20 @@
 /*       BASE        */
 /* ***************** */
 body {
-  margin: 0; }
+  margin: 0;
+  font-family: "Roboto", sans-serif; }
 
 h1, h2, h3 {
-  margin: 0; }
+  margin: 0;
+  font-family: "Oswald", sans-serif; }
 
 * {
   box-sizing: border-box; }
 
-.btn1, .login {
+.login {
+  margin: 20px auto;
+  text-align: center;
+  background: #3caea3;
   text-decoration: none;
   color: #fff;
   background: #3caea3;
@@ -20,9 +25,12 @@ h1, h2, h3 {
   font-size: 18px;
   border-radius: 60px;
   box-shadow: 2px 4px 0px 0px #133f5f;
-  transition: all 0.2s; }
-  .btn1:active, .login:active {
-    top: calc(70% + 5px);
+  transition: all 0.2s;
+  border: none;
+  outline: none; }
+  .login:active {
+    position: relative;
+    top: 2px;
     box-shadow: 0px 0px 0px 0px #133f5f; }
 
 .inputbox input[type="text"],
@@ -56,8 +64,10 @@ h1, h2, h3 {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  /* Formulaire de connexion*/ }
   .container-login .loginBox {
+    position: relative;
     width: 300px;
     min-height: 400px;
     background-color: #f8f8f8;
@@ -66,33 +76,52 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0 10px 0; }
+    padding: 30px 0 10px 0;
+    /* gestion des erreurs*/
+    /*contenu de la card */ }
+    .container-login .loginBox .errorLogin {
+      position: absolute;
+      width: 200px;
+      height: 250px;
+      left: -50%;
+      top: -15%; }
+      .container-login .loginBox .errorLogin img {
+        width: 100%; }
+      .container-login .loginBox .errorLogin .text-error {
+        position: absolute;
+        width: 180px;
+        height: 230px;
+        top: 25%;
+        left: 25%; }
     .container-login .loginBox .logo {
       width: 100px;
       height: 100px;
       border-radius: 50px;
-      background: #e2dede; }
+      background: #3caea3;
+      border: 3px solid #133f5f;
+      display: flex;
+      align-items: center;
+      padding: 10px; }
+      .container-login .loginBox .logo img {
+        width: 100%; }
     .container-login .loginBox h3 {
       font-family: "Oswald", sans-serif;
       font-size: 1,2rem; }
     .container-login .loginBox form {
       text-align: center; }
-      .container-login .loginBox form .inputbox .login {
-        margin: 20px auto;
-        text-align: center;
-        background: #3caea3;
-        text-decoration: none;
-        color: #fff;
-        background: #3caea3;
-        padding: 10px 45px;
-        text-transform: uppercase;
-        font-family: sans-serif;
-        font-size: 18px;
-        border-radius: 60px;
-        box-shadow: 2px 4px 0px 0px #133f5f;
-        transition: all 0.2s; }
-      .container-login .loginBox form .inputbox p .eleve {
-        color: red; }
+      .container-login .loginBox form .para {
+        color: #133f5f;
+        margin-bottom: 0; }
+    .container-login .loginBox .lien a {
+      margin: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3;
+      text-transform: uppercase; }
+      .container-login .loginBox .lien a.student {
+        color: #ffdb5c; }
+      .container-login .loginBox .lien a.teacher {
+        color: #133f5f; }
 
 /* ************************* */
 /*     Inscription Teacher  */
@@ -106,13 +135,18 @@ h1, h2, h3 {
   margin: 0 auto; }
   .container-teacher .container {
     text-align: center; }
+    .container-teacher .container h2 {
+      color: #133f5f; }
     .container-teacher .container .row {
       display: flex;
       justify-content: center;
       align-items: center; }
+      .container-teacher .container .row .btncolor {
+        background: #133f5f;
+        box-shadow: 2px 4px 0px 0px white; }
 
 /* ************************* */
-/*     Inscription Eleve  */
+/*     Register Eleve  */
 /* ************************ */
 .container-student {
   background: #ffdb5c;
@@ -121,14 +155,24 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center;
   margin: 0 auto; }
+  .container-student input {
+    background: transparent;
+    border: 2px solid #ffdb5c; }
   .container-student .container {
     text-align: center; }
+    .container-student .container .h2 {
+      margin: 10px 0; }
     .container-student .container .row {
       display: flex;
       justify-content: center;
       align-items: center; }
+      .container-student .container .row .bg-form {
+        background: #f8f8f8;
+        border-radius: 12px;
+        padding: 10px; }
       .container-student .container .row .login.logStudent {
-        background: #ffdb5c; }
+        background: #ffdb5c;
+        outline: none; }
 
 /* ************************* */
 /*         Menu eleve        */
@@ -141,7 +185,9 @@ h1, h2, h3 {
     position: relative;
     cursor: pointer;
     transition: 0.5s ease;
-    /* College   */
+    /*------------*/
+    /*   College  */
+    /*-----------*/
     /* Eleve */ }
     .menuflex .section h3 {
       font-family: "Oswald", sans-serif;
@@ -161,11 +207,93 @@ h1, h2, h3 {
         top: 2%;
         left: 35%; }
     .menuflex .section.sectionOne {
-      background: #4897d8; }
-    .menuflex .section.sectionTwo {
-      background: #ffdb5c; }
-      .menuflex .section.sectionTwo .card-eleve {
+      background: #4897d8;
+      text-align: center; }
+      .menuflex .section.sectionOne .container-school {
         display: none; }
+      .menuflex .section.sectionOne:hover .container-school {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        .menuflex .section.sectionOne:hover .container-school .card-school {
+          width: 70%;
+          height: 80%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
+          .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
+            width: 150px;
+            height: 150px;
+            margin-top: 30px;
+            border-radius: 50%;
+            background: #e2dede; }
+            .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
+            font-size: 1.2rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            color: white; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social {
+            margin-top: 50px; }
+            .menuflex .section.sectionOne:hover .container-school .card-school .social ul {
+              display: flex;
+              justify-content: center; }
+              .menuflex .section.sectionOne:hover .container-school .card-school .social ul li {
+                position: relative;
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                border: 4px solid #2277dd;
+                border-radius: 50%;
+                box-sizing: border-box;
+                transition: .5s;
+                margin: 0 20px;
+                overflow: hidden; }
+                .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab, .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  color: #2277dd;
+                  font-size: 1.8em;
+                  transition: .5s; }
+                  .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab:nth-child(1), .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab:nth-child(1), .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far:nth-child(1), .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far:nth-child(1) {
+                    top: -50%;
+                    opacity: 0; }
+                .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover {
+                  background: #2277dd; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .fab:nth-child(1),
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .far:nth-child(1) {
+            top: 50%;
+            opacity: 1;
+            color: #fff; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab:nth-child(2),
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far:nth-child(2) {
+            top: 50%;
+            opacity: 1; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .fab:nth-child(2),
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li:hover .far:nth-child(2) {
+            top: 150%;
+            opacity: 0; }
+    .menuflex .section.sectionTwo {
+      background: #ffdb5c;
+      box-shadow: 6px 2px 17px 7px rgba(0, 0, 0, 0.54);
+      position: relative; }
+      .menuflex .section.sectionTwo .card-eleve {
+        display: none;
+        position: relative; }
+      .menuflex .section.sectionTwo:hover .scoring-affichage {
+        position: absolute;
+        top: 10%;
+        left: 100px;
+        transform: rotate(20deg); }
       .menuflex .section.sectionTwo:hover .container-eleve {
         width: 100%;
         height: 100%;
@@ -180,100 +308,131 @@ h1, h2, h3 {
           flex-direction: column;
           align-items: center; }
           .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             margin-top: 30px;
             border-radius: 50%;
-            background: #e2dede; }
-          .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
-            font-size: 3rem;
-            color: #fa6e59; }
+            background: red; }
+            .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict img {
+              width: 100%;
+              border-radius: 50%; }
+          .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe {
+            margin: 10px 0 20px 0; }
+            .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
+              font-size: 3rem;
+              color: #fa6e59; }
     .menuflex .section.sectionThree {
-      background: #fa6e59; }
+      background: #fa6e59;
+      box-shadow: inset 10px 2px 17px -7px rgba(0, 0, 0, 0.35); }
 
 /* ************************* */
-/*           Jeu             */
+/*        PROFIL ELEVE       */
 /* ************************ */
-.container-jeu {
-  background: #fa6e59;
+.container-profil {
+  background: #ffdb5c;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center; }
-  .container-jeu .checkbox {
-    max-width: 50%;
-    color: #fff;
-    margin: auto; }
-    .container-jeu .checkbox label {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-between;
-      padding: 10px;
-      font-size: 2em; }
-      .container-jeu .checkbox label input[type="checkbox"] {
-        opacity: 0; }
-      .container-jeu .checkbox label span {
-        display: block; }
-        .container-jeu .checkbox label span.check-square {
-          border-radius: 10px;
-          width: 60px;
-          height: 60px;
-          font-size: 1.8em;
-          border: 6px solid #fff;
-          transition: all 0.4s ease-in-out;
-          margin: auto;
-          color: #fff;
-          transform: scale(1);
-          position: relative; }
-          .container-jeu .checkbox label span.check-square i {
-            font-size: 1.2em;
-            position: absolute;
-            top: -25%;
-            left: -25%;
-            color: #ffdb5c; }
-  .container-jeu .box {
+  justify-content: center;
+  align-items: center; }
+  .container-profil .maincontainer {
     position: relative;
-    width: 150px;
-    height: 150px;
-    background: #ffdb5c;
-    margin: 10px;
-    box-sizing: border-box; }
-  .container-jeu .box .imgBox {
-    width: 100%;
-    position: relative;
-    overflow: hidden; }
-  .container-jeu .box .imgBox img {
-    width: 100%;
-    transition: transform 2s; }
-  .container-jeu .box:hover .imgBox img {
-    transform: scale(1.2); }
-  .container-jeu .box .details {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    transform: scaley(0);
-    transition: transform 0.5s; }
-  .container-jeu .box:hover .details {
-    transform: scaley(1); }
-  .container-jeu .box .details .content {
-    position: absolute;
-    top: 50%;
-    transform: translatey(-50%);
-    text-align: center;
-    padding: 10px;
-    color: #fff; }
-  .container-jeu .box .details .content h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    color: #ffdb5c; }
-  .container-jeu .box .details .content p {
-    margin: 10px 0 0;
-    padding: 0;
-    font-size: 14px; }
+    width: 600px;
+    height: 80%; }
+    .container-profil .maincontainer .profil-card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f8f8f8;
+      border-radius: 15px; }
+      .container-profil .maincontainer .profil-card .headcard {
+        padding-left: 20px;
+        height: 200px;
+        width: 100%;
+        background: #fccd32;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backface-visibility: hidden; }
+        .container-profil .maincontainer .profil-card .headcard h2 {
+          position: relative;
+          top: 100px; }
+        .container-profil .maincontainer .profil-card .headcard .avatar {
+          width: 120px;
+          height: 120px;
+          background: grey;
+          border-radius: 50%; }
+          .container-profil .maincontainer .profil-card .headcard .avatar img {
+            width: 100%;
+            border-radius: 50%; }
+      .container-profil .maincontainer .profil-card .bodycard {
+        text-align: center;
+        overflow: hidden; }
+        .container-profil .maincontainer .profil-card .bodycard .bodycard-jeu {
+          padding: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around; }
+        .container-profil .maincontainer .profil-card .bodycard .box {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          background: #ffdb5c;
+          margin: 10px;
+          border-radius: 10px; }
+          .container-profil .maincontainer .profil-card .bodycard .box .imgBox {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-size: 3em; }
+        .container-profil .maincontainer .profil-card .bodycard .box .imgBox img {
+          width: 100%;
+          transition: transform 2s; }
+        .container-profil .maincontainer .profil-card .bodycard .box:hover .imgBox img {
+          transform: scale(1.2); }
+        .container-profil .maincontainer .profil-card .bodycard .box .details {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          right: 5px;
+          bottom: 5px;
+          background: rgba(0, 0, 0, 0.5);
+          transform: scaley(0);
+          transition: transform 0.5s; }
+        .container-profil .maincontainer .profil-card .bodycard .box:hover .details {
+          transform: scaley(1); }
+        .container-profil .maincontainer .profil-card .bodycard .box .details .content {
+          position: absolute;
+          top: 50%;
+          transform: translatey(-50%);
+          text-align: center;
+          padding: 5px;
+          color: #fff; }
+        .container-profil .maincontainer .profil-card .bodycard .box .details .content h2 {
+          margin: 0;
+          padding: 0;
+          font-size: 20px;
+          color: #ffdb5c; }
+        .container-profil .maincontainer .profil-card .bodycard .box .details .content p {
+          margin: 5px 0 0;
+          padding: 0;
+          font-size: 12px; }
+
+@media (max-width: 720px) {
+  .menuflex {
+    flex-flow: column; }
+
+  .menuflex .section h3 {
+    transform: translate(-50%, -50%) scale(1); }
+
+  .menuflex .section:hover h3 {
+    transform: translate(-50%, -50%) scale(1); } }
 
 /*# sourceMappingURL=style.css.map */

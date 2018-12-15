@@ -28,5 +28,18 @@ class TeacherController extends AbstractController
             ]); 
     }
 
+
+    /**
+     * @Route("/teacher/{id}/classRoom", name="teacher_classRoom")
+     * @IsGranted ("ROLE_TEACHER")
+     */
+    public function classRoom($id, UserService $userService)
+    {
+        return $this->render (
+            'teacher/teacherClasse.html.twig',
+            ['user' => $userService->getById($id),
+            'users' => $userService->getAll()
+            ]); 
+    }
     
 }

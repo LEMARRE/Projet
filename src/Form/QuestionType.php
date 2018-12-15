@@ -3,13 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Questions;
+use App\Form\ResponseType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use App\Form\ResponseType;
 
 class QuestionType extends AbstractType
 {
@@ -32,9 +32,7 @@ class QuestionType extends AbstractType
                     // 'entry_options'=>array('label'=>false),
                     // 'prototype'=>true,
                 ]
-            )
-            // ->add('qcms')
-        ;
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
