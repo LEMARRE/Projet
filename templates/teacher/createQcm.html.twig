@@ -2,7 +2,6 @@
 
 {% block title %}Création de QCM - {{ parent() }} {% endblock %}
 
-
 {% form_theme form _self %}
 
 {% block body %}
@@ -40,21 +39,25 @@
 
   {# div contenant la totalité du formulaire #}
 
-  <div class="container-fluid">
+  <div class="container">
     <h3>Créer votre qcm !</h3><hr>
 
-  <div class="row">
-  {{ form_start( form )}}
-  {{ form_widget(form)}}
+    <div class="row">
+      <div class="col">
+        {{ form_start(form)}}
+        {{ form_widget(form)}}
+        <!-- {{ form_widget(formResp.choice)}} -->
 
-  <button type="submit" class="btn btn-success">Créér le Qcm</button>
+      <button type="submit" class="btn btn-success">Créér le Qcm</button>
 
-  {{ form_end( form)}}
-
-  </div>
+    {{ form_end( form)}}
+      </div>
+    </div>
   </div>
 
   {% endblock %}
+
+  {# ___________ Ad QUESTION _______________________________ #}
 
     {% block _qcm_question_widget %}
       <p>Ajoutez une question :</p>
@@ -68,10 +71,9 @@
     {% endblock %}
 
     {# permet de supprimerr les id au dessus de row #}
-    {% block _qcm_question_entry_row %}
+    {# {% block _qcm_question_entry_row %}
       {{ form_widget(form) }}
-    {% endblock %}
-
+    {% endblock %} #}
 
     {% block _qcm_question_entry_widget %}
 
@@ -79,38 +81,57 @@
         <div class="row">
             <div class="col-10">
               <div class="row">
-                <div class="col-6">
+                <div class="col-8">
                   {{ form_widget(form.question)}}
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     {{ form_widget(form.experience)}}
                 </div>
-                
-                <div class="row">
-                  <div class="col-6">
-                    {{ form_widget(form.choice)}}
-                  </div> 
-                </div>
-
               </div>
             </div>
-              <div class="col-1">
-                <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
-              </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <button type="button" id="add-response" class="btn btn-primary">Ajouter une réponse</button>
+            <div class="col-1">
+              <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
+            </div>
+          </div>
+
+          {# Ajout d'une réponse ___________#}
+          <div class="adResp"  id="blockResp_{{id}}">
+            <div class="col">
+              <!-- <p>Ajoutez une réponse</p> -->
+
+              {{ form_widget(form.choice)}}
+
+              <!-- <div class="">
+                  <button type="button" id="add-response" class="btn btn-primary">+ réponse</button>
+              </div> -->
+              <hr>
+            </div> 
+          </div>
+          {#__________________________________#}
       </div>
     {% endblock %}
 
-    {% block _qcm_question_choice_entry_widget %}
+    {#_______________Ad REPONSE _____________________________________#}
+      
+    {% block _qcm_question_choice_widget %}
       <p>Ajoutez une réponse :</p>
+      
+      {{ form_widget(form.choice) }}
 
-      <div class="form-group" id="block_{{id}}">
+      <div class="form-group">
+        <button type="button" id="add-response" class="btn btn-primary">Ajouter une réponse</button>
+      </div>
+      
+    {% endblock %}
+
+
+    {% block _qcm_question_choice_entry_widget %}
+      
+      <div class="adResp" id="blockResp_{{id}}">
         <div class="row">
             <div class="col-10">
               <div class="row">
+                
                 <div class="col-6">
                   {{ form_widget(form.choice)}}
                 </div>
@@ -119,14 +140,16 @@
                 </div>
 
               </div>
-            </div>
+              </div>
               <div class="col-1">
-                <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
+                <button type="button" data-action="delete" data-target="#blockResp_{{id}}" class="btn btn-danger">X</button>
               </div>
         </div>
       </div>
 
     {% endblock %}
+
+    {# ======================================================================== #}
 
     {% block javascripts %}
 
@@ -161,6 +184,29 @@
 
       //appel de la fonction à chaque rafraichissement de la page
       HandleDeleteButtons();
+
+
+      // JS AD REPONSE =============================================================
+
+        //lorsque je clique sur le bouton ajouter une REPONSE
+      $('#add-response').click(function(){
+        //Récupère le numéro des futurs champs qui seront créés
+        const index2 = $('#qcm_question_choice div.adResp').length;//compte le nombre de div adResp contenant les reponses
+        console.log(index2);
+
+        //Récupère le prototype des entrées
+        const tmpl2 = $('#qcm_question_choice').data('prototype').replace(/__name__/g, index2);
+
+        console.log(tmpl2);
+
+        //injection du code dans la div
+        $('#qcm_question_choice').append(tmpl2);
+
+        //gestion du bouton de suppression
+        HandleDeleteButtons();
+
+      });
+
 
     </script>
 

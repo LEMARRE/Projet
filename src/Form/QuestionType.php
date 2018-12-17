@@ -29,8 +29,8 @@ class QuestionType extends AbstractType
                 [
                     'entry_type' => ResponseType::class,
                     'allow_add' => true,
-                    // 'entry_options'=>array('label'=>false),
-                    // 'prototype'=>true,
+                    'entry_options'=>array('label'=>false),
+                    'prototype'=>true,
                 ]
             );
     }
