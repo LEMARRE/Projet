@@ -3,16 +3,19 @@
 /* ***************** */
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif; }
+  font-family: "PT Sans", sans-serif; }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin: 0;
   font-family: "Oswald", sans-serif; }
 
 * {
   box-sizing: border-box; }
 
-.login {
+/* ****************** */
+/*       BTN    */
+/* ********************/
+.btn-general {
   margin: 20px auto;
   text-align: center;
   background: #3caea3;
@@ -28,10 +31,21 @@ h1, h2, h3 {
   transition: all 0.2s;
   border: none;
   outline: none; }
-  .login:active {
+  .btn-general:active {
     position: relative;
     top: 2px;
     box-shadow: 0px 0px 0px 0px #133f5f; }
+  .btn-general:hover {
+    text-decoration: none;
+    color: #133f5f;
+    font-weight: 600; }
+
+/* ****************** */
+/*       INPUT         */
+/* ********************/
+label {
+  font-family: "PT Sans", sans-serif;
+  color: #133f5f; }
 
 .inputbox input[type="text"],
 .inputbox input[type="password"],
@@ -56,9 +70,9 @@ h1, h2, h3 {
   z-index: 999;
   background-color: #ffdb5c; }
 
-/* ***************** */
-/*      LOGIN        */
-/* ***************** */
+/* ************************ */
+/*      PARTIE LOGIN        */
+/* ************************ */
 .container-login {
   background: #3caea3;
   height: 100vh;
@@ -175,8 +189,9 @@ h1, h2, h3 {
         outline: none; }
 
 /* ************************* */
-/*         Menu eleve        */
+/*      Accueil Eleve       */
 /* ************************ */
+/* FLEX BOX */
 .menuflex {
   display: flex;
   height: 100vh; }
@@ -185,10 +200,15 @@ h1, h2, h3 {
     position: relative;
     cursor: pointer;
     transition: 0.5s ease;
-    /*------------*/
-    /*   College  */
-    /*-----------*/
-    /* Eleve */ }
+    /* ***************************** */
+    /*  Accueil Eleve part college   */
+    /* ******************************/
+    /* ***************************** */
+    /*  Accueil Eleve part Eleve     */
+    /* ******************************/
+    /* ***************************** */
+    /*  Accueil Eleve part Jeu    */
+    /* ******************************/ }
     .menuflex .section h3 {
       font-family: "Oswald", sans-serif;
       text-transform: uppercase;
@@ -237,7 +257,7 @@ h1, h2, h3 {
               border-radius: 50%; }
           .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
             font-size: 1.2rem;
-            font-family: "Roboto", sans-serif;
+            font-family: "PT Sans", sans-serif;
             font-weight: 500;
             color: white; }
           .menuflex .section.sectionOne:hover .container-school .card-school .social {
@@ -292,8 +312,16 @@ h1, h2, h3 {
       .menuflex .section.sectionTwo:hover .scoring-affichage {
         position: absolute;
         top: 10%;
-        left: 100px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
         transform: rotate(20deg); }
+        .menuflex .section.sectionTwo:hover .scoring-affichage img {
+          width: 100%; }
+        .menuflex .section.sectionTwo:hover .scoring-affichage h4 {
+          position: absolute;
+          top: 60px;
+          left: 40px; }
       .menuflex .section.sectionTwo:hover .container-eleve {
         width: 100%;
         height: 100%;
@@ -312,7 +340,7 @@ h1, h2, h3 {
             height: 200px;
             margin-top: 30px;
             border-radius: 50%;
-            background: red; }
+            background: grey; }
             .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict img {
               width: 100%;
               border-radius: 50%; }
@@ -324,6 +352,18 @@ h1, h2, h3 {
     .menuflex .section.sectionThree {
       background: #fa6e59;
       box-shadow: inset 10px 2px 17px -7px rgba(0, 0, 0, 0.35); }
+      .menuflex .section.sectionThree .container-jeu {
+        display: none; }
+      .menuflex .section.sectionThree:hover .container-jeu {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        .menuflex .section.sectionThree:hover .container-jeu .responsive {
+          display: flex;
+          justify-content: center; }
 
 /* ************************* */
 /*        PROFIL ELEVE       */
@@ -335,10 +375,25 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .container-profil .fleche-retour {
+    width: 100px;
+    height: 100px;
+    transition: all 0.3s ease-in;
+    position: relative;
+    top: -35%;
+    left: -20%; }
+    .container-profil .fleche-retour a {
+      cursor: pointer; }
+    .container-profil .fleche-retour img {
+      width: 100%; }
+    .container-profil .fleche-retour:hover {
+      transform: scale(1.2); }
+    .container-profil .fleche-retour:active {
+      transform: scale(0.1); }
   .container-profil .maincontainer {
     position: relative;
     width: 600px;
-    height: 80%; }
+    height: 700px; }
     .container-profil .maincontainer .profil-card {
       position: absolute;
       width: 100%;
@@ -346,7 +401,7 @@ h1, h2, h3 {
       background: #f8f8f8;
       border-radius: 15px; }
       .container-profil .maincontainer .profil-card .headcard {
-        padding-left: 20px;
+        padding: 0 30px;
         height: 200px;
         width: 100%;
         background: #fccd32;
@@ -354,12 +409,9 @@ h1, h2, h3 {
         border-top-right-radius: 15px;
         border-top-left-radius: 15px;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
         backface-visibility: hidden; }
-        .container-profil .maincontainer .profil-card .headcard h2 {
-          position: relative;
-          top: 100px; }
         .container-profil .maincontainer .profil-card .headcard .avatar {
           width: 120px;
           height: 120px;
@@ -369,70 +421,61 @@ h1, h2, h3 {
             width: 100%;
             border-radius: 50%; }
       .container-profil .maincontainer .profil-card .bodycard {
-        text-align: center;
-        overflow: hidden; }
-        .container-profil .maincontainer .profil-card .bodycard .bodycard-jeu {
-          padding: 10px;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around; }
-        .container-profil .maincontainer .profil-card .bodycard .box {
-          position: relative;
-          width: 100px;
-          height: 100px;
-          background: #ffdb5c;
-          margin: 10px;
-          border-radius: 10px; }
-          .container-profil .maincontainer .profil-card .bodycard .box .imgBox {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-size: 3em; }
-        .container-profil .maincontainer .profil-card .bodycard .box .imgBox img {
-          width: 100%;
-          transition: transform 2s; }
-        .container-profil .maincontainer .profil-card .bodycard .box:hover .imgBox img {
-          transform: scale(1.2); }
-        .container-profil .maincontainer .profil-card .bodycard .box .details {
-          position: absolute;
-          top: 5px;
-          left: 5px;
-          right: 5px;
-          bottom: 5px;
-          background: rgba(0, 0, 0, 0.5);
-          transform: scaley(0);
-          transition: transform 0.5s; }
-        .container-profil .maincontainer .profil-card .bodycard .box:hover .details {
-          transform: scaley(1); }
-        .container-profil .maincontainer .profil-card .bodycard .box .details .content {
-          position: absolute;
-          top: 50%;
-          transform: translatey(-50%);
-          text-align: center;
-          padding: 5px;
-          color: #fff; }
-        .container-profil .maincontainer .profil-card .bodycard .box .details .content h2 {
-          margin: 0;
-          padding: 0;
-          font-size: 20px;
-          color: #ffdb5c; }
-        .container-profil .maincontainer .profil-card .bodycard .box .details .content p {
-          margin: 5px 0 0;
-          padding: 0;
-          font-size: 12px; }
+        height: 400px;
+        width: 100%;
+        text-align: center; }
+        .container-profil .maincontainer .profil-card .bodycard h2 {
+          margin-top: 30px; }
 
-@media (max-width: 720px) {
-  .menuflex {
-    flex-flow: column; }
-
-  .menuflex .section h3 {
-    transform: translate(-50%, -50%) scale(1); }
-
-  .menuflex .section:hover h3 {
-    transform: translate(-50%, -50%) scale(1); } }
+/* card jeu*/
+.responsive {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  overflow: hidden; }
+  .responsive .box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #ffdb5c;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 12px; }
+  .responsive .box .imgBox {
+    width: 100%;
+    position: relative;
+    overflow: hidden; }
+  .responsive .box .imgBox img {
+    width: 100%;
+    transition: transform 2s; }
+  .responsive .box:hover .imgBox img {
+    transform: scale(1.2); }
+  .responsive .box .details {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    transform: scaley(0);
+    transition: transform 0.5s; }
+  .responsive .box:hover .details {
+    transform: scaley(1); }
+  .responsive .box .details .content {
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    text-align: center;
+    padding: 10px;
+    color: #fff; }
+  .responsive .box .details .content h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #ffdb5c; }
+  .responsive .box .details .content p {
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */
