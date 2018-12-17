@@ -1,110 +1,21 @@
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace professeur{% endblock %}
+{% block title %}Espace professeur - {{ parent() }}{% endblock %}
 
 {% block body %}
   
-  <div class="bg">
+ 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Collego - {{user.firstname}} {{user.lastname}}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ path('create_qcm') }}">jeu</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Classe
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="classe1.html">6eme1</a>
-                <a class="dropdown-item" href="#">6eme2</a>
-                <a class="dropdown-item" href="#">6eme3</a>
-              </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+  {% include 'teacher/teacherheader.html.twig' %}
 
-      <div class="container-teach">
-        
-      </div>
+<div class="jumbotron">
+  <h1 class="display-4">Bienvenue {{user.firstname}} {{user.lastname}}</h1>
+  <h2>sur votre espace de travail Collego</h2>
+  <p class="lead">Vous pouvez grâce à celui ci gérer vos classes et créer vos jeux</p>
+  <hr class="my-4">
+  <p class="lead">Vous pouvez aussi ajouter un nouvel éléve à votre classe</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter </a>
 </div>
 
-<div class="container">
-{{dump(users)}}
-            <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Classe</th>
-                        <th scope="col">Experience</th>
-                        <th scope="col">Exercices a faire</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Ludovic</td>
-                        <td>Somon</td>
-                        <td>ludosomon@free.fr</td>
-                        <td>6eme1</td>
-                        <td>150000 Points</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        recap</button></td>
-                      </tr>
 
-                      <tr>
-                            <th scope="row">1</th>
-                            <td>Domnique</td>
-                            <td>Hauw</td>
-                            <td>domHauw@free.fr</td>
-                            <td>6eme1</td>
-                            <td>200000 Points</td>
-                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            recap</button></td>
-                           
-                          </tr>
-
-                          <tr>
-                                <th scope="row">1</th>
-                                <td>Thilbault</td>
-                                <td>Lemarque</td>
-                                <td>Thib@free.fr</td>
-                                <td>6eme1</td>
-                                <td>300000 Points</td>
-                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                recap</button></td>
-                              </tr>
-
-                              <tr>
-                                    <th scope="row">1</th>
-                                    <td>Fred</td>
-                                    <td>Giordani</td>
-                                    <td>fredG@free.fr</td>
-                                    <td>6eme1</td>
-                                    <td>300000 Points</td>
-                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    recap</button></td>
-                                  </tr>
-                     
-                    </tbody>
-                  </table>
-
-      </div>
 {% endblock %}
