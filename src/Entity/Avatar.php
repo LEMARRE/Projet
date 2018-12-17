@@ -29,7 +29,12 @@ class Avatar
     private $imageUrl;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="avatar")
+     * @ORM\Column(type="boolean")
+     */
+    private $isDefault;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="avatar")
      */
     private $users;
 
@@ -79,7 +84,7 @@ class Avatar
     {
         if (!$this->users->contains($user)) {
             $this->users[] = $user;
-            $user->addAvatar($this);
+            $user->setAvatar($this);
         }
 
         return $this;
@@ -89,9 +94,13 @@ class Avatar
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
-            $user->removeAvatar($this);
+            // set the owning side to null (unless already changed)
+            if ($user->getAvatar() === $this) {
+                $user->setAvatar(null);
+            }
         }
 
         return $this;
     }
+
 }

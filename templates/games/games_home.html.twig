@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - {{ parent() }}!{% endblock %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-around mt-5">
+
+    <a href={{ path('memory')}} class="btn btn-primary">memory</a>
+
+    <a href={{ path('quizz')}} class="btn btn-primary">quizz</a>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace professeur - {{ parent() }}!{% endblock %}
+{% block title %}Espace professeur - {{ parent() }}{% endblock %}
 
 {% block body %}
+  
+ 
+
+  {% include 'teacher/teacherheader.html.twig' %}
+
+<div class="jumbotron">
+  <h1 class="display-4">Bienvenue {{user.firstname}} {{user.lastname}}</h1>
+  <h2>sur votre espace de travail Collego</h2>
+  <p class="lead">Vous pouvez grâce à celui ci gérer vos classes et créer vos jeux</p>
+  <hr class="my-4">
+  <p class="lead">Vous pouvez aussi ajouter un nouvel éléve à votre classe</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter </a>
+</div>
+
 
 {% endblock %}

@@ -50,11 +50,6 @@ class User implements UserInterface
     private $experience;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Avatar", inversedBy="users")
-     */
-    private $avatar;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="users")
      */
     private $classroom;
@@ -64,9 +59,13 @@ class User implements UserInterface
      */
     private $username;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Avatar", inversedBy="users", cascade={"persist"} )
+     */
+    private $avatar;
+
     public function __construct()
     {
-        $this->avatar = new ArrayCollection();
         $this->classroom = new ArrayCollection();
     }
 
@@ -75,12 +74,12 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getroles(): ?array
+    public function getRoles(): ?array
     {
         return $this->roles;
     }
 
-    public function setroles(array $roles): self
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
@@ -147,31 +146,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Avatar[]
-     */
-    public function getAvatar(): Collection
-    {
-        return $this->avatar;
-    }
-
-    public function addAvatar(Avatar $avatar): self
-    {
-        if (!$this->avatar->contains($avatar)) {
-            $this->avatar[] = $avatar;
-        }
-
-        return $this;
-    }
-
-    public function removeAvatar(Avatar $avatar): self
-    {
-        if ($this->avatar->contains($avatar)) {
-            $this->avatar->removeElement($avatar);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Classroom[]
@@ -219,6 +193,18 @@ class User implements UserInterface
     public function getSalt() : ?string
     {
         return null;
+    }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?Avatar $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 
 
