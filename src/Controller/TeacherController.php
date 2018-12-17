@@ -25,7 +25,7 @@ class TeacherController extends AbstractController
             'teacher/teacher.html.twig',
             ['user' => $userService->getById($id),
             'users' => $userService->getAll()
-            ]); 
+            ]);
     }
 
 
