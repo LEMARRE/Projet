@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription élève - {{ parent() }}!{% endblock %}
+{% block title %}Inscription élève - {{ parent() }}{% endblock %}
 
-  {% block body %}
+{% block body %}
 
 
 <div class="container-student">
@@ -12,7 +12,7 @@
         <h2>Inscription Elève</h2>
         <div class="row">
                 <div class="col-md-6 bg-form">
-              
+
                     {{ form_start(form, {
                     'attr': {'novalidate': 'novalidate'}
                     }) }}

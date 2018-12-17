@@ -4,10 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Qcm;
 use App\Form\QcmType;
-use App\Form\QuestionType;
+use App\Entity\Choice;
 
 use App\Entity\Questions;
-use App\Entity\Choice;
+use App\Form\QuestionType;
+use App\Form\ResponseType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,26 +24,32 @@ class QcmController extends AbstractController
     {
         $qcm = new Qcm();
         // -------------------------------------
-        $question= new Questions();
-        $question->setQuestion('question');
+        // $question= new Questions();
+        // $question->setQuestion('question');
                 // ->setExperience('experience');
-        $qcm->addQuestion($question);
+        // $qcm->addQuestion($question);
         // -------------------------------------
-        // dump($qcm);
+        dump($qcm);
         $form = $this->createForm(QcmType::class, $qcm);
-                    //->createForm(QuestionType::class, $response);//A voir avec Robin si il faut le faire
         $form->handleRequest($request);
 
 // ====================================================================================
         // partie choice response
         $response = new Questions();//variable pour les champs questions
         // -------------------------------------------------------------
-        $choice = new Choice();
-        $choice->setResponse('response')
-                ->setChoice('choice');
-        $response->addChoice($choice);
+        $choice1 = new Choice();
+        $choice1->setResponse('response')
+                ->setChoice('Réponse 1');
 
+        $response->addChoice($choice1);
+
+        $choice2 = new Choice();
+        $choice2->setResponse('response')
+                ->setChoice('Réponse 2');
+
+        $response->addChoice($choice2);
         
+        dump($response);
         $formResp = $this->createForm(QuestionType::class, $response);
         $formResp->handleRequest($request);
         
@@ -61,6 +68,8 @@ class QcmController extends AbstractController
             $manager->flush();
         }
         
+        dump($form);
+
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
             'formResp' => $formResp ->createView(),

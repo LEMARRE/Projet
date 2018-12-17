@@ -29,7 +29,7 @@ class TeacherController extends AbstractController
     }
 
 
-      /**
+    /**
      * @Route("/teacher/{id}/classRoom", name="teacher_classRoom")
      * @IsGranted ("ROLE_TEACHER")
      */
@@ -41,10 +41,5 @@ class TeacherController extends AbstractController
             'users' => $userService->getAll()
             ]); 
     }
-    
-
-     
-
-
     
 }
