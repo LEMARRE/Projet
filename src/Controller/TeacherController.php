@@ -3,6 +3,7 @@
 namespace App\Controller;
 // namespace App\Form;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Qcm;
 use App\Form\QcmType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,12 +17,14 @@ class TeacherController extends AbstractController
 {
     /**
      * @Route("/teacher/{id}/home", name="teacher_home")
+     * @IsGranted ("ROLE_TEACHER")
      */
     public function admin($id, UserService $userService)
     {
         return $this->render (
             'teacher/teacher.html.twig',
-            ['user' => $userService->getById($id)
+            ['user' => $userService->getById($id),
+            'users' => $userService->getAll()
             ]); 
     }
 

@@ -19,11 +19,11 @@ class QcmType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('classrooms', EntityType::class, array(
-                'class'=>Classroom::class,
-                'choice_label'=>'name',
-                'label'=>'Classe',
-            ))
+            // ->add('classrooms', EntityType::class, array(
+            //     'class'=>Classroom::class,
+            //     'choice_label'=>'name',
+            //     'label'=>'Classe',
+            // ))
             ->add('theme', EntityType::class, array(
                 'class'=>Theme::class,
                 'choice_label'=>'name',
