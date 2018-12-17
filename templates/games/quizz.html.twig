@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - {{ parent() }}!{% endblock %}
+
+{% block body %}
+<div class="container bg-primary " >
+
+    question:{{ questions.question }}
+
+</div>
+    <div>
+    
+    {{form_start(form)}}
+        
+        <div class="container bg-danger" >
+        <input type="radio" value="choice1" name="choices">
+        <label>reponse 1: <strong>{{choice2.choice}}</strong></label>
+        </div>
+        <div class="container bg-warning" >
+        <input type="radio" value="choice2" name="choices">
+        <label>reponse 2: <strong>{{choice2.choice}}</strong></label>
+        </div>
+        <div class="container bg-danger" >
+        <input type="radio" value="choice3" name="choices">
+        <label>reponse 3: <strong>{{choice3.choice}}</strong></label>
+        </div>
+        <div class="container bg-warning" >
+        <input type="radio" value="choice4" name="choices">
+        <label>reponse 4: <strong>{{choice4.choice}}</strong></label>
+        </div>
+
+        <a href="" class="btn btn-primary">valider la réponse</a>                         
+    
+    {{form_end(form)}}
+    
+    {# {% if choice1.choice > 4 %}
+        <div>c'est trop</div>
+
+    {% elseif choice1.choice < 4 %}
+
+        <div>c'est trop peu</div>
+
+
+    {% endif %} #}
+    
+
+    {# <div> {{answer}} </div> #}
+    
+    
+
+
+{{ dump(choice1) }}
+
+{# {{ dump( request )}}  #}
+
+{% block javascripts %}
+
+<script>
+
+"use strict";
+
+$(document).ready(function()
+{
+
+
+function no_refresh(event){
+    event.preventDefault();
+    console.log('ok');
+}
+
+$('.answer').on("click", no_refresh);
+    
+
+
+
+})
+
+
+</script>
+
+
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+
+{% block title %}Profil Eleve - {{ parent() }}!{% endblock %}
+
+
+{% block body %}
+   
+    <div class="container-profil">
+       {# {{ dump(user)}} #}
+
+       <div class="fleche-retour">
+        <a href="{{ path('student_home', {id: user.id}) }}"><img src="{{ asset('assets/img/fleche.png')}}" alt="icone fleche retour">
+       </div>
+        
+        <div class="maincontainer">
+          
+            <div class="profil-card">
+                    
+                <div class="headcard">
+
+                    <!--identity-->
+               
+                    <h2>{{user.firstname}}</h2>
+                    <div class="avatar">
+                        <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
+                    </div>
+                
+                     <!--Affichage du score-->
+                    {% if user.experience == 0%}
+                    <div class="scoring">
+                        <h3>0 point</h3>
+                    </div>
+
+                    {% else %}
+                    <div class="scoring">
+                        <h3> {{user.experience}} points</h3>
+                    </div>
+
+                    {% endif %}
+                
+                </div>
+                    
+            <!--body card -->
+
+            <div class="bodycard">
+            
+                <div class="content-jeux-open">
+                    <h2>Jeux à faire</h2>
+              
+                    <div class="responsive">
+
+                        {% for i in 0..3 %}
+                
+                        <div class="box">
+                            <div class="imgBox">
+                                <img src="{{ asset('assets/img/geo.png')}}" alt="Logo geographie">
+                            </div>
+                            
+                            <div class="details">
+                                <div class="content">
+                                <h2>QCM Geo</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+            
+                    </div>
+                </div>
+
+                  <!-- jeux finis-->
+
+
+
+                  <div class="content-jeux-open">
+                    <h2>Jeux à faire</h2>
+              
+                    <div class="responsive">
+
+                        {% for i in 0..3 %}
+                
+                        <div class="box">
+                            <div class="imgBox">
+                                <img src="{{ asset('assets/img/geometrie.png')}}" alt="Avatar">
+                            </div>
+                            
+                            <div class="details">
+                                <div class="content">
+                                <h2>QCM Histoire</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+            
+                    </div>
+                </div>
+
+                    
+            </div>     
+              
+ 
+          
+           <script>
+           
+            $(document).ready(function(){
+                $('.responsive').slick();    
+            });
+           
+           
+           </script>
+          
+  
+    
+{% endblock %}

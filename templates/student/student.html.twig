@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace élève - {{ parent() }}!{% endblock %}
+{% block title %}Espace élève - {{ parent() }}{% endblock %}
 
 {% block body %}
 
@@ -8,18 +8,52 @@
         
     <div class="menuflex">
 
-        <!--college-->
+        
+        
+        <!-- ************************ -->
+        <!--      Partie COLLEGE      -->
+        <!-- ************************ -->
         
         <div class="section sectionOne"> 
+            
             <h3>College</h3>
-        </div>
+        
+                
+            <div class="container-school">
+                  
+                <div class="card-school">
+                    <div class="avatar-school">
+                        <img src="{{ asset('assets/img/ecole.jpg')}}" alt="Avatar">
+                    </div>
+                
+                    <div class="info-college">
+                        <p>College Jean Rostand</p>
+                        <p>2, rue du Marché</p>
+                        <p>59000 Lille</p>
+                        <p> Tel : 03 20 55 66 88 </p>
+                    </div>
+
+                    <div class="social">
+                        <ul>
+                            <li><i class="fab fa-facebook-f"></i><i class="fab fa-facebook-f"></i></li>
+                            <li><i class="far fa-envelope"></i><i class="far fa-envelope"></i></li>
+                            <li><i class="fab fa-instagram"></i><i class="fab fa-instagram"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>   <!-- Fin section 1 -->
         
         
-        <!--  eleve -->
+        <!-- ************************ -->
+        <!--      Partie ELEVE        -->
+        <!-- ************************ -->
             
         <div class="section sectionTwo">
-                
+
             <div class="container-eleve">
+                
                 <!--pseudo-->      
                 <div class="pseudo">
                     <h3>{{user.firstname}} {{user.lastname}}</h3>
@@ -27,20 +61,56 @@
                 
                 <!--Avatar-->
                 <div class="card-eleve">
+
+                    <div class="scoring-affichage">
+                        <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
+                        <h4> {{user.experience}} Points</h4>
+                    </div> 
                     <div class="card-avatar-pict">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
-                        
-                    <!--Etoile-->
-                    <div class="expe">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>{{user.experience}} XP</h4>                 
+
+                 <!--Etoile-->
+                {% if user.experience < 2000 %}    
                     
-                    <a href="profil.html" class="link btn1">Mon Profil</a>
+                   
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
+                    </div>
+                   
+                {# {% else if user.experience >10 %}
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                    </div>
+
+                {% else if user.experience >20 %}
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                    </div> #}
+
+                    {% else %}
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                    </div>
+
+                    {% endif %}
+                    
+                    
+                    <h4> {{user.email}}</h4>
+                    
+                    {# <div class="scoring">
+                        <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
+                        <h4> votre Score : {{user.experience}}</h4>
+                    </div> #}
+
+                    <h4>{{user.experience}} XP</h4>                 
+                    {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
+                    <a href="{{ path('student_profil', {id: user.id}) }}"  class="btn-general">Mon Profil</a>
 
                 </div>
             </div>
@@ -49,7 +119,28 @@
         <!--  jeu --> 
         <div class="section sectionThree">
             <h3>Le Jeu</h3>
-
+            
+            <div class="container-jeu">
+            
+                <h2> Nouveautés</h2>
+                
+                <div class="responsive">
+                    {% for i in 0..3 %}
+                    <div class="box">
+                        <div class="imgBox">
+                            <img src="{{ asset('assets/img/geometrie.png')}}" alt="Avatar">
+                        </div>
+                        <div class="details">
+                            <div class="content">
+                                <h2>QCM Histoire</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href=""  class="btn-general">Le Jeu</a>
+            </div>
         
         </div>
 

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création de QCM{% endblock %}
+{% block title %}Création de QCM - {{ parent() }} {% endblock %}
 
 {% form_theme form _self %}
 
@@ -22,7 +22,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Classe
+          Classe
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="classe1.html">6eme1</a>
@@ -97,13 +97,13 @@
           {# Ajout d'une réponse ___________#}
           <div class="adResp"  id="blockResp_{{id}}">
             <div class="col">
-              <!-- <p>Ajoutez une réponse</p> -->
+              <p>Ajoutez une réponse</p>
 
               {{ form_widget(form.choice)}}
 
-              <!-- <div class="">
+              <div class="">
                   <button type="button" id="add-response" class="btn btn-primary">+ réponse</button>
-              </div> -->
+              </div>
               <hr>
             </div> 
           </div>
