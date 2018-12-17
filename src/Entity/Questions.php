@@ -34,7 +34,7 @@ class Questions
     private $qcms;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Choice", mappedBy="questions")
+     * @ORM\OneToMany(targetEntity="App\Entity\Choice", mappedBy="questions", cascade={"persist"}))
      */
     private $choice;
 
