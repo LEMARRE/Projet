@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Qcm;
-use App\Form\QcmType;
 use App\Entity\Choice;
-
 use App\Entity\Questions;
-use App\Form\QuestionType;
+
+use App\Form\QcmType;
 use App\Form\ResponseType;
+use App\Form\QuestionType;
+
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,7 +54,7 @@ class QcmController extends AbstractController
         $formResp = $this->createForm(QuestionType::class, $response);
         $formResp->handleRequest($request);
         
- // =====================================================================================
+// =====================================================================================
         
         if($form->isSubmitted() && $form->isValid()){
 
