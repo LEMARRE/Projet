@@ -46,7 +46,7 @@
       <div class="col">
         {{ form_start(form)}}
         {{ form_widget(form)}}
-        <!-- {{ form_widget(formResp.choice)}} -->
+        {# {{ form_widget(formResp.choice)}} #}
 
       <button type="submit" class="btn btn-success">Créér le Qcm</button>
 
@@ -57,7 +57,7 @@
 
   {% endblock %}
 
-  {# ___________ Ad QUESTION _______________________________ #}
+  {# ___________ Add QUESTION _______________________________ #}
 
     {% block _qcm_question_widget %}
       <p>Ajoutez une question :</p>
@@ -70,7 +70,7 @@
 
     {% endblock %}
 
-    {# permet de supprimerr les id au dessus de row #}
+    {# permet de supprimer les id au dessus de row #}
     {# {% block _qcm_question_entry_row %}
       {{ form_widget(form) }}
     {% endblock %} #}
@@ -95,7 +95,7 @@
           </div>
 
           {# Ajout d'une réponse ___________#}
-          <div class="adResp"  id="blockResp_{{id}}">
+          <div class="adResp">
             <div class="col">
               <p>Ajoutez une réponse</p>
 
@@ -110,20 +110,6 @@
           {#__________________________________#}
       </div>
     {% endblock %}
-
-    {#_______________Ad REPONSE _____________________________________#}
-      
-    {% block _qcm_question_choice_widget %}
-      <p>Ajoutez une réponse :</p>
-      
-      {{ form_widget(form.choice) }}
-
-      <div class="form-group">
-        <button type="button" id="add-response" class="btn btn-primary">Ajouter une réponse</button>
-      </div>
-      
-    {% endblock %}
-
 
     {% block _qcm_question_choice_entry_widget %}
       
@@ -141,7 +127,7 @@
 
               </div>
               </div>
-              <div class="col-1">
+              <div class="adResp">
                 <button type="button" data-action="delete" data-target="#blockResp_{{id}}" class="btn btn-danger">X</button>
               </div>
         </div>
