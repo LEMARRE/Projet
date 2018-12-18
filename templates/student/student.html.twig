@@ -20,7 +20,7 @@
         
                 
             <div class="container-school">
-                  
+                
                 <div class="card-school">
                     <div class="avatar-school">
                         <img src="{{ asset('assets/img/ecole.jpg')}}" alt="Avatar">
@@ -70,18 +70,27 @@
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
 
-                 <!--Etoile-->
+
+                <!-- Nom de la classe -->
+                {% for infos in classroom %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ infos.name }}</th>
+                        <tr>
+                    <tbody>
+                {% endfor %}
+
+                <!--Etoile-->
                 {% if user.experience < 2000 %}    
                     
-                   
                     <div class="expe">
-                         <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
-                   
+                
                 {# {% else if user.experience >10 %}
                     <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
 
                 {% else if user.experience >20 %}

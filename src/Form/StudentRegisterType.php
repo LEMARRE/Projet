@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class StudentRegisterType extends AbstractType
 {
@@ -28,7 +29,13 @@ class StudentRegisterType extends AbstractType
                 'first_options'  => array('label' => 'Mot de passe'),
                 'second_options' => array('label' => 'Saisir de nouveau le mot de passe'),
             ))
-            // ->add('classroomCode')
+            ->add('classroom', EntityType::class, array(
+                'label' => 'Classe',
+                'class' => Classroom::class,
+                'choice_label' => 'Name',
+                "multiple" => true,
+                'expanded' => true
+            ))
         ;
     }
 
