@@ -53,6 +53,8 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="users")
      */
     private $classroom;
+    
+    private $classCode;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -207,5 +209,18 @@ class User implements UserInterface
         return $this;
     }
 
+
+    
+    public function getClassCode(): ?string
+    {
+        return $this->classCode;
+    }
+    
+    public function setClassCode(string $classCode): self
+    {
+        $this->classCode = $classCode;
+
+        return $this;
+    }
 
 }

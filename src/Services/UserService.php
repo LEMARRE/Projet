@@ -5,6 +5,7 @@ namespace App\Services;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Entity\Avatar;
+use App\Entity\Classroom;
 
 class UserService {
 
@@ -17,6 +18,15 @@ class UserService {
     public function getAll () {
         $repo = $this->om->getRepository( User::class);
         return $repo->findAll();
+    }
+
+    public function getAllClassrooms () {
+        $repo = $this->om->getRepository( Classroom::class);
+        return $repo->findAll();
+    }
+    public function getClassroomById ($classroom_id) {
+        $repo = $this->om->getRepository( Classroom::class);
+        return $repo->find($classroom_id);
     }
 
     public function getById ($id) {
@@ -38,6 +48,12 @@ class UserService {
     {
         $repo =$this->om->getRepository(Avatar::class);
         return $repo->findOneBy($avatar);
+    }
+
+    public function getOneByClassCode($classCode)
+    {
+        $repo =$this->om->getRepository(Classroom::class);
+        return $repo->findOneBy($classCode);
     }
     
     public function search($username){
