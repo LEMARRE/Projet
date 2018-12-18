@@ -36,7 +36,10 @@ class UserService {
         return $repo->findOneBy($avatar);
     }
     
-
+    public function search($username){
+        $repo = $this->om->getRepository( User::class );
+        return $repo->search($username);
+    }
 
     // CODE CI DESSOUS REPRIS DE BEERTIME AU CAS OU ON EN AURAIT BESOIN ! 
 

@@ -71,32 +71,35 @@
                     </div>
 
                  <!--Etoile-->
-                {% if user.experience < 2000 %}    
+                {% if user.experience <500 %}    
                     
                    
                     <div class="expe">
                          <i class="fa fa-star"></i>
+
                     </div>
                    
-                {# {% else if user.experience >10 %}
+                {% elseif user.experience <1000 %}
                     <div class="expe">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      
+                    </div>
+
+                {% elseif user.experience <1500 %}
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
                          <i class="fa fa-star"></i>
                          <i class="fa fa-star"></i>
                     </div>
-
-                {% else if user.experience >20 %}
-                    <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                    </div> #}
 
                     {% else %}
                     <div class="expe">
                          <i class="fa fa-star"></i>
                          <i class="fa fa-star"></i>
                          <i class="fa fa-star"></i>
-                    </div>
+                        <i class="fa fa-star"></i>
+                    </div> 
 
                     {% endif %}
                     
@@ -108,9 +111,11 @@
                         <h4> votre Score : {{user.experience}}</h4>
                     </div> #}
 
-                    <h4>{{user.experience}} XP</h4>                 
+                    <h4>{{user.experience}} XP</h4>     
+                    
+                                
                     {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
-                    <a href="{{ path('student_profil', {id: user.id}) }}"  class="btn-general">Mon Profil</a>
+                    <a href="{{ path('student_profil', {id: user.id}) }}"  class="btn-general" id="profil">Mon Profil</a>
 
                 </div>
             </div>
@@ -125,10 +130,10 @@
                 <h2> Nouveautés</h2>
                 
                 <div class="responsive">
-                    {% for i in 0..3 %}
+                    {# {% for i in 0..3 %} #}
                     <div class="box">
                         <div class="imgBox">
-                            <img src="{{ asset('assets/img/geometrie.png')}}" alt="Avatar">
+                            <img src="{{ asset('assets/img/logo-math.png')}}" alt="Avatar">
                         </div>
                         <div class="details">
                             <div class="content">
@@ -137,7 +142,31 @@
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+
+                      <div class="box">
+                        <div class="imgBox">
+                            <img src="{{ asset('assets/img/math.png')}}" alt="Avatar">
+                        </div>
+                        <div class="details">
+                            <div class="content">
+                                <h2>QCM Math</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="box">
+                        <div class="imgBox">
+                            <img src="{{ asset('assets/img/science.png')}}" alt="Avatar">
+                        </div>
+                        <div class="details">
+                            <div class="content">
+                                <h2>QCM Histoire</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                            </div>
+                        </div>
+                    </div>
+                    {# {% endfor %} #}
                 </div>
                 <a href=""  class="btn-general">Le Jeu</a>
             </div>
@@ -145,5 +174,35 @@
         </div>
 
     </div>   <!--fin menu flex-->
+    
+    
+    {% endblock %}
+    
+    
+    {% block javascripts %}
+   
+     {# <script src="{{ asset('assets/js/main.js')}}"></script>
+     <script src="{{ asset('assets/js/animate.min.js')}}"></script>
+   <script> #}
+   <script>
+
+   {# var profil = document.querySelector('#profil');
+   var overlay = document.querySelector('.overlay');
+    console.log(overlay);
+     
+   
+    profil.addEventListener('click', function(e){
+        e.preventDefault();
+         $('.overlay').css('color', 'green'); 
+          console.log(overlay);
+       
+
+
+    
+      }); #}
+   
+   
+   </script>
+
 
 {% endblock %}
