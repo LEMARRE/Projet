@@ -69,8 +69,6 @@ class QcmController extends AbstractController
             $manager->flush();
         }
         
-        dump($form);
-
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
             'formResp' => $formResp ->createView(),

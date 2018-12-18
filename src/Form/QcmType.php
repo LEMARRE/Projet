@@ -29,10 +29,8 @@ class QcmType extends AbstractType
                 'choice_label'=>'name',
                 'label'=>'Thème',
             ))
-            // ->add('question')
 
-            ->add(
-                'question',
+            ->add('question',
                 CollectionType::class,
                 [
                     'entry_type' => QuestionType::class,
@@ -40,8 +38,7 @@ class QcmType extends AbstractType
                     // 'entry_options'=>array('label'=>false),
                     // 'prototype'=>true,
                 ]
-            )
-        ;
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)

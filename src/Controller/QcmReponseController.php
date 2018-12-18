@@ -32,11 +32,11 @@ class QcmReponseController extends AbstractController
                 
         $response->addChoice($choice1);
 
-        // $choice2 = new Choice();
-        // $choice2->setResponse('response')
-        //         ->setChoice('Réponse 2');
+        $choice2 = new Choice();
+        $choice2->setResponse('response')
+                ->setChoice('Réponse 2');
 
-        // $response->addChoice($choice2);
+        $response->addChoice($choice2);
 
         dump($response);
 
@@ -63,7 +63,7 @@ class QcmReponseController extends AbstractController
         
         return $this->render('qcm_reponse/qcm_reponse.html.twig', [
             'formResp' => $formResp ->createView(),
-            'form' => $form->createView(),
+            // 'form' => $form->createView(),
         ]);
     }
 

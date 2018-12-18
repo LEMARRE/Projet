@@ -58,14 +58,14 @@ ________________________________________________________________________________
 VENDREDI
 
     - BACKOFFICE PROF -> Ludo
-        - liste des élèves 
-        - mettre en place la fiche de l'élève ->OK Fait
+        - liste des élèves
+        - mettre en place la fiche de l'élève ->OK FAIT
     - Espace Eleve -> Ludo
         - Front de l'espace élève (sauf partie jeu) ->OK FAIT
 
     - Espace jeu élève -> Thibault
         - Dynamiser le menu vertical avec des vignettes de jeux -> OK FAIT
-        - Créer le controller, la route, la page et générer un affichage dynamique (jeu bloqué si xp    insuffisant)
+        - Créer le controller, la route, la page et générer un affichage dynamique (jeu bloqué si xp insuffisant)
         - Préparer la page d'erreur (404 ou acces denied) -> ERREUR 404 à faire
     
     - Fonctionnement QCM -> Fred
@@ -79,18 +79,23 @@ D'ici mercredi :
     - gestion des avatars 
     - Création d'une classe par le prof -> avec génération d'un code classe qui s'affiche sur l'espace prof -> PAS FAIT (A ipmlémenter dans V2)
     - L'élève peut rejoindre une classe-> (Dans V2)
-    - Questionnaire d'ajout de QCM fonctionnel-> 80%
+    - Questionnaire d'ajout de QCM -> fonctionnel à 80%
     - Espace élève fonctionnel (affichage dynamique de l'xp, etc.) -> OK FAIT
+    
     - Capacité de jouer aux QCM créés => QCMs fonctionnels -> NON FAIT
 ________________________________________________________________________________________________________________________________________
 
 LUNDI
 
-
-
-
 ______________________________________________________________________________________________________________________________________
-MERCREDI
+MARDI
+
+finir le formulaire QCM
+démarrer le jeu du quizz
+
+
+
+
 
 implementer le mémory
 
