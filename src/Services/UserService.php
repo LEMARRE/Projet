@@ -24,9 +24,13 @@ class UserService {
         return $repo->find($id);
     }
 
-    
     public function add($user) {
         $this->om->persist($user);
+        $this->om->flush();
+    }
+
+    public function addClassroom($classroom) {
+        $this->om->persist($classroom);
         $this->om->flush();
     }
 

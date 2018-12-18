@@ -29,8 +29,8 @@ class QuizzController extends AbstractController
     */
         public function quizz($id, QcmService $QcmService)
         {
-            // $Qcm = $QcmService->getQcmById($id);
-            // $questions = $QcmService->getQuestionsByQcm($Qcm);
+            $Qcm = $QcmService->getQcmById($id);
+            $questions = $QcmService->getByQcm($Qcm);
             // $choices = $QcmService->getAllChoicesByQuestion($questions);
             
             return $this->render('games/quizz.html.twig',[

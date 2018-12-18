@@ -22,9 +22,12 @@ class StudentController extends AbstractController
         $user = $userService->getById($id);
         $id = $user->getId();
         $avatar = $user->getAvatar();
+        $classroom = $user->getClassroom();
+
         return $this->render (
             'student/student.html.twig',
             ['user' => $userService->getById($id),
+            'classroom' => $classroom,
             'avatar' => $avatar
             ]); 
     }
@@ -39,9 +42,12 @@ class StudentController extends AbstractController
         $user = $userService->getById($id);
         $id = $user->getId();
         $avatar = $user->getAvatar();
+        $classroom = $user->getClassroom();
+        
         return $this->render (
             'student/studentProfil.html.twig',
             ['user' => $userService->getById($id),
+            'classroom' => $classroom,
             'avatar' => $avatar
             ]); 
         }

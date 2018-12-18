@@ -4,19 +4,17 @@
 {% block title %}Espace professeur{% endblock %}
 
 {% block body %}
-  
-  <div class="bg">
 
-  {% include 'teacher/teacherheader.html.twig' %}
+{% include 'teacher/teacherheader.html.twig' %}
 
-      <div class="container-teach">
-        
-      </div>
-</div>
-</tr>
+<form action="" method="GET">
+    <div>
+        <label for="name">Nom de la classe :</label>
+        <input type="text" id="name" name="class_name">
+    </div>
+    <div>
+  <button type="submit" class="btn-general">Créer la classe</button>
+</form>
 
-  <div class="container">
 
-
-  </div>
 {% endblock %}

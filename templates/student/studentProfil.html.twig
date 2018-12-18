@@ -23,13 +23,14 @@
                 <div class="headcard">
 
                     <!--identity-->
-               
+
+
                     <h2>{{user.firstname}}</h2>
                     <div class="avatar">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
                 
-                     <!--Affichage du score-->
+                    <!--Affichage du score-->
                     {% if user.experience == 0%}
                     <div class="scoring">
                         <h3>0 point</h3>
@@ -43,7 +44,16 @@
                     {% endif %}
                 
                 </div>
-                    
+
+                <!-- Nom de la classe -->
+                {% for infos in classroom %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ infos.name }}</th>
+                        <tr>
+                    <tbody>
+                {% endfor %}
+
             <!--body card -->
 
             <div class="bodycard">
