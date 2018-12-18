@@ -14,12 +14,12 @@ use App\Entity\Avatar;
 class StudentController extends AbstractController
 {
     /**
-     * @Route("/student/{id}/home", name="student_home", requirements={"id"="\d+"})
+     * @Route("/student/home", name="student_home")
      * @IsGranted ("ROLE_STUDENT")
      */
-    public function home($id, UserService $userService)
+    public function home(UserService $userService)
     {
-        $user = $userService->getById($id);
+        $user = $this->getUser();
         $id = $user->getId();
         $avatar = $user->getAvatar();
         $classroom = $user->getClassroom();
@@ -34,16 +34,15 @@ class StudentController extends AbstractController
 
     
     /**
-     * @Route("/student/{id}/profil", name="student_profil", requirements={"id"="\d+"})
-     * @IsGranted ("ROLE_STUDENT")
+     * @Route("/student/profil", name="student_profil")
      */
-    public function profil($id, UserService $userService)
+    public function profil(UserService $userService)
     {
-        $user = $userService->getById($id);
+        $user = $this->getUser();
         $id = $user->getId();
         $avatar = $user->getAvatar();
         $classroom = $user->getClassroom();
-        
+
         return $this->render (
             'student/studentProfil.html.twig',
             ['user' => $userService->getById($id),
