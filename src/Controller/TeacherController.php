@@ -90,5 +90,14 @@ class TeacherController extends AbstractController
             'current_classroom_id' => $current_classroom_id
             ]); 
     }
+    
+    /**
+     * @Route("/teacher/listGame", name="list")
+     */
+    public function memory()
+    {
+        
+        return $this->render('games/memory.html.twig');
+    }
         
 }

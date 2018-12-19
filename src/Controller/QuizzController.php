@@ -25,15 +25,15 @@ class QuizzController extends AbstractController
     // }
     
     /**
-    * @Route("/games/quizz/{id}", name="quizz")
+    * @Route("/games/games2", name="games2")
     */
-        public function quizz($id, QcmService $QcmService)
+        public function quizz()
         {
-            $Qcm = $QcmService->getQcmById($id);
-            $questions = $QcmService->getByQcm($Qcm);
+            // $Qcm = $QcmService->getQcmById($id);
+            // $questions = $QcmService->getByQcm($Qcm);
             // $choices = $QcmService->getAllChoicesByQuestion($questions);
             
-            return $this->render('games/quizz.html.twig',[
+            return $this->render('games/games2.html.twig',[
                 // 'qcm' => $Qcm,
                 // 'questions' => $questions,
                 // 'choices' => $choices
