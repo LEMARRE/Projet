@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\QuestionsRepository")
@@ -20,6 +21,7 @@ class Questions
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Merci de renseigner votre question")
      */
     private $question;
 
@@ -30,6 +32,7 @@ class Questions
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Qcm", mappedBy="question")
+     * @Assert\NotBlank(message="Merci d'indiquer un nombre de point pour la question")
      */
     private $qcms;
 

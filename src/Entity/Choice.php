@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ChoiceRepository")
@@ -22,7 +24,7 @@ class Choice
     private $choice;
 
     /**
-     * @ORM\Column(type="boolean, nullable=true")
+     * @ORM\Column(type="boolean")
      */
     private $response;
 

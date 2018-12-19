@@ -54,6 +54,7 @@ JEUDI
     - Modifier lien User/Avatar dans DB + gérer l'ajout d'un avatar par défaut pour chaque élève qui s'inscrit (Repo + Service + Controller + Template) -> OK FAIT
 
     - Ajout de message flash suite à l'inscription d'un prof et/ou d'un élève ->OK FAIT
+
 _____________________________________________________________________________________________
 VENDREDI
 
@@ -77,21 +78,67 @@ VENDREDI
 D'ici mercredi :
 
     - gestion des avatars 
-    - Création d'une classe par le prof -> avec génération d'un code classe qui s'affiche sur l'espace prof -> PAS FAIT (A ipmlémenter dans V2)
-    - L'élève peut rejoindre une classe-> (Dans V2)
-    - Questionnaire d'ajout de QCM -> fonctionnel à 80%
+    - Création d'une classe par le prof -> avec génération d'un code classe qui s'affiche sur l'espace prof -> OK FAIT
+    - L'élève peut rejoindre une classe-> OK FAIT
+    - Questionnaire d'ajout de QCM -> fonctionnel à 90%
     - Espace élève fonctionnel (affichage dynamique de l'xp, etc.) -> OK FAIT
     
-    - Capacité de jouer aux QCM créés => QCMs fonctionnels -> NON FAIT
-________________________________________________________________________________________________________________________________________
+    - Capacité de jouer aux QCM créés => QCMs fonctionnels -> FAIT 50 %
+_______________________________________________________________________________________________
 
 LUNDI
 
-______________________________________________________________________________________________________________________________________
+    - nous avons tourné en rond : bloquage total de l'équipe
+_______________________________________________________________________________________________
 MARDI
 
-finir le formulaire QCM
-démarrer le jeu du quizz
+    - L'élève peut rejoindre une classe-> OK FAIT
+    - Questionnaire d'ajout de QCM -> fonctionnel à 90%
+    - Espace élève fonctionnel (affichage dynamique de l'xp, etc.) -> OK FAIT
+
+______________________________________________________________________________________________
+MERCREDI
+
+
+- le prof peut créer une classe->OK Fait
+- inscription élève obligatoire avec code classe-> OK Fait
+- redigérer le QCM vers une page de présentation du QCM-> OK Fait
+
+- finir la création du QCM (pb du bolean, buton de suppression réponse) (DOM)
+- barre des taches liste déroulante qcm (Ludo)->OK Fait
+- barre de recherche nom des élèves -> OK FAIT
+
+- finir le jeu du QCM (Fred)
+
+______________________________________________________________________________________________
+JEUDI
+
+- rejoindre une classe (ajax)-> Thibault
+
+- GIT AVEC LIEN POUR ROBIN au plus tard vendredi matin 10H
+
+- utiliser Ajax pour vérifier en tant réél que le code class correspond au code class élève -> Thibault
+
+- suite QCM -> vérif des champs QCM -> DOM
+- ajouter un titre dans la table QCM -> Dom
+
+- suite jeu QCM -> Fred
+- ajouter les points xp dans bd élève
+
+- gestion des résultats de l'élève
+- consultation des résulats par le prof
+
+- corriger pb responsive sur le site -> Ludovic
+
+- espace recherche prof (thibault)
+
+ATTENTION
+présentation du site via une slide ou powerpoint
+
+
+
+
+
 
 
 
