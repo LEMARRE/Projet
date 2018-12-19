@@ -53,7 +53,7 @@ class UserService {
     public function getOneByClassCode($classCode)
     {
         $repo =$this->om->getRepository(Classroom::class);
-        return $repo->findOneBy($classCode);
+        return $repo->findOneByClassCode($classCode);
     }
     
     public function search($username){
@@ -61,14 +61,10 @@ class UserService {
         return $repo->search($username);
     }
 
-    // CODE CI DESSOUS REPRIS DE BEERTIME AU CAS OU ON EN AURAIT BESOIN ! 
 
 
-    // public function getByName($name, $sort, $page)
-    // {
-    //     $repo =$this->om->getRepository(User::class);
-    //     return $repo->searchByName($name, $sort, $page);
-    // }
+
+    // Future fonctionnalité d'ajout d'avatar par un professeur ?
 
     // private function setupMedia($user)
     // {

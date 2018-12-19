@@ -18,9 +18,15 @@ class StudentRegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname')
-            ->add('lastname')
-            ->add('username')
+            ->add('firstname', null, array(
+                'label' => 'Prénom'
+            ))
+            ->add('lastname', null, array(
+                'label' => 'Nom'
+            ))
+            ->add('username', null, array(
+                'label' => 'Pseudo'
+            ))
             ->add('email', EmailType::class)
             ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
@@ -30,9 +36,9 @@ class StudentRegisterType extends AbstractType
                 'first_options'  => array('label' => 'Mot de passe'),
                 'second_options' => array('label' => 'Saisir de nouveau le mot de passe'),
             ))
-            // ->add('classroom', TextType::class, array(
-            //         'label' => 'Code classe (donné par l\'enseignant(e))'
-            //     ))
+            ->add('classcode', TextType::class, array(
+                    'label' => 'Code classe (donné par l\'enseignant(e))'
+                ))
             
             // ->add('classroom', EntityType::class, array(
             //     'label' => 'Classe',

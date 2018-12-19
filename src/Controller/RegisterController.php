@@ -64,22 +64,24 @@ class RegisterController extends AbstractController
                 $avatar = $userService->getOneBy($user);
                 $user->setAvatar($avatar);
 
-                // $student_code = $request->get('');
-                // $classCode = $user->setClassCode($student_code);
-                // $classroom = $userService->getOneByClassCode($classCode);
-                // if ($classroom) {
-                //     $user->addClassroom($classroom);
-                // } return "Le code n'existe pas";
+                $data = $form->getData();
+                $user->setClassCode($data->getClassCode());
+                $classCode = $user->getClassCode();
+                $classroom = $userService->getOneByClassCode($classCode);
+                    if ($classroom != null) {
+                        $user->addClassroom($classroom);
+                        $userService->add($user);
+                        $id = $user->getId();
+                        $this->addFlash(
+                            'notice',
+                            'L\'élève a bien été créé! Vous pouvez vous connecter !'
+                        );
 
-                $userService->add($user);
-                $id = $user->getId();
-                $this->addFlash(
-                    'notice',
-                    'L\'élève a bien été créé! Vous pouvez vous connecter !'
-                );
-
-            return $this->redirectToRoute('student_home', array(
-                'id' => $id));
+                    return $this->redirectToRoute('student_home', array(
+                        'id' => $id));
+                    } else {
+                        echo 'Ce code classe n\'est pas valide';
+                    }
         }
 
         return $this->render ('register/registerStudent.html.twig', array(
