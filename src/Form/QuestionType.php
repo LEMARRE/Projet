@@ -20,7 +20,7 @@ class QuestionType extends AbstractType
                 'attr'=>['placeholder'=>"Votre question"]
             ])
             ->add('experience', IntegerType::class, [
-                'attr'=>['placeholder'=>"Points gagnés"]
+                'attr'=>['placeholder'=>"Points"]
             ])
 
             ->add(
@@ -31,6 +31,8 @@ class QuestionType extends AbstractType
                     'allow_add' => true,
                     'entry_options'=>array('label'=>false),
                     'prototype'=>true,
+                    'block_name' => 'choice',
+                    'allow_delete' => true,
                 ]
             );
     }

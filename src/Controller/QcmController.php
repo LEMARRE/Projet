@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Qcm;
 use App\Entity\Choice;
 use App\Entity\Questions;
+use App\Entity\User;
+
 
 use App\Form\QcmType;
 use App\Form\ResponseType;
@@ -24,12 +26,6 @@ class QcmController extends AbstractController
     public function createQcm(Request $request, ObjectManager $manager)
     {
         $qcm = new Qcm();
-        // -------------------------------------
-        // $question= new Questions();
-        // $question->setQuestion('question');
-                // ->setExperience('experience');
-        // $qcm->addQuestion($question);
-        // -------------------------------------
         dump($qcm);
         $form = $this->createForm(QcmType::class, $qcm);
         $form->handleRequest($request);
@@ -37,20 +33,8 @@ class QcmController extends AbstractController
 // ====================================================================================
         // partie choice response
         $response = new Questions();//variable pour les champs questions
-        // -------------------------------------------------------------
-        $choice1 = new Choice();
-        $choice1->setResponse('response')
-                ->setChoice('Réponse 1');
-
-        $response->addChoice($choice1);
-
-        $choice2 = new Choice();
-        $choice2->setResponse('response')
-                ->setChoice('Réponse 2');
-
-        $response->addChoice($choice2);
         
-        dump($response);
+        //dump($response);
         $formResp = $this->createForm(QuestionType::class, $response);
         $formResp->handleRequest($request);
         
@@ -60,20 +44,24 @@ class QcmController extends AbstractController
 
             foreach($qcm->getQuestion() as $question){
                 $question->addQcm($qcm);
+
+            //FAIRE UNE SECONDE BOUCLE SUR QUESTION  
+            foreach($question->getChoice() as $choice){
+                $choice->setQuestions($question);
+            }
                 $manager->persist($question);
             }
 
-            // penser à faire un foreach pour les responses
-
             $manager->persist($qcm);
             $manager->flush();
+
+            //rediriger vers la page liste QCM
+            //return $this->redirectionToRoute('')
         }
         
-        dump($form);
-
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
-            'formResp' => $formResp ->createView(),
+            // 'formResp' => $formResp ->createView(),
         ]);
     }
 

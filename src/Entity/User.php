@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -26,21 +27,28 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner votre e-mail")
+     * @Assert\Email(
+     *     message = "L'email {{ value }} n'est pas valide")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner un mot de passe")
+     * @Assert\Length( min = 4, minMessage="Le mot de passe doit contenir au moins 4 caractères" )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner votre prénom")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner votre nom")
      */
     private $lastname;
 
@@ -53,9 +61,16 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="users")
      */
     private $classroom;
+    
+    /**
+     * 
+     */
+    private $classCode;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner un pseudo")
+     * @Assert\Length( min = 3, minMessage="Le pseudo doit contenir au moins 3 caractères" ) )
      */
     private $username;
 
@@ -207,5 +222,18 @@ class User implements UserInterface
         return $this;
     }
 
+
+    
+    public function getClassCode(): ?string
+    {
+        return $this->classCode;
+    }
+    
+    public function setClassCode( $classCode): self
+    {
+        $this->classCode = $classCode;
+
+        return $this;
+    }
 
 }

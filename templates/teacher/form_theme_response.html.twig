@@ -1,0 +1,28 @@
+{% block _qcm_question_entry_choice_widget %}
+  {{ form_widget(form) }}
+  {% endblock %}
+
+{% block _qcm_question_entry_choice_entry_row %}
+    {{ form_widget( form ) }}
+*{% endblock %}
+
+{% block _qcm_question_entry_choice_entry_widget %}
+  <div class="row response-block">
+      <div class="col">
+        <div class="row">
+          <div class="col-10">
+            {{ form_widget(form.choice) }}
+            {{ form_errors(form.choice) }}
+          </div>
+          <div class="col-1">
+              {{ form_widget(form.response)}}
+          </div>
+          <div class="col1">
+              <button type="button" data-action="deleteR" data-target="#blockQ_{{id}}" class="btn btn-danger">X</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+{% endblock %}

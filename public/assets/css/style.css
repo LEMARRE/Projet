@@ -13,7 +13,7 @@ h1, h2, h3, h4 {
   box-sizing: border-box; }
 
 /* ****************** */
-/*       BTN    */
+/*       BTN          */
 /* ********************/
 .btn-general {
   margin: 20px auto;
@@ -66,10 +66,14 @@ label {
 .overlay {
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
+  transform: translateX(-50%);
   z-index: 999;
-  background-color: #ffdb5c; }
+  background-color: red; }
 
+/* ************************ */
+/*     progresse bar       */
+/* ************************ */
 /* ************************ */
 /*      PARTIE LOGIN        */
 /* ************************ */
@@ -82,40 +86,39 @@ label {
   /* Formulaire de connexion*/ }
   .container-login .loginBox {
     position: relative;
-    width: 300px;
-    min-height: 400px;
+    width: 400px;
+    min-height: 600px;
     background-color: #f8f8f8;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0 10px 0;
+    padding: 0 0 10px 0;
     /* gestion des erreurs*/
     /*contenu de la card */ }
     .container-login .loginBox .errorLogin {
       position: absolute;
       width: 200px;
       height: 250px;
-      left: -50%;
+      left: -10%;
       top: -15%; }
       .container-login .loginBox .errorLogin img {
         width: 100%; }
       .container-login .loginBox .errorLogin .text-error {
         position: absolute;
+        font-weight: bold;
         width: 180px;
         height: 230px;
         top: 25%;
-        left: 25%; }
+        left: 30%;
+        color: red;
+        font-size: 1.2rem; }
     .container-login .loginBox .logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50px;
-      background: #3caea3;
-      border: 3px solid #133f5f;
+      width: 300px;
+      height: 180px;
       display: flex;
-      align-items: center;
-      padding: 10px; }
+      justify-content: center; }
       .container-login .loginBox .logo img {
         width: 100%; }
     .container-login .loginBox h3 {
@@ -165,10 +168,9 @@ label {
 .container-student {
   background: #ffdb5c;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; }
+  padding: 200px 60px;
+  margin: 0 auto;
+  text-align: center; }
   .container-student input {
     background: transparent;
     border: 2px solid #ffdb5c; }
@@ -177,16 +179,13 @@ label {
     .container-student .container .h2 {
       margin: 10px 0; }
     .container-student .container .row {
-      display: flex;
       justify-content: center;
       align-items: center; }
-      .container-student .container .row .bg-form {
-        background: #f8f8f8;
-        border-radius: 12px;
-        padding: 10px; }
-      .container-student .container .row .login.logStudent {
-        background: #ffdb5c;
-        outline: none; }
+
+.container-student .btn-student {
+  background: #ffdb5c;
+  color: #133f5f;
+  font-weight: bold; }
 
 /* ************************* */
 /*      Accueil Eleve       */
@@ -308,7 +307,8 @@ label {
       position: relative; }
       .menuflex .section.sectionTwo .card-eleve {
         display: none;
-        position: relative; }
+        position: relative;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
       .menuflex .section.sectionTwo:hover .scoring-affichage {
         position: absolute;
         top: 10%;
@@ -360,7 +360,8 @@ label {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; }
+        justify-content: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
         .menuflex .section.sectionThree:hover .container-jeu .responsive {
           display: flex;
           justify-content: center; }
@@ -375,30 +376,31 @@ label {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .container-profil .fleche-retour {
+  .container-profil .icone-home {
     width: 100px;
     height: 100px;
     transition: all 0.3s ease-in;
     position: relative;
-    top: -35%;
-    left: -20%; }
-    .container-profil .fleche-retour a {
+    top: -40%;
+    left: 10%; }
+    .container-profil .icone-home a {
       cursor: pointer; }
-    .container-profil .fleche-retour img {
+    .container-profil .icone-home img {
       width: 100%; }
-    .container-profil .fleche-retour:hover {
+    .container-profil .icone-home:hover {
       transform: scale(1.2); }
-    .container-profil .fleche-retour:active {
+    .container-profil .icone-home:active {
       transform: scale(0.1); }
   .container-profil .maincontainer {
+    margin: 0 auto;
     position: relative;
     width: 600px;
-    height: 700px; }
+    height: 90%; }
     .container-profil .maincontainer .profil-card {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: #f8f8f8;
+      background: #2e2e2e;
       border-radius: 15px; }
       .container-profil .maincontainer .profil-card .headcard {
         padding: 0 30px;
@@ -411,8 +413,14 @@ label {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        backface-visibility: hidden; }
+        backface-visibility: hidden;
+        position: relative; }
+        .container-profil .maincontainer .profil-card .headcard h2 {
+          font-size: 3rem; }
         .container-profil .maincontainer .profil-card .headcard .avatar {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, -20%);
           width: 120px;
           height: 120px;
           background: grey;
@@ -420,20 +428,39 @@ label {
           .container-profil .maincontainer .profil-card .headcard .avatar img {
             width: 100%;
             border-radius: 50%; }
-      .container-profil .maincontainer .profil-card .bodycard {
-        height: 400px;
+        .container-profil .maincontainer .profil-card .headcard .scoring {
+          height: 50px; }
+          .container-profil .maincontainer .profil-card .headcard .scoring h3 {
+            font-size: 2rem; }
+    .container-profil .maincontainer .bodycard {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      text-align: center; }
+      .container-profil .maincontainer .bodycard .pictQcm {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 200Px; }
+      .container-profil .maincontainer .bodycard img {
+        width: 100%; }
+      .container-profil .maincontainer .bodycard h2 {
+        margin-top: 10px;
+        color: #fff; }
+      .container-profil .maincontainer .bodycard .content-jeux-open {
         width: 100%;
-        text-align: center; }
-        .container-profil .maincontainer .profil-card .bodycard h2 {
-          margin-top: 30px; }
+        height: 100%; }
 
 /* card jeu*/
-.responsive {
+.slide-jeu {
   height: 150px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   overflow: hidden; }
-  .responsive .box {
+  .slide-jeu .box {
     position: relative;
     width: 150px;
     height: 150px;
@@ -441,16 +468,16 @@ label {
     margin: 10px;
     box-sizing: border-box;
     border-radius: 12px; }
-  .responsive .box .imgBox {
+  .slide-jeu .box .imgBox {
     width: 100%;
     position: relative;
     overflow: hidden; }
-  .responsive .box .imgBox img {
+  .slide-jeu .box .imgBox img {
     width: 100%;
     transition: transform 2s; }
-  .responsive .box:hover .imgBox img {
+  .slide-jeu .box:hover .imgBox img {
     transform: scale(1.2); }
-  .responsive .box .details {
+  .slide-jeu .box .details {
     position: absolute;
     top: 5px;
     left: 5px;
@@ -459,23 +486,152 @@ label {
     background: rgba(0, 0, 0, 0.5);
     transform: scaley(0);
     transition: transform 0.5s; }
-  .responsive .box:hover .details {
+  .slide-jeu .box:hover .details {
     transform: scaley(1); }
-  .responsive .box .details .content {
+  .slide-jeu .box .details .content {
     position: absolute;
     top: 50%;
     transform: translatey(-50%);
     text-align: center;
     padding: 10px;
     color: #fff; }
-  .responsive .box .details .content h2 {
+  .slide-jeu .box .details .content h2 {
     margin: 0;
     padding: 0;
     font-size: 20px;
     color: #ffdb5c; }
-  .responsive .box .details .content p {
+  .slide-jeu .box .details .content p {
     margin: 10px 0 0;
     padding: 0;
     font-size: 14px; }
+
+/* ************** */
+/*      QUIZZ       */
+/*******************/
+.container-quizz {
+  background-color: #fa6e59;
+  height: 100vh;
+  padding: 20px; }
+  .container-quizz .logoquizz {
+    width: 300px;
+    height: 200px; }
+    .container-quizz .logoquizz img {
+      width: 100%; }
+  .container-quizz h1 {
+    color: #fff;
+    text-align: center; }
+  .container-quizz .section {
+    padding: 100px;
+    padding-left: 150px;
+    background: #FF8A66; }
+    .container-quizz .section h2 {
+      color: #fff;
+      margin-bottom: 20px; }
+    .container-quizz .section .container {
+      height: 100%;
+      width: 70%;
+      margin: auto; }
+    .container-quizz .section input[type="checkbox"] {
+      display: none; }
+    .container-quizz .section label {
+      position: relative; }
+    .container-quizz .section span::before,
+    .container-quizz .section span::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto; }
+    .container-quizz .section span.checkbox::before {
+      width: 27px;
+      height: 27px;
+      background-color: #fff;
+      left: -35px;
+      box-sizing: border-box;
+      border: 3px solid transparent;
+      transition: border-color .2s; }
+      .container-quizz .section span.checkbox::before span.checkbox:hover::before {
+        border: 3px solid #F0FF76; }
+    .container-quizz .section .container span.checkbox::after {
+      content: '\f00c';
+      font-family: "Font Awesome 5 Free";
+      left: -31px;
+      top: 2px;
+      color: transparent;
+      transition: color .2s; }
+    .container-quizz .section input[type="checkbox"]:checked + label span.checkbox::after {
+      color: #62AFFF; }
+
+/* Media queries   */
+@media (max-width: 780px) {
+  .menuflex {
+    flex-flow: column;
+    height: 100vh; }
+    .menuflex .section {
+      /* section de l'ecole */
+      /* fin section One */
+      /* section eleve*/ }
+      .menuflex .section h3 {
+        margin-left: 60px;
+        margin-top: 20px;
+        font-size: 1.8rem;
+        transform: rotate(0deg);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+      .menuflex .section.sectionOne:hover .container-school .card-school {
+        height: 60%; }
+        .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
+          width: 100px;
+          height: 100px; }
+        .menuflex .section.sectionOne:hover .container-school .card-school .info-college {
+          margin-top: 20px; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
+            font-size: 1rem;
+            line-height: 0.5rem; }
+        .menuflex .section.sectionOne:hover .container-school .card-school .social {
+          margin-top: 20px; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #2277dd;
+            margin: 0 10px; }
+            .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab, .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far {
+              font-size: 1rem; }
+      .menuflex .section.sectionTwo:hover .scoring-affichage {
+        width: 100px; }
+        .menuflex .section.sectionTwo:hover .scoring-affichage h4 {
+          top: 14px;
+          left: -20px;
+          font-size: 1.4rem; }
+      .menuflex .section.sectionTwo:hover .container-eleve .card-eleve {
+        height: 70%; }
+        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
+          width: 100px;
+          height: 100px; }
+        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
+          font-size: 2rem; }
+        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve a#profil {
+          padding: 5px 30px;
+          font-size: 14px; }
+      .menuflex .section.sectionThree:hover .slide-jeu {
+        justify-content: center;
+        height: 40%; }
+
+  /*  PROFIL */
+  .container-profil .icone-home {
+    display: none; }
+  .container-profil .maincontainer {
+    width: 90%; }
+    .container-profil .maincontainer .profil-card .bodycard {
+      height: 100%; }
+
+  /* register student*/
+  .container-student {
+    height: 100%; } }
+/* fin media queries */
+@media (max-width: 600px) {
+  .container-student {
+    padding: 60px 60px; } }
 
 /*# sourceMappingURL=style.css.map */

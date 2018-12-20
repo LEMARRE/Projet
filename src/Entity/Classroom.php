@@ -29,7 +29,7 @@ class Classroom
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Qcm", inversedBy="classrooms")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Qcm", inversedBy="classrooms", cascade={"persist"})
      */
     private $qcm;
 

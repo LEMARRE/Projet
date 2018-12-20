@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class LoginController extends AbstractController
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/", name="login")
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
@@ -26,4 +26,5 @@ class LoginController extends AbstractController
     {
         return $this->render('login/login.html.twig');
     }
+
 }

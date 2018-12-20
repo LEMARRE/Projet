@@ -20,7 +20,13 @@ class QuizzController extends AbstractController{
     /**
     * @Route("/games/quizz/{id}", name="quizz")
     */
-    public function quizz(Request $request, $id){
+        public function quizz(Request $request, $id)
+        {
+            // $Qcm = $QcmService->getQcmById($id);
+            // $questions = $QcmService->getByQcm($Qcm);
+            // $choices = $QcmService->getAllChoicesByQuestion($questions);
+            
+            
 
         $qcms = $this->getDoctrine()->getRepository(Qcm::Class);
         $quizz = $this->getDoctrine()->getRepository(Questions::Class);
