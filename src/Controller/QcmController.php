@@ -7,6 +7,7 @@ use App\Entity\Choice;
 use App\Entity\Questions;
 use App\Entity\User;
 
+use App\Services\UserService;
 
 use App\Form\QcmType;
 use App\Form\ResponseType;
@@ -23,8 +24,13 @@ class QcmController extends AbstractController
     /**
      * @Route("/teacher/createQcm", name="create_qcm")
      */
-    public function createQcm(Request $request, ObjectManager $manager)
+    public function createQcm(Request $request, ObjectManager $manager, UserService $userService)
     {
+        $user = $this->getUser();
+        $id = $user->getId();
+        $classrooms = $userService->getAllClassrooms();
+
+
         $qcm = new Qcm();
         // -------------------------------------
         // $question= new Questions();
@@ -80,6 +86,9 @@ class QcmController extends AbstractController
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
             'formResp' => $formResp ->createView(),
+            'user' => $userService->getById($id),
+            'users' => $userService->getAll(),
+            'classrooms' => $classrooms
         ]);
     }
 
