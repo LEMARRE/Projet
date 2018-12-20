@@ -7,12 +7,9 @@
 
 <div class="container-student">
 
-    
-       
-       
 
 
-   {{ form_start(form, {
+    {{ form_start(form, {
                     'attr': {'novalidate': 'novalidate'}
                     }) }}
 
@@ -25,7 +22,6 @@
                 {{form_row(form.lastname)}}
                 {{form_row(form.username)}}
                 {{form_row(form.classcode)}}
-            
             </div>
         </div>
         <div class="col-md-6">
@@ -34,16 +30,14 @@
                 <hr>
                 {{form_row(form.email)}}
                 {{form_row(form.password)}}
-              
             </div>
         </div>
     </div>
 
- <button type="submit" class="btn-general btn-student">S'enregistrer</button> 
+    <button type="submit" class="btn-general btn-student">S'enregistrer</button> 
 
 {{ form_end(form) }}
 
 </div>
 
-       
 {% endblock %}
