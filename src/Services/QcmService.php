@@ -25,6 +25,8 @@ class QcmService {
         return $repo->find($id);
     }
 
+    
+
     public function getAllChoices () {
         $repo = $this->om->getRepository( Choice::class);
         return $repo->findAll();
@@ -40,9 +42,15 @@ class QcmService {
         return $repo->findAll();
     }
 
-    public function getQuestionsByQcm ($Qcm) {
+    public function findByQcm ($Qcm) {
         $repo = $this->om->getRepository( Questions::class);
         return $repo->find($Qcm);
+    }
+
+    public function getByQcm($Qcm)
+    {
+        $repo =$this->om->getRepository(Questions::class);
+        return $repo->findByQcm($Qcm);
     }
 
     public function add($Qcm) {
