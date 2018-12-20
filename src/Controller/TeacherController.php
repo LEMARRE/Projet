@@ -89,7 +89,7 @@ class TeacherController extends AbstractController
         return $this->render (
             'teacher/teacherClassroom.html.twig',
             ['user' => $userService->getById($id),
-            // 'users' => $userService->getByName($lastname),
+            'searched_user' => $userService->getByName($lastname),
             'users' => $classroom->getUsers(),
             'classrooms' => $classrooms,
             ]);
