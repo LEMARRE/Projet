@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\QcmRepository")
@@ -25,6 +27,7 @@ class Qcm
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Questions", inversedBy="qcms")
+     * @Assert\Valid()
      */
     private $question;
 

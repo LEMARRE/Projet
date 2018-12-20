@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\QuestionsRepository")
@@ -21,23 +23,24 @@ class Questions
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Merci de renseigner votre question")
+     * @Assert\NotBlank(message="Merci d'insérer votre question")
      */
     private $question;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Ajouter vos points")
      */
     private $experience;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Qcm", mappedBy="question")
-     * @Assert\NotBlank(message="Merci d'indiquer un nombre de point pour la question")
      */
     private $qcms;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Choice", mappedBy="questions", cascade={"persist"}))
+     * @Assert\Valid()
      */
     private $choice;
 

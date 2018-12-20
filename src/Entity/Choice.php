@@ -20,6 +20,7 @@ class Choice
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Merci d'insérer votre réponse")
      */
     private $choice;
 
