@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Qcm;
 use App\Entity\Choice;
 use App\Entity\Questions;
+use App\Entity\User;
+
 
 use App\Form\QcmType;
 use App\Form\ResponseType;
@@ -60,7 +62,13 @@ class QcmController extends AbstractController
 
             foreach($qcm->getQuestion() as $question){
                 $question->addQcm($qcm);
+
+            //FAIRE UNE SECONDE BOUCLE SUR QUESTION  
+            foreach($question->getChoice() as $choice){
+                $choice->setQuestions($question);
+            }
                 $manager->persist($question);
+                $manager->persist($choice);
             }
 
             // penser à faire un foreach pour les responses
@@ -69,8 +77,6 @@ class QcmController extends AbstractController
             $manager->flush();
         }
         
-        dump($form);
-
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
             'formResp' => $formResp ->createView(),
