@@ -38,8 +38,7 @@ class RegisterController extends AbstractController
                     'Le professeur a bien été créé! Vous pouvez vous connecter !'
                 );
 
-            return $this->redirectToRoute('teacher_home', array(
-                'id' => $id));
+                return $this->redirectToRoute('login');
             }
         return $this->render('register/registerTeacher.html.twig', array(
             'form' => $form->createView()
@@ -77,8 +76,7 @@ class RegisterController extends AbstractController
                             'L\'élève a bien été créé! Vous pouvez vous connecter !'
                         );
 
-                    return $this->redirectToRoute('student_home', array(
-                        'id' => $id));
+                    return $this->redirectToRoute('login');
                     } else {
                         echo 'Ce code classe n\'est pas valide';
                     }

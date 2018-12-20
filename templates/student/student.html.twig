@@ -107,15 +107,19 @@
                          <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i>
                     </div> 
-
-
-                  
-                    {% endif %} 
-                     
-                      
+                
+                
+                {% endif %} 
+                    
+                    
+                     <div class="NumClassRoom">
                         {% for infos in classroom %}
                         <h2>{{infos.name}}</h2>
-                       {% endfor %}  #}
+                       {% endfor %}  
+                     
+                     </div>
+                      
+                     
                     {# <h4> {{user.email}}</h4> #}
                     
                     {# <div class="scoring">
@@ -123,7 +127,7 @@
                         <h4> votre Score : {{user.experience}}</h4>
                     </div> #}
 
-                    <h4>{{user.experience}} XP</h4>     
+                    <h4>{{user.experience}}</h4>     
                     
                                 
                     {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
@@ -193,28 +197,12 @@
     
     {% block javascripts %}
    
-     {# <script src="{{ asset('assets/js/main.js')}}"></script>
-     <script src="{{ asset('assets/js/animate.min.js')}}"></script>
-   <script> #}
-   <script>
-
-   {# var profil = document.querySelector('#profil');
-   var overlay = document.querySelector('.overlay');
-    console.log(overlay);
-     
-   
-    profil.addEventListener('click', function(e){
-        e.preventDefault();
-         $('.overlay').css('color', 'green'); 
-          console.log(overlay);
-       
+    
 
 
     
-      }); #}
+    
    
-   
-   </script>
 
 
 {% endblock %}
