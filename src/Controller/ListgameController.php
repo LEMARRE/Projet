@@ -24,9 +24,6 @@ class ListgameController extends AbstractController
         $qcm = $qcmService->getAllQcm();
         $theme = $qcmService->getAllThemes();
 
-        dump($qcm);
-
-        dump($theme);
         return $this->render('teacher/listgame.html.twig', [
             'controller_name' => 'ListgameController',
             'user' => $userService->getById($id),
