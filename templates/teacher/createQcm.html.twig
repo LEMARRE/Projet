@@ -92,10 +92,12 @@
               <div class="row">
                 <div class="col-10">
                   {{ form_widget(form.question)}}
+                  {{ form_errors(form.question) }}
                 </div>
                 <div class="col-2">
                     {{ form_widget(form.experience)}}
-                </div>
+                    {{ form_errors(form.experience) }}
+                  </div>
               </div>
             </div>
             <div class="col-1">

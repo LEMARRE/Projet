@@ -26,12 +26,6 @@ class QcmController extends AbstractController
     public function createQcm(Request $request, ObjectManager $manager)
     {
         $qcm = new Qcm();
-        // -------------------------------------
-        // $question= new Questions();
-        // $question->setQuestion('question');
-                // ->setExperience('experience');
-        // $qcm->addQuestion($question);
-        // -------------------------------------
         dump($qcm);
         $form = $this->createForm(QcmType::class, $qcm);
         $form->handleRequest($request);
@@ -39,20 +33,8 @@ class QcmController extends AbstractController
 // ====================================================================================
         // partie choice response
         $response = new Questions();//variable pour les champs questions
-        // -------------------------------------------------------------
-        $choice1 = new Choice();
-        $choice1->setResponse('response')
-                ->setChoice('Réponse 1');
-
-        $response->addChoice($choice1);
-
-        $choice2 = new Choice();
-        $choice2->setResponse('response')
-                ->setChoice('Réponse 2');
-
-        $response->addChoice($choice2);
         
-        dump($response);
+        //dump($response);
         $formResp = $this->createForm(QuestionType::class, $response);
         $formResp->handleRequest($request);
         
@@ -68,18 +50,18 @@ class QcmController extends AbstractController
                 $choice->setQuestions($question);
             }
                 $manager->persist($question);
-                $manager->persist($choice);
             }
-
-            // penser à faire un foreach pour les responses
 
             $manager->persist($qcm);
             $manager->flush();
+
+            //rediriger vers la page liste QCM
+            //return $this->redirectionToRoute('')
         }
         
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
-            'formResp' => $formResp ->createView(),
+            // 'formResp' => $formResp ->createView(),
         ]);
     }
 

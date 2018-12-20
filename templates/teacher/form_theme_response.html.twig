@@ -11,7 +11,8 @@
       <div class="col">
         <div class="row">
           <div class="col-10">
-            {{ form_widget(form.choice)}}
+            {{ form_widget(form.choice) }}
+            {{ form_errors(form.choice) }}
           </div>
           <div class="col-1">
               {{ form_widget(form.response)}}
