@@ -57,61 +57,66 @@
                 <!--pseudo-->      
                 <div class="pseudo">
                     <h3>{{user.firstname}} {{user.lastname}}</h3>
+                    
                 </div>
                 
                 <!--Avatar-->
                 <div class="card-eleve">
-
+                     {% if user.experience == 0 %}    
                     <div class="scoring-affichage">
                         <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
-                        <h4> {{user.experience}} Points</h4>
+                        <h4> 0 point</h4>
                     </div> 
-                    <div class="card-avatar-pict">
+                    {% else %}
+                    <div class="scoring-affichage">
+                        <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
+                        <h4> {{user.experience}} points</h4>
+                    </div> 
+                    {% endif %}
+                   
+                   
+                   <div class="card-avatar-pict">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
 
-
-                <!-- Nom de la classe -->
-                {% for infos in classroom %}
-                    <tbody>
-                        <tr>
-                            <th scope="row">{{ infos.name }}</th>
-                        <tr>
-                    <tbody>
-                {% endfor %}
-
                 <!--Etoile-->
-                {# {% if user.experience < 2000 %}    
+                {% if user.experience < 500 %}    
                     
                     <div class="expe">
                         <i class="fa fa-star"></i>
                     </div>
                 
-                {# {% else if user.experience >10 %}
+                {% elseif user.experience <1000%}
                     <div class="expe">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                     </div>
 
-                {% elseif user.experience <1500 %}
-                    <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                    </div>
-
-                    {% else %}
+                 {% elseif user.experience <1500 %}
                     <div class="expe">
                          <i class="fa fa-star"></i>
                          <i class="fa fa-star"></i>
                          <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
+                    </div>
+
+                  {% elseif user.experience >1500 %}
+                    <div class="expe">
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                         <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
                     </div> 
 
-                    {% endif %} #}
-                     #}
-                    
-                    <h4> {{user.email}}</h4>
+
+                  
+                    {% endif %} 
+                     
+                      
+                        {% for infos in classroom %}
+                        <h2>{{infos.name}}</h2>
+                       {% endfor %}  #}
+                    {# <h4> {{user.email}}</h4> #}
                     
                     {# <div class="scoring">
                         <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
@@ -136,7 +141,7 @@
             
                 <h2> Nouveautés</h2>
                 
-                <div class="responsive">
+                <div class="slide-jeu">
                     {# {% for i in 0..3 %} #}
                     <div class="box">
                         <div class="imgBox">

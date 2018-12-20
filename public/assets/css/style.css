@@ -13,7 +13,7 @@ h1, h2, h3, h4 {
   box-sizing: border-box; }
 
 /* ****************** */
-/*       BTN    */
+/*       BTN          */
 /* ********************/
 .btn-general {
   margin: 20px auto;
@@ -101,7 +101,7 @@ label {
       position: absolute;
       width: 200px;
       height: 250px;
-      left: -50%;
+      left: -10%;
       top: -15%; }
       .container-login .loginBox .errorLogin img {
         width: 100%; }
@@ -111,7 +111,7 @@ label {
         width: 180px;
         height: 230px;
         top: 25%;
-        left: 20%;
+        left: 30%;
         color: red;
         font-size: 1.2rem; }
     .container-login .loginBox .logo {
@@ -167,9 +167,10 @@ label {
 /* ************************ */
 .container-student {
   background: #ffdb5c;
-  height: 100%;
-  padding: 60px;
-  margin: 0 auto; }
+  height: 100vh;
+  padding: 200px 60px;
+  margin: 0 auto;
+  text-align: center; }
   .container-student input {
     background: transparent;
     border: 2px solid #ffdb5c; }
@@ -181,8 +182,10 @@ label {
       justify-content: center;
       align-items: center; }
 
-button .btn-general .btn-student {
-  background: red; }
+.container-student .btn-student {
+  background: #ffdb5c;
+  color: #133f5f;
+  font-weight: bold; }
 
 /* ************************* */
 /*      Accueil Eleve       */
@@ -373,25 +376,26 @@ button .btn-general .btn-student {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .container-profil .fleche-retour {
+  .container-profil .icone-home {
     width: 100px;
     height: 100px;
     transition: all 0.3s ease-in;
     position: relative;
-    top: -35%;
-    left: -20%; }
-    .container-profil .fleche-retour a {
+    top: -40%;
+    left: 10%; }
+    .container-profil .icone-home a {
       cursor: pointer; }
-    .container-profil .fleche-retour img {
+    .container-profil .icone-home img {
       width: 100%; }
-    .container-profil .fleche-retour:hover {
+    .container-profil .icone-home:hover {
       transform: scale(1.2); }
-    .container-profil .fleche-retour:active {
+    .container-profil .icone-home:active {
       transform: scale(0.1); }
   .container-profil .maincontainer {
+    margin: 0 auto;
     position: relative;
     width: 600px;
-    height: 700px; }
+    height: 90%; }
     .container-profil .maincontainer .profil-card {
       position: absolute;
       width: 100%;
@@ -425,8 +429,9 @@ button .btn-general .btn-student {
             width: 100%;
             border-radius: 50%; }
         .container-profil .maincontainer .profil-card .headcard .scoring {
-          background: red;
           height: 50px; }
+          .container-profil .maincontainer .profil-card .headcard .scoring h3 {
+            font-size: 2rem; }
     .container-profil .maincontainer .bodycard {
       position: relative;
       height: 400px;
@@ -434,24 +439,28 @@ button .btn-general .btn-student {
       text-align: center; }
       .container-profil .maincontainer .bodycard .pictQcm {
         position: absolute;
-        top: -140px;
+        top: -100px;
         left: 50%;
         transform: translateX(-50%);
-        width: 250px;
-        height: 250Px; }
+        width: 200px;
+        height: 200Px; }
       .container-profil .maincontainer .bodycard img {
         width: 100%; }
       .container-profil .maincontainer .bodycard h2 {
-        margin-top: 30px;
+        margin-top: 10px;
         color: #fff; }
+      .container-profil .maincontainer .bodycard .content-jeux-open {
+        width: 100%;
+        height: 100%; }
 
 /* card jeu*/
-.responsive {
+.slide-jeu {
   height: 150px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   overflow: hidden; }
-  .responsive .box {
+  .slide-jeu .box {
     position: relative;
     width: 150px;
     height: 150px;
@@ -459,16 +468,16 @@ button .btn-general .btn-student {
     margin: 10px;
     box-sizing: border-box;
     border-radius: 12px; }
-  .responsive .box .imgBox {
+  .slide-jeu .box .imgBox {
     width: 100%;
     position: relative;
     overflow: hidden; }
-  .responsive .box .imgBox img {
+  .slide-jeu .box .imgBox img {
     width: 100%;
     transition: transform 2s; }
-  .responsive .box:hover .imgBox img {
+  .slide-jeu .box:hover .imgBox img {
     transform: scale(1.2); }
-  .responsive .box .details {
+  .slide-jeu .box .details {
     position: absolute;
     top: 5px;
     left: 5px;
@@ -477,21 +486,21 @@ button .btn-general .btn-student {
     background: rgba(0, 0, 0, 0.5);
     transform: scaley(0);
     transition: transform 0.5s; }
-  .responsive .box:hover .details {
+  .slide-jeu .box:hover .details {
     transform: scaley(1); }
-  .responsive .box .details .content {
+  .slide-jeu .box .details .content {
     position: absolute;
     top: 50%;
     transform: translatey(-50%);
     text-align: center;
     padding: 10px;
     color: #fff; }
-  .responsive .box .details .content h2 {
+  .slide-jeu .box .details .content h2 {
     margin: 0;
     padding: 0;
     font-size: 20px;
     color: #ffdb5c; }
-  .responsive .box .details .content p {
+  .slide-jeu .box .details .content p {
     margin: 10px 0 0;
     padding: 0;
     font-size: 14px; }
@@ -552,5 +561,77 @@ button .btn-general .btn-student {
       transition: color .2s; }
     .container-quizz .section input[type="checkbox"]:checked + label span.checkbox::after {
       color: #62AFFF; }
+
+/* Media queries   */
+@media (max-width: 780px) {
+  .menuflex {
+    flex-flow: column;
+    height: 100vh; }
+    .menuflex .section {
+      /* section de l'ecole */
+      /* fin section One */
+      /* section eleve*/ }
+      .menuflex .section h3 {
+        margin-left: 60px;
+        margin-top: 20px;
+        font-size: 1.8rem;
+        transform: rotate(0deg);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+      .menuflex .section.sectionOne:hover .container-school .card-school {
+        height: 60%; }
+        .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
+          width: 100px;
+          height: 100px; }
+        .menuflex .section.sectionOne:hover .container-school .card-school .info-college {
+          margin-top: 20px; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
+            font-size: 1rem;
+            line-height: 0.5rem; }
+        .menuflex .section.sectionOne:hover .container-school .card-school .social {
+          margin-top: 20px; }
+          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #2277dd;
+            margin: 0 10px; }
+            .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab, .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far {
+              font-size: 1rem; }
+      .menuflex .section.sectionTwo:hover .scoring-affichage {
+        width: 100px; }
+        .menuflex .section.sectionTwo:hover .scoring-affichage h4 {
+          top: 14px;
+          left: -20px;
+          font-size: 1.4rem; }
+      .menuflex .section.sectionTwo:hover .container-eleve .card-eleve {
+        height: 70%; }
+        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
+          width: 100px;
+          height: 100px; }
+        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
+          font-size: 2rem; }
+        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve a#profil {
+          padding: 5px 30px;
+          font-size: 14px; }
+      .menuflex .section.sectionThree:hover .slide-jeu {
+        justify-content: center;
+        height: 40%; }
+
+  /*  PROFIL */
+  .container-profil .icone-home {
+    display: none; }
+  .container-profil .maincontainer {
+    width: 90%; }
+    .container-profil .maincontainer .profil-card .bodycard {
+      height: 100%; }
+
+  /* register student*/
+  .container-student {
+    height: 100%; } }
+/* fin media queries */
+@media (max-width: 600px) {
+  .container-student {
+    padding: 60px 60px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,42 +1,43 @@
 {% extends 'base.html.twig' %}
 
-
-
-
-
 {% block title %}Profil Eleve - {{ parent() }}!{% endblock %}
-
 
 {% block body %}
    
     <div class="container-profil">
-       {# {{ dump(user)}} #}
 
-       <div class="fleche-retour">
-        <a href="{{ path('student_home', {id: user.id}) }}"><img src="{{ asset('assets/img/fleche.png')}}" alt="icone fleche retour">
+       
+        {# {{ dump(user)}}  #}
+
+       <div class="icone-home">
+        <a href="{{ path('student_home', {id: user.id}) }}"><img src="{{ asset('assets/img/logos/icone-home.png')}}" alt="icone home"></a>
        </div>
         
         <div class="maincontainer">
           
-            <div class="profil-card">
-                    
+          <div class="profil-card">
+                  
                 <div class="headcard">
-
+                   
                     <!--identity-->
-
-
+                    <div class="identity">
                     <h2>{{user.firstname | capitalize }}</h2>
+                        
+                 
+                    </div>
+                    
+                    
                     <div class="avatar">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
-                
-                    <!--Affichage du score-->
+
+                   <!--Affichage du score-->
                     {% if user.experience == 0%}
                     <div class="scoring">
-                        <h3>0 point</h3>
-                        <div class="progress-bar">
+                        <h3> 0 point</h3>
+                        {# <div class="progress-bar">
                         <span style="width:60%"></span>
-                        </div>
+                        </div> #}
                     </div>
 
                     {% else %}
@@ -45,35 +46,30 @@
                     </div>
 
                     {% endif %}
-
-
-                  
+                
                 
                 </div>
 
-                <!-- Nom de la classe -->
+               
+        <!--body card -->
+               <!-- Nom de la classe -->
                 {% for infos in classroom %}
                     <tbody>
                         <tr>
                             <th scope="row">{{ infos.name }}</th>
                         <tr>
                     <tbody>
-                {% endfor %}
-
-                
-
-            <!--body card -->
-
+                {% endfor %}  
             <div class="bodycard">
 
                 <div class="pictQcm">
-                        <img src="{{ asset('assets/img/logoQuizz.png')}}" alt="Avatar">
+                    <img src="{{ asset('assets/img/logoQuizz.png')}}" alt="Avatar">
                 </div> 
             
                 <div class="content-jeux-open">
                     <h2>Jeux à faire</h2>
               
-                    <div class="responsive">
+                    <div class="slide-jeu">
 
                         {% for i in 0..3 %}
                 
@@ -92,19 +88,21 @@
                         {% endfor %}
             
                     </div>
-                </div>
 
-                 <a class="nav-link" href="{{ path("logout") }}">Déconnexion</a>
+             
+                {# </div> #}
+
+                 {# <a class="nav-link" href="{{ path("logout") }}">Déconnexion</a> #}
 
                   <!-- jeux finis-->
 
 
 
-                  <div class="content-jeux-open">
-                    <h2>Jeux faits</h2>
+                  
+                    <h2>Jeux finis</h2>
               
                     
-                    <div class="responsive">
+                    <div class="slide-jeu">
 
                         {% for i in 0..3 %}
                  
