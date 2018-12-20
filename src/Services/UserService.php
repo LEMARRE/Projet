@@ -53,7 +53,7 @@ class UserService {
     public function getOneByClassCode($classCode)
     {
         $repo =$this->om->getRepository(Classroom::class);
-        return $repo->findOneBy($classCode);
+        return $repo->findOneByClassCode($classCode);
     }
     
     public function search($username){
