@@ -14,34 +14,62 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
+class QuizzController extends AbstractController{
 
 
-class QuizzController extends AbstractController
-{
-    // public function __construct(){
-    //     $quizz = $this->getDoctrine()->getRepository(Questions::Class);
-    //     $question = $this->findAll();
-
-    // }
-    
     /**
     * @Route("/games/quizz/{id}", name="quizz")
     */
-        public function quizz($id, QcmService $QcmService)
-        {
-            $Qcm = $QcmService->getQcmById($id);
-            $questions = $QcmService->getQuestionsByQcm($Qcm);
-            // $choices = $QcmService->getAllChoicesByQuestion($questions);
+    public function quizz(Request $request, $id){
+
+        $qcms = $this->getDoctrine()->getRepository(Qcm::Class);
+        $quizz = $this->getDoctrine()->getRepository(Questions::Class);
+        $allChoices = $this->getDoctrine()->getRepository(Choice::Class);
+
+        $qcm = $qcms->find($id);
+        $questions = $quizz->findAll();
+        $choices = $allChoices->findAll();
+        
+        if( $request->getMethod() === 'POST'){
             
-            return $this->render('games/quizz.html.twig',[
-                'qcm' => $Qcm,
-                'questions' => $questions,
-                // 'choices' => $choices
-
-            ]);
+            foreach ($request->request as $answer)
+            {
+                if($answer == "1"){
+                 dump($request->request->all());   
+                }else if($answer == ""){
+                    
+                }
+            }
         }
+        
+        
+         
+        
+            
+    return $this->render('games/quizz.html.twig',[
+        'qcm' => $qcm,
+        'questions' => $questions,
+        'choices' => $choices,
+        'request' => $request
+        ]);
+           
+    }  
+    
 
+    // public function checkQuizzData(){
+    //     
+    //     {
+    //     foreach ($request.request as $answer)
+    //         {
+    //             if($answer == "1"){
+    //                 dump($answer);
+    //             }else if($answer == ""){
+    //                 echo "vous avez une mauvaise reponse";
+    //             }
+    //         }
+    //     }
         
-        
+         
+    // }
 }
 ?>
