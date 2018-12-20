@@ -38,8 +38,14 @@ class RegisterController extends AbstractController
                     'Le professeur a bien été créé! Vous pouvez vous connecter !'
                 );
 
+<<<<<<< HEAD
             return $this->redirectToRoute('login');
         }
+=======
+            return $this->redirectToRoute('teacher_home', array(
+                'id' => $id));
+            }
+>>>>>>> dev
         return $this->render('register/registerTeacher.html.twig', array(
             'form' => $form->createView()
         ));
