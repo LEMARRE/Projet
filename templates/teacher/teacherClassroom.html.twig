@@ -16,7 +16,6 @@
 </tr>
 
   <div class="container">
-      {# {{ dump(users)}}; #}
       <table class="table">
         <thead>
           <tr>
@@ -41,7 +40,7 @@
             <td>{{user.experience}}</td>
             <td>
               <a href="{{ path('student_profil', {id: user.id}) }}"  class="btn btn-primary" id="profil">Profil de l'éléve</a>
-             </td>
+            </td>
             
           </tr>
           {% endif %}

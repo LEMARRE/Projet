@@ -22,8 +22,10 @@ class TeacherController extends AbstractController
      * @Route("/teacher/home", name="teacher_home")
      * @IsGranted ("ROLE_TEACHER")
      */
-    public function admin(UserService $userService)
+    public function admin(Request $request, UserService $userService)
     {
+        $lastname = $request->query->get('lastname');
+
         $user = $this->getUser();
         $id = $user->getId();
         $classrooms = $userService->getAllClassrooms();
@@ -31,7 +33,7 @@ class TeacherController extends AbstractController
         return $this->render (
             'teacher/teacher.html.twig',
             ['user' => $userService->getById($id),
-            'users' => $userService->getAll(),
+            'users' => $userService->getByName($lastname),
             'classrooms' => $classrooms
             ]);
     }
@@ -42,6 +44,8 @@ class TeacherController extends AbstractController
      */
     public function createClassroom(Request $request, UserService $userService)
     {
+        $lastname = $request->query->get('lastname');
+
         $user = $this->getUser();
         $id = $user->getId();
         $classrooms = $userService->getAllClassrooms();
@@ -61,7 +65,7 @@ class TeacherController extends AbstractController
         return $this->render (
             'teacher/createClassroom.html.twig',
             ['user' => $userService->getById($id),
-            'users' => $userService->getAll(),
+            'users' => $userService->getByName($lastname),
             'classrooms' => $classrooms
             ]);
         
@@ -72,24 +76,24 @@ class TeacherController extends AbstractController
      * @Route("/teacher/classroom/{classroom_id}", name="teacher_classroom")
      * @IsGranted ("ROLE_TEACHER")
      */
-    public function classroom($classroom_id, UserService $userService)
+    public function classroom(Request $request, $classroom_id, UserService $userService)
     {
+        $lastname = $request->query->get('lastname');
+
         $user = $this->getUser();
         $id = $user->getId();
         $classrooms = $userService->getAllClassrooms();
         
-        $current_classroom = $userService->getClassroomById($classroom_id);
-        $current_classroom_id = $current_classroom->getId();
-        
+        $classroom = $userService->getClassroomById($classroom_id);
         
         return $this->render (
             'teacher/teacherClassroom.html.twig',
             ['user' => $userService->getById($id),
-            'users' => $userService->getAll(),
+            'searched_user' => $userService->getByName($lastname),
+            'users' => $classroom->getUsers(),
             'classrooms' => $classrooms,
-            'current_classroom_id' => $current_classroom_id
-            ]); 
-    }
+            ]);
+        }
     
     /**
      * @Route("/teacher/listGame", name="list")

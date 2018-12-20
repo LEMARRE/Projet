@@ -14,4 +14,13 @@ class ErrorController extends AbstractController
     {
         return $this->render('error/error403.html.twig');
     }
+
+    /**
+     * @Route("/error404", name="error404")
+     */
+    public function error404()
+    {
+        return $this->render('error/error404.html.twig');
+    }
+
 }

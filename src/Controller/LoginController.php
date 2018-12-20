@@ -26,4 +26,5 @@ class LoginController extends AbstractController
     {
         return $this->render('login/login.html.twig');
     }
+
 }

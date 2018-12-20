@@ -1,62 +1,3 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Connexion - {{ parent() }}!{% endblock %}
-
-{% block body %}
-
-<div class= "container-fluid main d-flex row">
-    
-         <div class="player_1">
-            
-            <div class="info_player_1" id="player1_info">
-                <h1>JOUEUR 1</h1>
-                <h2 style="color:green">C'est votre tour</h2>
-                <h3>Score: <span>0</span></h3>
-                
-            </div>
-
-        </div> 
-
-        <div id="game">
-            <div class="container content_1">
-
-            </div>
-
-            <div class="container  content_2">
-
-            </div>
-
-            <div class="container  content_3">
-
-            </div>
-
-            <div class="container  content_4">
-
-            </div>
-        </div>
-
-        
-
-    </div>
-    <div class="comment">
-           
-    </div>
-
-
-
-
-
-
-
-{% endblock %}
-
-{% block javascripts %}
-{# 
-<script>
-
-console.log("je suis dans la fonction document")
-
-
 "use strict";
 
 $(document).ready(function()
@@ -269,8 +210,3 @@ $(document).ready(function()
     
         
 })
-
-</script> #}
-
-
-{% endblock %}

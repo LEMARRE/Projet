@@ -61,11 +61,14 @@ class UserService {
         return $repo->search($username);
     }
 
+    public function getByName($name)
+    {
+        $repo =$this->om->getRepository(User::class);
+        return $repo->searchByName($name);
+    }
 
 
-
-    // Future fonctionnalité d'ajout d'avatar par un professeur ?
-
+    
     // private function setupMedia($user)
     // {
     //     if (!empty($user->getPosterUrl() ) ) {

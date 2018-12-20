@@ -14,36 +14,68 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
+class QuizzController extends AbstractController{
 
 
-class QuizzController extends AbstractController
-{
-    // public function __construct(){
-    //     $quizz = $this->getDoctrine()->getRepository(Questions::Class);
-    //     $question = $this->findAll();
-
-    // }
-    
     /**
-    * @Route("/games/games2", name="games2")
+    * @Route("/games/quizz/{id}", name="quizz")
     */
-        public function quizz()
+        public function quizz(Request $request, $id)
         {
             // $Qcm = $QcmService->getQcmById($id);
             // $questions = $QcmService->getByQcm($Qcm);
             // $choices = $QcmService->getAllChoicesByQuestion($questions);
             
-            return $this->render('games/games2.html.twig',[
-                // 'qcm' => $Qcm,
-                // 'questions' => $questions,
-                // 'choices' => $choices
-
-            ]);
-
             
-        }
 
+        $qcms = $this->getDoctrine()->getRepository(Qcm::Class);
+        $quizz = $this->getDoctrine()->getRepository(Questions::Class);
+        $allChoices = $this->getDoctrine()->getRepository(Choice::Class);
+
+        $qcm = $qcms->find($id);
+        $questions = $quizz->findAll();
+        $choices = $allChoices->findAll();
+        
+        if( $request->getMethod() === 'POST'){
+            
+            foreach ($request->request as $answer)
+            {
+                if($answer == "1"){
+                 dump($request->request->all());   
+                }else if($answer == ""){
+                    
+                }
+            }
+        }
         
         
+         
+        
+            
+    return $this->render('games/quizz.html.twig',[
+        'qcm' => $qcm,
+        'questions' => $questions,
+        'choices' => $choices,
+        'request' => $request
+        ]);
+           
+    }  
+    
+
+    // public function checkQuizzData(){
+    //     
+    //     {
+    //     foreach ($request.request as $answer)
+    //         {
+    //             if($answer == "1"){
+    //                 dump($answer);
+    //             }else if($answer == ""){
+    //                 echo "vous avez une mauvaise reponse";
+    //             }
+    //         }
+    //     }
+        
+         
+    // }
 }
 ?>

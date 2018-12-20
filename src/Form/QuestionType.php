@@ -32,6 +32,7 @@ class QuestionType extends AbstractType
                     'entry_options'=>array('label'=>false),
                     'prototype'=>true,
                     'block_name' => 'choice',
+                    'allow_delete' => true,
                 ]
             );
     }
