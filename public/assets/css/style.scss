@@ -378,19 +378,19 @@ label{
                             border-radius : 50%;
                             background : #e2dede;
 
-                              img{
-                                  width : 100%;
-                                  height: 100%;
-                                  border-radius : 50%;
-                              }
+                            img{
+                                width : 100%;
+                                height: 100%;
+                                border-radius : 50%;
+                            }
                         }
                         
-                       .info-college{
+                    .info-college{
                             
                             p{
-                               font-size : 1.2rem;
-                               font-family: $font-text;
-                               font-weight : 500;
+                                font-size : 1.2rem;
+                                font-family: $font-text;
+                                font-weight : 500;
                                color :white;
                            }
                        }
@@ -605,12 +605,12 @@ label{
 
         a{
             cursor : pointer;
-          
+    
         }
 
         img{
             width : 100%;
-           
+    
         }
         &:hover{
             transform :scale(1.2);
@@ -652,8 +652,8 @@ label{
 
                 
                     h2{
-                      font-size : 3rem;
-                      
+                        font-size : 3rem;
+                
                     }
     
                     .avatar{
@@ -672,11 +672,11 @@ label{
                     }
 
                     .scoring{
-                      height : 50px;
+                        height : 50px;
 
                         h3{
                             font-size : 2rem;
-                      }
+                        }
 
                     }
 
@@ -729,6 +729,7 @@ label{
         width : 100%;
       //   background : yellow;
         display : flex;
+        justify-content: center;
         flex-wrap: wrap;
         overflow : hidden;
      
@@ -737,24 +738,27 @@ label{
         width: 150px;
         height: 150px;
         background: $color-eleve;
-        margin: 10px;
+       display : flex;
+      justify-content : center;
+      align-items : center;
+        margin: 0 10px;
         box-sizing: border-box;
         border-radius : 12px;
       }
       
        .box .imgBox{
-        width: 100%;
+        width: 90%;
         position: relative;
         overflow: hidden;
       }
       
        .box .imgBox img{
-        width: 100%;
+        width: 90%;
         transition: transform 2s;
       }
       
        .box:hover .imgBox img{
-        transform:scale(1.2)
+        transform:scale(1.1)
       }
       
        .box .details{

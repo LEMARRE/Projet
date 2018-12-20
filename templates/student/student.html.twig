@@ -56,13 +56,15 @@
                 
                 <!--pseudo-->      
                 <div class="pseudo">
+
+
                     <h3>{{user.firstname}} {{user.lastname}}</h3>
                     
                 </div>
                 
                 <!--Avatar-->
                 <div class="card-eleve">
-                     {% if user.experience == 0 %}    
+                    {% if user.experience == 0 %}    
                     <div class="scoring-affichage">
                         <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
                         <h4> 0 point</h4>
@@ -73,9 +75,9 @@
                         <h4> {{user.experience}} points</h4>
                     </div> 
                     {% endif %}
-                   
-                   
-                   <div class="card-avatar-pict">
+            
+                
+                <div class="card-avatar-pict">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
 
@@ -92,34 +94,34 @@
                         <i class="fa fa-star"></i>
                     </div>
 
-                 {% elseif user.experience <1500 %}
+                {% elseif user.experience <1500 %}
                     <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                     </div>
 
-                  {% elseif user.experience >1500 %}
+                {% elseif user.experience >1500 %}
                     <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div> 
                 
                 
                 {% endif %} 
                     
-                    
-                     <div class="NumClassRoom">
+                {# class num   #}
+                    <div class="NumClassRoom">
                         {% for infos in classroom %}
-                        <h2>{{infos.name}}</h2>
-                       {% endfor %}  
-                     
-                     </div>
-                      
-                     
+                        <h2> Classe {{infos.name}}</h2>
+                    {% endfor %}  
+                
+                    </div>
+                    
+                    
                     {# <h4> {{user.email}}</h4> #}
                     
                     {# <div class="scoring">
@@ -127,7 +129,7 @@
                         <h4> votre Score : {{user.experience}}</h4>
                     </div> #}
 
-                    <h4>{{user.experience}}</h4>     
+                    {# <h4>{{user.experience}}</h4>      #}
                     
                                 
                     {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
@@ -139,6 +141,7 @@
                     
         <!--  jeu --> 
         <div class="section sectionThree">
+            
             <h3>Le Jeu</h3>
             
             <div class="container-jeu">
@@ -147,9 +150,10 @@
                 
                 <div class="slide-jeu">
                     {# {% for i in 0..3 %} #}
+                    
                     <div class="box">
                         <div class="imgBox">
-                            <img src="{{ asset('assets/img/logo-math.png')}}" alt="Avatar">
+                            <img src="{{ asset('assets/img/logo-math.png')}}" alt="logo">
                         </div>
                         <div class="details">
                             <div class="content">
@@ -159,9 +163,9 @@
                         </div>
                     </div>
 
-                      <div class="box">
+                    <div class="box">
                         <div class="imgBox">
-                            <img src="{{ asset('assets/img/math.png')}}" alt="Avatar">
+                            <img src="{{ asset('assets/img/logo-hist.png')}}" alt="logo">
                         </div>
                         <div class="details">
                             <div class="content">
@@ -171,9 +175,9 @@
                         </div>
                     </div>
 
-                     <div class="box">
+                    <div class="box">
                         <div class="imgBox">
-                            <img src="{{ asset('assets/img/science.png')}}" alt="Avatar">
+                            <img src="{{ asset('assets/img/science.png')}}" alt="science">
                         </div>
                         <div class="details">
                             <div class="content">
@@ -195,14 +199,18 @@
     {% endblock %}
     
     
-    {% block javascripts %}
-   
+{% block javascripts %}
     
-
-
-    
-    
-   
-
+    <script>
+        $(document).ready(function(){
+            $('.slide-jeu').slick({
+            
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+    </script>
 
 {% endblock %}

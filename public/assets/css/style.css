@@ -458,6 +458,7 @@ label {
   height: 150px;
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   overflow: hidden; }
   .slide-jeu .box {
@@ -465,18 +466,21 @@ label {
     width: 150px;
     height: 150px;
     background: #ffdb5c;
-    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
     box-sizing: border-box;
     border-radius: 12px; }
   .slide-jeu .box .imgBox {
-    width: 100%;
+    width: 90%;
     position: relative;
     overflow: hidden; }
   .slide-jeu .box .imgBox img {
-    width: 100%;
+    width: 90%;
     transition: transform 2s; }
   .slide-jeu .box:hover .imgBox img {
-    transform: scale(1.2); }
+    transform: scale(1.1); }
   .slide-jeu .box .details {
     position: absolute;
     top: 5px;

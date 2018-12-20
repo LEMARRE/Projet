@@ -3,35 +3,39 @@
 {% block title %}Profil Eleve - {{ parent() }}!{% endblock %}
 
 {% block body %}
-   
+
     <div class="container-profil">
 
-       
+
         {# {{ dump(user)}}  #}
 
-       <div class="icone-home">
+    <div class="icone-home">
         <a href="{{ path('student_home', {id: user.id}) }}"><img src="{{ asset('assets/img/logos/icone-home.png')}}" alt="icone home"></a>
-       </div>
+    </div>
         
         <div class="maincontainer">
-          
-          <div class="profil-card">
-                  
-                <div class="headcard">
-                   
+
+        <div class="profil-card">
+    
+        <div class="headcard">
+    
                     <!--identity-->
                     <div class="identity">
-                    <h2>{{user.firstname | capitalize }}</h2>
-                        
-                 
+                        <h2>{{user.firstname | capitalize }}</h2>
+
+                        {# class num   #}
+                        <div class="NumClassRoom">
+                        {% for infos in classroom %}
+                            <h3>{{infos.name}}</h3>
+                        {% endfor %}  
+                        </div>
                     </div>
-                    
                     
                     <div class="avatar">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
 
-                   <!--Affichage du score-->
+                <!--Affichage du score-->
                     {% if user.experience == 0%}
                     <div class="scoring">
                         <h3> 0 point</h3>
@@ -50,9 +54,9 @@
                 
                 </div>
 
-               
+        
         <!--body card -->
-               <!-- Nom de la classe -->
+            <!-- Nom de la classe -->
                 {% for infos in classroom %}
                     <tbody>
                         <tr>
@@ -68,7 +72,7 @@
             
                 <div class="content-jeux-open">
                     <h2>Jeux à faire</h2>
-              
+    
                     <div class="slide-jeu">
 
                         {% for i in 0..3 %}
@@ -89,24 +93,24 @@
             
                     </div>
 
-             
+        
                 {# </div> #}
 
-                 {# <a class="nav-link" href="{{ path("logout") }}">Déconnexion</a> #}
+                {# <a class="nav-link" href="{{ path("logout") }}">Déconnexion</a> #}
 
-                  <!-- jeux finis-->
+            <!-- jeux finis-->
 
 
 
-                  
-                  <div class="content-jeux-open">
+            
+                <div class="content-jeux-open">
                     <h2>Jeux finis</h2>
-              
+        
                     
                     <div class="slide-jeu">
 
                         {% for i in 0..3 %}
-                 
+                
                         <div class="box">
                             <div class="imgBox">
                                 <img src="{{ asset('assets/img/geometrie.png')}}" alt="Avatar">
@@ -125,23 +129,24 @@
                 </div>
 
             </div>     
-              
-
-          
-      {% block javascripts %}
-       
+        
+{% endblock %}
+        
+    {% block javascripts %}
+    <script  src="{{asset('assets/slick/slick.js')}}"></script
         <script>
+
         
             $(document).ready(function(){
-           
+    
             $('.slide.jeu').slick({
                 infinite: true,
                 slidesToShow: 4,
                 slidesToScroll: 6
-              });
+            });
         });
         </script>
-  
+
     
+
 {% endblock %}
- {% endblock %}
