@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Qcm;
+use App\Entity\User;
 use App\Entity\Choice;
 use App\Entity\Questions;
 use App\Services\QcmService;
@@ -22,17 +23,16 @@ class QuizzController extends AbstractController{
     */
         public function quizz(Request $request, $id)
         {
-            // $Qcm = $QcmService->getQcmById($id);
-            // $questions = $QcmService->getByQcm($Qcm);
-            // $choices = $QcmService->getAllChoicesByQuestion($questions);
-            
-            
-
+           
+        // $users = $this->getDoctrine()->getRepository(User::Class);
         $qcms = $this->getDoctrine()->getRepository(Qcm::Class);
         $quizz = $this->getDoctrine()->getRepository(Questions::Class);
         $allChoices = $this->getDoctrine()->getRepository(Choice::Class);
 
+
+        
         $qcm = $qcms->find($id);
+        // $user = $user->find();
         $questions = $quizz->findAll();
         $choices = $allChoices->findAll();
         
@@ -61,21 +61,5 @@ class QuizzController extends AbstractController{
            
     }  
     
-
-    // public function checkQuizzData(){
-    //     
-    //     {
-    //     foreach ($request.request as $answer)
-    //         {
-    //             if($answer == "1"){
-    //                 dump($answer);
-    //             }else if($answer == ""){
-    //                 echo "vous avez une mauvaise reponse";
-    //             }
-    //         }
-    //     }
-        
-         
-    // }
 }
 ?>

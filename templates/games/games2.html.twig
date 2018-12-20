@@ -19,7 +19,7 @@
 
         <div class="container">
             <input type="checkbox" name="group2" id="checkbox-1">
-            <label for="checkbox-1"><span class="checkbox">l'avion</span></label>
+            <label for="radio"><span class="radio"></span></label>
         </div>
 
         <div class="container">
@@ -34,6 +34,47 @@
     </div>
 </div>
 
+<form action="" method="POST">
+
+            {% for question in qcm.question %}
+
+                <div id="second" class="section">{{question.question}}</div>
+
+                {% for choice in question.choice %}
+
+                    <div class="container bg-danger" >
+                    <input type="radio" id="radio" value="{{choice.response}}" name="{{question.id}}">
+                    <label for="radio"><strong>{{choice.choice}}</strong></label>
+
+                    {% if choice.response == "1" %}
+
+                        {% if request.method == 'POST' %}
+
+                        <div> la bonne reponse est {{choice.choice}}</div>
+                
+                        {% endif %}
+
+                    {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endfor %}
+
+
+            {% if request.method == 'POST' %}
+
+                {% for answer in request.request %}
+                    {% if answer == "1" %}
+                        <div>vous avez une bonne reponse</div>
+                    {% endif %}
+                    {% if answer == "" %}
+                        <div>vous avez une mauvaise reponse</div> 
+                    {% endif %}
+                {% endfor %}
+
+            {% endif %}
 
 
 
