@@ -17,9 +17,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class QuizzController extends AbstractController{
 
 
-    /**
-    * @Route("/games/quizz/{id}", name="quizz")
-    */
+         /**
+         * @Route("/games/quizz/{id}", name="quizz")
+         */
         public function quizz(Request $request, $id)
         {
             // $Qcm = $QcmService->getQcmById($id);
@@ -41,7 +41,7 @@ class QuizzController extends AbstractController{
             foreach ($request->request as $answer)
             {
                 if($answer == "1"){
-                 dump($request->request->all());   
+                //  dump($request->request->all());   
                 }else if($answer == ""){
                     
                 }
@@ -52,7 +52,7 @@ class QuizzController extends AbstractController{
          
         
             
-    return $this->render('games/quizz.html.twig',[
+        return $this->render('games/quizz.html.twig', [
         'qcm' => $qcm,
         'questions' => $questions,
         'choices' => $choices,

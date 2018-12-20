@@ -4,14 +4,15 @@
 
 {% block body %}
     <div class="container bg-primary " >
-    {{dump(request)}};
+    {# {{dump(request)}};
     {{dump(qcm)}};
     {{dump(questions)}};
-    {{dump(choices)}};
+    {{dump(choices)}}; #}
         <form action="" method="POST">
 
             {% for question in qcm.question %}
-
+                {# {{dump(question)}}
+               #}
                 <div class="container bg-primary">{{question.question}}</div>
 
                 {% for choice in question.choice %}
