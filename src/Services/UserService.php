@@ -5,6 +5,7 @@ namespace App\Services;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Entity\Avatar;
+use App\Entity\Classroom;
 
 class UserService {
 
@@ -19,14 +20,27 @@ class UserService {
         return $repo->findAll();
     }
 
+    public function getAllClassrooms () {
+        $repo = $this->om->getRepository( Classroom::class);
+        return $repo->findAll();
+    }
+    public function getClassroomById ($classroom_id) {
+        $repo = $this->om->getRepository( Classroom::class);
+        return $repo->find($classroom_id);
+    }
+
     public function getById ($id) {
         $repo = $this->om->getRepository( User::class);
         return $repo->find($id);
     }
 
-    
     public function add($user) {
         $this->om->persist($user);
+        $this->om->flush();
+    }
+
+    public function addClassroom($classroom) {
+        $this->om->persist($classroom);
         $this->om->flush();
     }
 
@@ -35,8 +49,17 @@ class UserService {
         $repo =$this->om->getRepository(Avatar::class);
         return $repo->findOneBy($avatar);
     }
-    
 
+    public function getOneByClassCode($classCode)
+    {
+        $repo =$this->om->getRepository(Classroom::class);
+        return $repo->findOneBy($classCode);
+    }
+    
+    public function search($username){
+        $repo = $this->om->getRepository( User::class );
+        return $repo->search($username);
+    }
 
     // CODE CI DESSOUS REPRIS DE BEERTIME AU CAS OU ON EN AURAIT BESOIN ! 
 

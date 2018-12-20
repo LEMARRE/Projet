@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Qcm;
-use App\Form\QcmType;
 use App\Entity\Choice;
-
 use App\Entity\Questions;
-use App\Form\QuestionType;
+use App\Entity\User;
+
+
+use App\Form\QcmType;
 use App\Form\ResponseType;
+use App\Form\QuestionType;
+
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,13 +56,19 @@ class QcmController extends AbstractController
         $formResp = $this->createForm(QuestionType::class, $response);
         $formResp->handleRequest($request);
         
- // =====================================================================================
+// =====================================================================================
         
         if($form->isSubmitted() && $form->isValid()){
 
             foreach($qcm->getQuestion() as $question){
                 $question->addQcm($qcm);
+
+            //FAIRE UNE SECONDE BOUCLE SUR QUESTION  
+            foreach($question->getChoice() as $choice){
+                $choice->setQuestions($question);
+            }
                 $manager->persist($question);
+                $manager->persist($choice);
             }
 
             // penser à faire un foreach pour les responses
@@ -68,8 +77,6 @@ class QcmController extends AbstractController
             $manager->flush();
         }
         
-        dump($form);
-
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
             'formResp' => $formResp ->createView(),

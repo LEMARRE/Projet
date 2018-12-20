@@ -2,10 +2,10 @@
 
 {% block title %}Création de QCM - {{ parent() }} {% endblock %}
 
-{% form_theme form _self %}
+{% form_theme form with [_self, 'teacher/form_theme_response.html.twig'] %}
+
 
 {% block body %}
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Collego</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,50 +38,58 @@
   </nav>
 
   {# div contenant la totalité du formulaire #}
-
   <div class="container">
+  <div class="prototypeResponse" data-prototype="{{ form_widget(form.question.vars.prototype.children['choice'].vars.prototype)|e('html_attr')  }}"></div>
     <h3>Créer votre qcm !</h3><hr>
 
     <div class="row">
       <div class="col">
-        {{ form_start(form)}}
+        {{ form_start(form, {'attr': {'novalidate' : 'novalidate'} }) }}
         {{ form_widget(form)}}
-        <!-- {{ form_widget(formResp.choice)}} -->
+        {# {{ form_widget(formResp.choice)}} #}
 
-      <button type="submit" class="btn btn-success">Créér le Qcm</button>
+        <button type="submit" class="btn btn-success">Créér le Qcm</button>
 
-    {{ form_end( form)}}
+        {{ form_end( form)}}
       </div>
     </div>
   </div>
 
   {% endblock %}
 
-  {# ___________ Ad QUESTION _______________________________ #}
+  {# ___________ Add QUESTION block_______________________________ #}
 
     {% block _qcm_question_widget %}
       <p>Ajoutez une question :</p>
 
-      {{ form_widget(form) }}
+        {{ form_widget(form) }}
 
       <div class="form-group">
         <button type="button" id="add-question" class="btn btn-primary">Ajouter une question</button>
       </div>
+      <hr>
+
+    {# {{ dump( form.vars.prototype.children['choice'].vars.prototype ) }} #}
 
     {% endblock %}
 
-    {# permet de supprimerr les id au dessus de row #}
-    {# {% block _qcm_question_entry_row %}
+    {#=======================================================#}
+    {# permet de supprimer les id au dessus de row #}
+    
+    {% block _qcm_question_entry_row %}
       {{ form_widget(form) }}
-    {% endblock %} #}
+
+    {% endblock %}
+    
 
     {% block _qcm_question_entry_widget %}
 
-      <div class="form-group" id="block_{{id}}">
+      <div class="form-group divQ" id="block_{{id}}">
+        <hr>
         <div class="row">
-            <div class="col-10">
+            <div class="col">
               <div class="row">
-                <div class="col-8">
+                <div class="col-10">
                   {{ form_widget(form.question)}}
                 </div>
                 <div class="col-2">
@@ -90,19 +98,17 @@
               </div>
             </div>
             <div class="col-1">
-              <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
+              <button type="button" data-action="deleteQ" data-target="#block_{{id}}" class="btn btn-danger">X</button>
             </div>
           </div>
 
           {# Ajout d'une réponse ___________#}
-          <div class="adResp"  id="blockResp_{{id}}">
+          <div class="adResp">
             <div class="col">
               <p>Ajoutez une réponse</p>
-
               {{ form_widget(form.choice)}}
-
               <div class="">
-                  <button type="button" id="add-response" class="btn btn-primary">+ réponse</button>
+                <button type="button" data-number="{{ form.vars.name }}" data-id="{{ id }}" class="btn btn-primary add-response">+ réponse</button>
               </div>
               <hr>
             </div> 
@@ -111,43 +117,6 @@
       </div>
     {% endblock %}
 
-    {#_______________Ad REPONSE _____________________________________#}
-      
-    {% block _qcm_question_choice_widget %}
-      <p>Ajoutez une réponse :</p>
-      
-      {{ form_widget(form.choice) }}
-
-      <div class="form-group">
-        <button type="button" id="add-response" class="btn btn-primary">Ajouter une réponse</button>
-      </div>
-      
-    {% endblock %}
-
-
-    {% block _qcm_question_choice_entry_widget %}
-      
-      <div class="adResp" id="blockResp_{{id}}">
-        <div class="row">
-            <div class="col-10">
-              <div class="row">
-                
-                <div class="col-6">
-                  {{ form_widget(form.choice)}}
-                </div>
-                <div class="col-3">
-                    {{ form_widget(form.response)}}
-                </div>
-
-              </div>
-              </div>
-              <div class="col-1">
-                <button type="button" data-action="delete" data-target="#blockResp_{{id}}" class="btn btn-danger">X</button>
-              </div>
-        </div>
-      </div>
-
-    {% endblock %}
 
     {# ======================================================================== #}
 
@@ -155,60 +124,75 @@
 
     <script>
 
+    //===============================================================================
+    // JS AD QUESTION ===============================================================*
+    //==========================================================================
+
       //lorsque je clique sur le bouton ajouter une question
       $('#add-question').click(function(){
         //Récupère le numéro des futurs champs qui seront créés
         const index = $('#qcm_question div.form-group').length;//compte le nombre de div formgroup contenant les questions
-        console.log(index);
 
         //Récupère le prototype des entrées
         const tmpl = $('#qcm_question').data('prototype').replace(/__name__/g, index);
-
-        console.log(tmpl);
-
+        
         //injection du code dans la div
         $('#qcm_question').append(tmpl);
 
         //gestion du bouton de suppression
         HandleDeleteButtons();
-
+       
       });
+      //console.log(index);
 
       //fonction de suppression des champs questions
       function HandleDeleteButtons(){
-        $('button[data-action="delete"]').click(function(){
+        $('button[data-action="deleteQ"]').click(function(){
           const target = this.dataset.target;
           $(target).remove();
         });
-      }
+      };
+         
+      //==========================================================================
+      // JS AD REPONSE ===========================================================
+      //==========================================================================
 
-      //appel de la fonction à chaque rafraichissement de la page
-      HandleDeleteButtons();
+      //lorsque je clique sur le bouton ajouter une REPONSE
+        $('body').on( 'click', '.add-response', function(){
+          btnRespId = $(this).attr("data-id");
+          let qNumber = $(this).attr("data-number");
 
+          console.log(btnRespId);
+          
+          //Récupère le numéro des futurs champs qui seront créés
+            const index2 = $( '#' + btnRespId + '_choice .response-block').length;//compte le nombre de div adResp contenant les reponses
+            console.log(index2);
+            
+            let name = btnRespId + '_choice_' + index2;
+           // let reg = new RegExp( btnRespId +'_choice_[0-9]*', 'g' );
+          // const tmp2 = $('#' + btnRespId + '_choice' ).data('prototype').replace( reg , name);                        
+            
+          let proto = $('.prototypeResponse').data('prototype');
 
-      // JS AD REPONSE =============================================================
+          proto = proto.replace(/question___name__/g, 'question_'  + qNumber);
+          proto = proto.replace(/\[question\]\[__name__\]/g, '[question]['  + qNumber + ']');
+          proto = proto.replace(/__name__/g, index2);
 
-        //lorsque je clique sur le bouton ajouter une REPONSE
-      $('#add-response').click(function(){
-        //Récupère le numéro des futurs champs qui seront créés
-        const index2 = $('#qcm_question_choice div.adResp').length;//compte le nombre de div adResp contenant les reponses
-        console.log(index2);
+            //injection du code dans la div
+            $('#' + btnRespId +'_choice').append(proto); 
+            HandleDeleteButtonsR();
 
-        //Récupère le prototype des entrées
-        const tmpl2 = $('#qcm_question_choice').data('prototype').replace(/__name__/g, index2);
+          });
 
-        console.log(tmpl2);
-
-        //injection du code dans la div
-        $('#qcm_question_choice').append(tmpl2);
-
-        //gestion du bouton de suppression
-        HandleDeleteButtons();
-
-      });
-
+        //fonction de suppression des champs reponse
+        
+        function HandleDeleteButtonsR(){
+          $('button[data-action="deleteR"]').click(function(){
+            $(this).parents('.response-block').remove();
+          });
+          
+        };
 
     </script>
-
     {% endblock %}
 
