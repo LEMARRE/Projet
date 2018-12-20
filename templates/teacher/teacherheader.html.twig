@@ -14,7 +14,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               {% for classroom in classrooms %}
-                <a class="dropdown-item" href="{{ path('teacher_classroom', {classroom_id: classroom.id})}}">{{ classroom.name }}</a>
+                <a class="dropdown-item" href="{{ path('teacher_classroom', {classroom_id: classroom.id})}}">{{ classroom.name }} - (code : {{classroom.classroomCode}})</a>
               {% endfor %}
               </div>
             </li>
@@ -41,7 +41,7 @@
   </div>
           </ul>
           <form class="form-inline my-2 my-lg-0" method="GET" action="">
-            <input class="form-control mr-sm-2" type="search" placeholder="Recherche par élève..." aria-label="Search" name="studentSearch">
+            <input class="form-control mr-sm-2" type="search" placeholder="Recherche par élève..." aria-label="Search" name="lastname">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
           </form>
         </div>

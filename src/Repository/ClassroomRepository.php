@@ -36,7 +36,6 @@ class ClassroomRepository extends ServiceEntityRepository
     }
     */
 
-    
     public function findOneByClassCode($classCode): ?Classroom
     {
         return $this->createQueryBuilder('c')
