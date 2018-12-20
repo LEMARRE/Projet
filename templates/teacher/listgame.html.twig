@@ -1,8 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Hello !{% endblock %}
 
 {% block body %}
 {% include 'teacher/teacherheader.html.twig' %}
+
+<div class="container-teach">
+        
+</div>
+</div>
+</tr>
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numéro du Qcm</th>
+      <th scope="col">Thèmes</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for qcm in qcms %}
+    {% if qcm.id != null %}
+    <tr>
+      <td>{{qcm.id}}</td>
+      <td>{{qcm.theme.name}}</td>      
+     
+    </tr>
+    {% endif %}
+  {% endfor %}
+  
+  </tbody>
+</table>
+
+
+
+</div>
 
 {% endblock %}

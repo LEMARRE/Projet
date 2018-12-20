@@ -103,5 +103,8 @@ class TeacherController extends AbstractController
         
         return $this->render('games/memory.html.twig');
     }
+
+
+    
         
 }

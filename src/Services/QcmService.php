@@ -6,6 +6,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Qcm;
 use App\Entity\Choice;
 use App\Entity\Questions;
+use App\Entity\Theme;
+
 
 class QcmService {
 
@@ -25,8 +27,6 @@ class QcmService {
         return $repo->find($id);
     }
 
-    
-
     public function getAllChoices () {
         $repo = $this->om->getRepository( Choice::class);
         return $repo->findAll();
@@ -36,6 +36,17 @@ class QcmService {
         $repo = $this->om->getRepository( Choice::class);
         return $repo->find($question);
     }
+
+    public function getAllThemes () {
+        $repo = $this->om->getRepository( Theme::class);
+        return $repo->findAll();
+    }
+
+    public function getAllThemesByQcm ($qcm) {
+        $repo = $this->om->getRepository( qcm::class);
+        return $repo->find($question);
+    }
+
 
     public function getAllQuestions () {
         $repo = $this->om->getRepository( Questions::class);
