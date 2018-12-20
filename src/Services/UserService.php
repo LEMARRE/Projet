@@ -61,15 +61,14 @@ class UserService {
         return $repo->search($username);
     }
 
-    // CODE CI DESSOUS REPRIS DE BEERTIME AU CAS OU ON EN AURAIT BESOIN ! 
+    public function getByName($name)
+    {
+        $repo =$this->om->getRepository(User::class);
+        return $repo->searchByName($name);
+    }
 
 
-    // public function getByName($name, $sort, $page)
-    // {
-    //     $repo =$this->om->getRepository(User::class);
-    //     return $repo->searchByName($name, $sort, $page);
-    // }
-
+    
     // private function setupMedia($user)
     // {
     //     if (!empty($user->getPosterUrl() ) ) {
