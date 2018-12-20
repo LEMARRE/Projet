@@ -9,21 +9,7 @@
 
     
        
-        {# <div class="row">
-                <div class="col-md-6 bg-form">
-
-                    {{ form_start(form, {
-                    'attr': {'novalidate': 'novalidate'}
-                    }) }}
-                    {{ form_widget(form) }}
-                    {{ form_errors(form) }}
-                    <button type="submit" class="btn-general">S'enregistrer</button>
-                    {{ form_end(form) }}    
-                </div>
-            </div>
-
-    </div>  
-</div> #}
+       
 
 
    {{ form_start(form, {
@@ -38,16 +24,17 @@
                 {{form_row(form.firstname)}}
                 {{form_row(form.lastname)}}
                 {{form_row(form.username)}}
+                {{form_row(form.classcode)}}
             
             </div>
         </div>
         <div class="col-md-6">
             <div class="alert alert-light">
-                <h2>information</h2>
+                <h2>information de connection</h2>
                 <hr>
                 {{form_row(form.email)}}
                 {{form_row(form.password)}}
-                {# {{form_row(form.classroom)}} #}
+              
             </div>
         </div>
     </div>

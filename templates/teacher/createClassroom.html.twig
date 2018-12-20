@@ -7,14 +7,23 @@
 
 {% include 'teacher/teacherheader.html.twig' %}
 
-<form action="" method="GET">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h1 class="display-4 mb-4">Création d'une classe</h1>
+   
+    <form action="" method="GET">
     <div>
         <label for="name">Nom de la classe :</label>
         <input type="text" id="name" name="class_name">
     </div>
     <div>
-  <button type="submit" class="btn-general">Créer la classe</button>
+  <button type="submit" class="btn btn-primary btn-lg mt-4">Créer la classe</button>
 </form>
+  </div>
+</div>
+
+
 
 
 {% endblock %}
