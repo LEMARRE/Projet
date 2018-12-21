@@ -62,7 +62,7 @@
                 
                 <!--Avatar-->
                 <div class="card-eleve">
-                     {% if user.experience == 0 %}    
+                    {% if user.experience == 0 %}    
                     <div class="scoring-affichage">
                         <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
                         <h4> 0 point</h4>
@@ -73,9 +73,9 @@
                         <h4> {{user.experience}} points</h4>
                     </div> 
                     {% endif %}
-                   
-                   
-                   <div class="card-avatar-pict">
+                
+                
+                <div class="card-avatar-pict">
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
 
@@ -92,30 +92,27 @@
                         <i class="fa fa-star"></i>
                     </div>
 
-                 {% elseif user.experience <1500 %}
+                {% elseif user.experience <1500 %}
                     <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                     </div>
 
-                  {% elseif user.experience >1500 %}
+                {% elseif user.experience >1500 %}
                     <div class="expe">
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                         <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div> 
 
-
-                  
                     {% endif %} 
-                     
-                      
-                        {% for infos in classroom %}
+                    
+                    {% for infos in classroom %}
                         <h2>{{infos.name}}</h2>
-                       {% endfor %}  #}
+                    {% endfor %}  #}
                     {# <h4> {{user.email}}</h4> #}
                     
                     {# <div class="scoring">
@@ -155,7 +152,7 @@
                         </div>
                     </div>
 
-                      <div class="box">
+                    <div class="box">
                         <div class="imgBox">
                             <img src="{{ asset('assets/img/math.png')}}" alt="Avatar">
                         </div>
@@ -167,7 +164,7 @@
                         </div>
                     </div>
 
-                     <div class="box">
+                    <div class="box">
                         <div class="imgBox">
                             <img src="{{ asset('assets/img/science.png')}}" alt="Avatar">
                         </div>
@@ -192,29 +189,28 @@
     
     
     {% block javascripts %}
-   
-     {# <script src="{{ asset('assets/js/main.js')}}"></script>
-     <script src="{{ asset('assets/js/animate.min.js')}}"></script>
-   <script> #}
-   <script>
 
-   {# var profil = document.querySelector('#profil');
-   var overlay = document.querySelector('.overlay');
+    {# <script src="{{ asset('assets/js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/animate.min.js')}}"></script>
+    <script> #}
+    <script>
+
+    {# var profil = document.querySelector('#profil');
+    var overlay = document.querySelector('.overlay');
     console.log(overlay);
-     
-   
+
     profil.addEventListener('click', function(e){
         e.preventDefault();
-         $('.overlay').css('color', 'green'); 
-          console.log(overlay);
-       
+        $('.overlay').css('color', 'green'); 
+        console.log(overlay);
+    
 
 
     
-      }); #}
-   
-   
-   </script>
+    }); #}
+
+
+    </script>
 
 
 {% endblock %}

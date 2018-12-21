@@ -20,18 +20,19 @@ class UserService {
         return $repo->findAll();
     }
 
+    public function getById ($id) {
+        $repo = $this->om->getRepository( User::class);
+        return $repo->find($id);
+    }
+
     public function getAllClassrooms () {
         $repo = $this->om->getRepository( Classroom::class);
         return $repo->findAll();
     }
+
     public function getClassroomById ($classroom_id) {
         $repo = $this->om->getRepository( Classroom::class);
         return $repo->find($classroom_id);
-    }
-
-    public function getById ($id) {
-        $repo = $this->om->getRepository( User::class);
-        return $repo->find($id);
     }
 
     public function add($user) {
@@ -48,6 +49,12 @@ class UserService {
     {
         $repo =$this->om->getRepository(Avatar::class);
         return $repo->findOneBy($avatar);
+    }
+
+    public function getByEmail($email)
+    {
+        $repo =$this->om->getRepository(User::class);
+        return $repo->findByEmail($email);
     }
 
     public function getOneByClassCode($classCode)

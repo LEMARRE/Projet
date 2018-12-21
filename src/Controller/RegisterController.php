@@ -75,6 +75,7 @@ class RegisterController extends AbstractController
                 $user->setAvatar($avatar);
 
                 $data = $form->getData(); // Get the form data
+                $data->getEmail();
                 $user->setClassCode($data->getClassCode()); //to set temporarely the ClassCode use by the student
                 
                 //check if a classroom as such ClassCode or not

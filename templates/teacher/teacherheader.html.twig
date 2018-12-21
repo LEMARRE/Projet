@@ -20,27 +20,23 @@
             </li>
 
             <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          jeu
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{{ path('create_qcm') }}">Creer un Qcm</a>
-          <a class="dropdown-item" href="{{ path('listgame') }}">Liste des jeux</a>
-        </div>
-      </li>
-            
-          
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                jeu
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{{ path('create_qcm') }}">Creer un Qcm</a>
+                <a class="dropdown-item" href="{{ path('listgame') }}">Liste des jeux</a>
+              </div>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ path("logout") }}">Déconnexion</a>
             </li>
         </ul>
   </div>
           </ul>
-          <form class="form-inline my-2 my-lg-0" method="GET" action="">
+          {# <form class="form-inline my-2 my-lg-0" method="GET" action="">
             <input class="form-control mr-sm-2" type="search" placeholder="Recherche par élève..." aria-label="Search" name="lastname">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-          </form>
+          </form> #}
         </div>
-
-
     </nav>
