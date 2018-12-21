@@ -39,6 +39,8 @@ class QuizzController extends AbstractController
                 // 'choices' => $choices
 
             ]);
+
+            
         }
 
         

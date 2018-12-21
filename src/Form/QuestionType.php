@@ -20,7 +20,7 @@ class QuestionType extends AbstractType
                 'attr'=>['placeholder'=>"Votre question"]
             ])
             ->add('experience', IntegerType::class, [
-                'attr'=>['placeholder'=>"Points"]
+                'attr'=>['placeholder'=>"Xp"]
             ])
 
             ->add(

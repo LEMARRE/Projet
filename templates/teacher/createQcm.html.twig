@@ -7,36 +7,7 @@
 
 {% block body %}
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Collego</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('create_qcm') }}">jeu</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Classe
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="classe1.html">6eme1</a>
-            <a class="dropdown-item" href="#">6eme2</a>
-            <a class="dropdown-item" href="#">6eme3</a>
-          </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+  {% include 'teacher/teacherheader.html.twig' %}
 
   {# div contenant la totalité du formulaire #}
   <div class="container">
@@ -70,8 +41,6 @@
       </div>
       <hr>
 
-    {# {{ dump( form.vars.prototype.children['choice'].vars.prototype ) }} #}
-
     {% endblock %}
 
     {#=======================================================#}
@@ -90,11 +59,11 @@
         <div class="row">
             <div class="col">
               <div class="row">
-                <div class="col-10">
+                <div class="col-9">
                   {{ form_widget(form.question)}}
                   {{ form_errors(form.question) }}
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     {{ form_widget(form.experience)}}
                     {{ form_errors(form.experience) }}
                   </div>
@@ -146,7 +115,6 @@
         HandleDeleteButtons();
        
       });
-      //console.log(index);
 
       //fonction de suppression des champs questions
       function HandleDeleteButtons(){
@@ -168,12 +136,10 @@
           console.log(btnRespId);
           
           //Récupère le numéro des futurs champs qui seront créés
-            const index2 = $( '#' + btnRespId + '_choice .response-block').length;//compte le nombre de div adResp contenant les reponses
-            console.log(index2);
-            
-            let name = btnRespId + '_choice_' + index2;
-           // let reg = new RegExp( btnRespId +'_choice_[0-9]*', 'g' );
-          // const tmp2 = $('#' + btnRespId + '_choice' ).data('prototype').replace( reg , name);                        
+          const index2 = $( '#' + btnRespId + '_choice .response-block').length;//compte le nombre de div adResp contenant les reponses
+          console.log(index2);
+          
+          let name = btnRespId + '_choice_' + index2;
             
           let proto = $('.prototypeResponse').data('prototype');
 
@@ -181,9 +147,9 @@
           proto = proto.replace(/\[question\]\[__name__\]/g, '[question]['  + qNumber + ']');
           proto = proto.replace(/__name__/g, index2);
 
-            //injection du code dans la div
-            $('#' + btnRespId +'_choice').append(proto); 
-            HandleDeleteButtonsR();
+          //injection du code dans la div
+          $('#' + btnRespId +'_choice').append(proto); 
+          HandleDeleteButtonsR();
 
           });
 
@@ -196,6 +162,6 @@
           
         };
 
-    </script>
+      </script>
     {% endblock %}
 
