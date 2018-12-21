@@ -9,9 +9,8 @@
     <div class="maincontainer">
 
         <div class="profil-card">
-            <!-- ********** -->
+            
             <!-- Head Card -->
-            <!-- ********** -->
             <div class="headcard">
     
                 <!--identity-->
@@ -47,22 +46,15 @@
                     </div>
 
                     {% endif %}
-                
-                
                 </div>
     
-    
-    <!-- ********** -->
-    <!--  body card -->
-    <!-- ********** -->
-    
-        <!-- Nom de la classe -->
-            {% for infos in classroom %}
-            <tbody>
-                <tr>
-                <th scope="row">{{ infos.name }}</th>
-                <tr>
-            <tbody>
+                <!-- Nom de la classe -->
+                {% for infos in classroom %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{ infos.name }}</th>
+                    <tr>
+                <tbody>
                 {% endfor %}  
             
             <div class="bodycard">
@@ -80,7 +72,7 @@
                 
                         <div class="box ">
                             <div class="imgBox">
-                                <img src="{{ asset('assets/img/geo.png')}}" alt="Logo geographie">
+                                <img src="{{ asset('assets/img/math.png')}}" alt="Logo geographie">
                             </div>
                             
                             <div class="details">
@@ -91,6 +83,7 @@
                             </div>
                         </div>
                         {% endfor %}
+                            
             
                     </div>
 
@@ -106,10 +99,10 @@
 {% endblock %}
         
     {% block javascripts %}
-    {# <script  src="{{asset('assets/slick/slick.js')}}"></script #}
-        <script>
+    
 
-        
+
+        <script>
             $(document).ready(function(){
     
             $('.slide.jeu').slick({

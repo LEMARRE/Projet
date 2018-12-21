@@ -570,7 +570,7 @@ label{
     background : #ffdb5c;
     width : 100%;
     height : 100vh;
-}
+
 
     .maincontainer{
         margin : 0 auto;
@@ -605,13 +605,13 @@ label{
                         cursor : pointer;
                         transition : 0.5s;
                         color : #fff;
-                        font-size : 3rem;
+                        font-size : 2.5rem;
                         position : absolute;
                         top :5px;
                         left : 50px;
                     
                         &:hover  {
-                            transform : rotate(360deg);
+                            transform : rotateY(360deg);
                             color: $color-jeu
                         }
                     }
@@ -624,8 +624,8 @@ label{
     
                     .avatar{
                     
-                        width : 140px;
-                        height : 140px;
+                        width : 130px;
+                        height : 130px;
                         background : grey;
                         border-radius : 50%;
                         margin-bottom : 30px;
@@ -649,7 +649,6 @@ label{
             
             .bodycard{
                 position :relative;
-
                 width : 100%;
                 text-align : center;
         
@@ -661,123 +660,124 @@ label{
                     width : 250px;
                     height : 250Px;
                     
-                }
-                img{
+                    img{
                     width: 100%;
+                    }
                 }
 
-                h2{
-                    margin : 50px 0;
-                    color: #fff;
+                .content-jeux-open{
+                    width : 100%;
+                    height : 100%;
+                    
+                    h2{
+                        margin : 50px 0;
+                        color: #fff;
+                    }
                 }
-
-            .content-jeux-open{
-                width : 100%;
-                height : 100%;
             }
-
-        }
+            
             .btndeconnect{
                 color : #fff;
                 text-transform :uppercase;
                 font-weight : bold;
-            }
+                padding : 100px;
 
-    }
-    
-
-     
-   
-     /* card jeu*/
-
-
-     .slide-jeu{
-        height : 150px;
-        width : 100%;
-      //   background : yellow;
-        display : flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        overflow : hidden;
-     
-    .box{
-        position: relative;
-        width: 150px;
-        height: 150px;
-        background: $color-eleve;
-       display : flex;
-      justify-content : center;
-      align-items : center;
-        margin: 0 10px;
-        box-sizing: border-box;
-        border-radius : 12px;
-      }
-      
-       .box .imgBox{
-        width: 90%;
-        position: relative;
-        overflow: hidden;
-      }
-      
-       .box .imgBox img{
-        width: 90%;
-        transition: transform 2s;
-      }
-      
-       .box:hover .imgBox img{
-        transform:scale(1.1)
-      }
-      
-       .box .details{
-        position:absolute;
-        top: 5px;
-        left :5px;
-        right: 5px;
-        bottom: 5px;
-        background: rgba(0,0,0,.5);
-        transform:scaley(0);
-        transition :transform 0.5s;
-      }
-       .box:hover .details{
-        transform:scaley(1);
-      
-      }
-      
-       .box .details .content{
-        position: absolute;
-        top:50%;
-        transform: translatey(-50%);
-        text-align: center;
-        padding: 10px;
-        color: #fff;
-      }
-      
-       .box .details .content h2{
-        margin: 0;
-        padding: 0;
-        font-size: 20px;
-        color:$color-eleve;
-      }
-      
-       .box .details .content p{
-        margin: 10px 0 0;  padding: 0;
-        font-size: 14px;
-      
-      }
-    
+                &:hover{
+                    color :$color-eleve; 
+                }
+            }   
+        }
     }
 
+   /* card jeu*/
 
 
+    .slide-jeu{
+    height : 150px;
+    width : 100%;
+    display : flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow : hidden;
+ 
+.box{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: $color-eleve;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius : 12px;
+    
+  }
+  
+   .box .imgBox{
+    width: 100%;
+   height : 100%;
+    display :flex;
+    justify-content: center;
+    align-items :center;
+    overflow: hidden;
+  }
+  
+   .box .imgBox img{
+    width: 80%;
+    transition: transform 2s;
+    
+  }
+  
+   .box:hover .imgBox img{
+    transform:scale(1.2)
+  }
+  
+   .box .details{
+    position:absolute;
+    top: 5px;
+    left :5px;
+    right: 5px;
+    bottom: 5px;
+    background: rgba(0,0,0,.5);
+    transform:scaley(0);
+    transition :transform 0.5s;
+  }
+   .box:hover .details{
+    transform:scaley(1);
+  
+  }
+  
+   .box .details .content{
+    position: absolute;
+    top:50%;
+    transform: translatey(-50%);
+    text-align: center;
+    padding: 10px; 
+    color: #fff;
+  }
+  
+   .box .details .content h2{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color:$color-eleve;
+  }
+  
+   .box .details .content p{
+    margin: 10px 0 0;  padding: 0;
+    font-size: 14px;
+  
+  }
+
+}
 
 
+    
     /* ************** */
     /*      QUIZZ       */
    /*******************/
-   
+
     .container-quizz{
         background-color: #fa6e59;
-        height : 100vh;
+        height : 100%;
         padding : 20px;
 
         .logoquizz{
@@ -799,66 +799,18 @@ label{
             padding-left: 150px;
             background : #FF8A66;
 
-            h2{
+            h3{
                 color: #fff;
                 margin-bottom : 20px;
             }
 
-            .container-check{
-                height : 100%;
-                width : 70%;
-                margin :  auto;
-            }
+        }        
 
-                input[type="checkbox"]{
-                display: none;
-                }
-
-                label{
-                    position : relative;
-                }
-
-                span::before,
-                span::after {
-                    content: '\f00c';
-                    position: absolute;
-                    font-family:"Font Awesome 5 Free";
-                    top: 0;
-                    bottom: 0;
-                    margin: auto;
-                }
-                span.checkbox::before {
-                    width: 27px;
-                    height: 27px;
-                    background-color: #fff;
-                    left: -35px;
-                    box-sizing: border-box;
-                    border: 3px solid transparent;
-                    transition: border-color .2s;
-                
-
-                    span.checkbox:hover::before {
-                        border: 3px solid #F0FF76;
-                    }
-                        
-            .container span.checkbox::after {
-                    content: 'k';
-                    // font-family: "Font Awesome 5 Free";
-                    // left: -31px;
-                    // top: 2px;
-                    // color: transparent;
-                    transition: color .2s;
-                    }  
-
-                input[type="checkbox"]:checked + label span.checkbox::after {
-                color: #62AFFF;
     }
-            }
-    
 
-    
-/* Media queries   */
 
+
+    /* Media queries   */
 @media(max-width : 780px){
             
     .menuflex{
@@ -1025,18 +977,3 @@ label{
 
       
     }
-        
-    
-    
-       
-     
-      
-}}
-      
-     
-      
-      
-
-    
-   
-    

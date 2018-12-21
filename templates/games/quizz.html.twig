@@ -4,6 +4,8 @@
 
 {% block body %}
     <div class="container-quizz" >
+
+    
     {# {{dump(request)}};
     {{dump(qcm)}};
     {{dump(questions)}};
@@ -15,7 +17,7 @@
             <img src="{{ asset('assets/img/logoQuizz.png')}}" alt="logoquizz">
         </div>
         
-        
+       
         
         <form action="" method="POST" id="second" class="section">
 
@@ -27,8 +29,8 @@
                 {% for choice in question.choice %}
 
                     <div class="container-check" >
-                    <input type="checkbox" name="group2" id="chekbox" value="{{choice.response}}" name="{{question.id}}">
-                    <label for="checkbox"><span class="checkbox"> <strong>{{choice.choice}}</strong></label>
+                    <input type="checkbox" id="c1" name="cc" value="{{choice.response}}" name="{{question.id}}">
+                    <label for=""> <span></span>{{choice.choice}}</label>
 
                     {% if choice.response == "1" %}
 
