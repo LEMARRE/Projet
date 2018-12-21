@@ -1,6 +1,7 @@
 /* ***************** */
 /*       BASE        */
 /* ***************** */
+/* Variable    */
 body {
   margin: 0;
   font-family: "PT Sans", sans-serif; }
@@ -63,14 +64,6 @@ label {
   border-bottom: 2px solid #133f5f;
   outline: none; }
 
-.overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform: translateX(-50%);
-  z-index: 999;
-  background-color: red; }
-
 /* ************************ */
 /*     progresse bar       */
 /* ************************ */
@@ -96,13 +89,14 @@ label {
     align-items: center;
     padding: 0 0 10px 0;
     /* gestion des erreurs*/
-    /*contenu de la card */ }
+    /*contenu de la card */
+    /* Lien page d'inscription*/ }
     .container-login .loginBox .errorLogin {
       position: absolute;
-      width: 200px;
-      height: 250px;
-      left: -10%;
-      top: -15%; }
+      width: 230px;
+      height: 280px;
+      left: -25%;
+      top: 10%; }
       .container-login .loginBox .errorLogin img {
         width: 100%; }
       .container-login .loginBox .errorLogin .text-error {
@@ -116,14 +110,15 @@ label {
         font-size: 1.2rem; }
     .container-login .loginBox .logo {
       width: 300px;
-      height: 180px;
+      height: 200px;
       display: flex;
       justify-content: center; }
       .container-login .loginBox .logo img {
         width: 100%; }
     .container-login .loginBox h3 {
       font-family: "Oswald", sans-serif;
-      font-size: 1,2rem; }
+      font-size: 1,2rem;
+      margin-bottom: 30px; }
     .container-login .loginBox form {
       text-align: center; }
       .container-login .loginBox form .para {
@@ -139,9 +134,12 @@ label {
         color: #ffdb5c; }
       .container-login .loginBox .lien a.teacher {
         color: #133f5f; }
+    .container-login .loginBox .lien:hover .student {
+      color: #fa6e59; }
 
+/* End conteneur login*/
 /* ************************* */
-/*     Inscription Teacher  */
+/*     Register Teacher  */
 /* ************************ */
 .container-teacher {
   background: #3caea3;
@@ -163,12 +161,12 @@ label {
         box-shadow: 2px 4px 0px 0px white; }
 
 /* ************************* */
-/*     Register Eleve  */
+/*     Register Student  */
 /* ************************ */
 .container-student {
   background: #ffdb5c;
   height: 100vh;
-  padding: 200px 60px;
+  padding: 100px 60px;
   margin: 0 auto;
   text-align: center; }
   .container-student input {
@@ -178,17 +176,15 @@ label {
     text-align: center; }
     .container-student .container .h2 {
       margin: 10px 0; }
-    .container-student .container .row {
-      justify-content: center;
-      align-items: center; }
 
 .container-student .btn-student {
   background: #ffdb5c;
   color: #133f5f;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #fff; }
 
 /* ************************* */
-/*      Accueil Eleve       */
+/*      MENU STUDENT         */
 /* ************************ */
 /* FLEX BOX */
 .menuflex {
@@ -203,10 +199,10 @@ label {
     /*  Accueil Eleve part college   */
     /* ******************************/
     /* ***************************** */
-    /*  Accueil Eleve part Eleve     */
+    /*          Part of Student     */
     /* ******************************/
     /* ***************************** */
-    /*  Accueil Eleve part Jeu    */
+    /*          PART GAMES           */
     /* ******************************/ }
     .menuflex .section h3 {
       font-family: "Oswald", sans-serif;
@@ -230,6 +226,8 @@ label {
       text-align: center; }
       .menuflex .section.sectionOne .container-school {
         display: none; }
+      .menuflex .section.sectionOne:hover h3 {
+        margin-left: 50px; }
       .menuflex .section.sectionOne:hover .container-school {
         width: 100%;
         height: 100%;
@@ -258,7 +256,9 @@ label {
             font-size: 1.2rem;
             font-family: "PT Sans", sans-serif;
             font-weight: 500;
-            color: white; }
+            color: white;
+            margin-top: 20px;
+            font-weight: 600; }
           .menuflex .section.sectionOne:hover .container-school .card-school .social {
             margin-top: 50px; }
             .menuflex .section.sectionOne:hover .container-school .card-school .social ul {
@@ -335,6 +335,9 @@ label {
           display: flex;
           flex-direction: column;
           align-items: center; }
+          .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .scoring-affichage h4 {
+            font-size: 2rem;
+            color: #133f5f; }
           .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
             width: 200px;
             height: 200px;
@@ -354,6 +357,8 @@ label {
       box-shadow: inset 10px 2px 17px -7px rgba(0, 0, 0, 0.35); }
       .menuflex .section.sectionThree .container-jeu {
         display: none; }
+      .menuflex .section.sectionThree:hover h3 {
+        margin-left: 60px; }
       .menuflex .section.sectionThree:hover .container-jeu {
         width: 100%;
         height: 100%;
@@ -362,9 +367,8 @@ label {
         align-items: center;
         justify-content: center;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
-        .menuflex .section.sectionThree:hover .container-jeu .responsive {
-          display: flex;
-          justify-content: center; }
+        .menuflex .section.sectionThree:hover .container-jeu .slide-jeu {
+          margin-top: 30px; }
 
 /* ************************* */
 /*        PROFIL ELEVE       */
@@ -372,86 +376,83 @@ label {
 .container-profil {
   background: #ffdb5c;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .container-profil .icone-home {
-    width: 100px;
-    height: 100px;
-    transition: all 0.3s ease-in;
-    position: relative;
-    top: -40%;
-    left: 10%; }
-    .container-profil .icone-home a {
-      cursor: pointer; }
-    .container-profil .icone-home img {
-      width: 100%; }
-    .container-profil .icone-home:hover {
-      transform: scale(1.2); }
-    .container-profil .icone-home:active {
-      transform: scale(0.1); }
-  .container-profil .maincontainer {
-    margin: 0 auto;
-    position: relative;
-    width: 600px;
-    height: 90%; }
-    .container-profil .maincontainer .profil-card {
-      position: absolute;
+  height: 100vh; }
+
+.maincontainer {
+  margin: 0 auto;
+  position: relative;
+  width: 600px;
+  height: 90%; }
+  .maincontainer .profil-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2e2e2e;
+    border-radius: 15px; }
+    .maincontainer .profil-card .headcard {
+      padding: 0 30px;
+      height: 200px;
       width: 100%;
-      height: 100%;
-      background: #2e2e2e;
-      border-radius: 15px; }
-      .container-profil .maincontainer .profil-card .headcard {
-        padding: 0 30px;
-        height: 200px;
-        width: 100%;
-        background: #fccd32;
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        backface-visibility: hidden;
-        position: relative; }
-        .container-profil .maincontainer .profil-card .headcard h2 {
-          font-size: 3rem; }
-        .container-profil .maincontainer .profil-card .headcard .avatar {
+      background: #fccd32;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      border-top-right-radius: 15px;
+      border-top-left-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative; }
+      .maincontainer .profil-card .headcard .identity {
+        text-align: center; }
+        .maincontainer .profil-card .headcard .identity a {
+          cursor: pointer;
+          transition: 0.5s;
+          color: #fff;
+          font-size: 3rem;
           position: absolute;
-          left: 50%;
-          transform: translate(-50%, -20%);
-          width: 120px;
-          height: 120px;
-          background: grey;
+          top: 5px;
+          left: 50px; }
+          .maincontainer .profil-card .headcard .identity a:hover {
+            transform: rotate(360deg);
+            color: #fa6e59; }
+        .maincontainer .profil-card .headcard .identity h2 {
+          font-size: 3rem;
+          padding-top: 50px; }
+      .maincontainer .profil-card .headcard .avatar {
+        width: 140px;
+        height: 140px;
+        background: grey;
+        border-radius: 50%;
+        margin-bottom: 30px; }
+        .maincontainer .profil-card .headcard .avatar img {
+          width: 100%;
           border-radius: 50%; }
-          .container-profil .maincontainer .profil-card .headcard .avatar img {
-            width: 100%;
-            border-radius: 50%; }
-        .container-profil .maincontainer .profil-card .headcard .scoring {
-          height: 50px; }
-          .container-profil .maincontainer .profil-card .headcard .scoring h3 {
-            font-size: 2rem; }
-    .container-profil .maincontainer .bodycard {
-      position: relative;
-      height: 400px;
+      .maincontainer .profil-card .headcard .scoring {
+        height: 50px; }
+        .maincontainer .profil-card .headcard .scoring h3 {
+          font-size: 2rem; }
+  .maincontainer .bodycard {
+    position: relative;
+    width: 100%;
+    text-align: center; }
+    .maincontainer .bodycard .pictQcm {
+      position: absolute;
+      top: -130px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 250Px; }
+    .maincontainer .bodycard img {
+      width: 100%; }
+    .maincontainer .bodycard h2 {
+      margin: 50px 0;
+      color: #fff; }
+    .maincontainer .bodycard .content-jeux-open {
       width: 100%;
-      text-align: center; }
-      .container-profil .maincontainer .bodycard .pictQcm {
-        position: absolute;
-        top: -100px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 200Px; }
-      .container-profil .maincontainer .bodycard img {
-        width: 100%; }
-      .container-profil .maincontainer .bodycard h2 {
-        margin-top: 10px;
-        color: #fff; }
-      .container-profil .maincontainer .bodycard .content-jeux-open {
-        width: 100%;
-        height: 100%; }
+      height: 100%; }
+  .maincontainer .btndeconnect {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold; }
 
 /* card jeu*/
 .slide-jeu {
@@ -527,11 +528,13 @@ label {
   .container-quizz .section {
     padding: 100px;
     padding-left: 150px;
-    background: #FF8A66; }
+    background: #FF8A66;
+    /* Media queries   */
+    /* fin media queries */ }
     .container-quizz .section h2 {
       color: #fff;
       margin-bottom: 20px; }
-    .container-quizz .section .container {
+    .container-quizz .section .container-check {
       height: 100%;
       width: 70%;
       margin: auto; }
@@ -541,8 +544,9 @@ label {
       position: relative; }
     .container-quizz .section span::before,
     .container-quizz .section span::after {
-      content: '';
+      content: '\f00c';
       position: absolute;
+      font-family: "Font Awesome 5 Free";
       top: 0;
       bottom: 0;
       margin: auto; }
@@ -556,86 +560,78 @@ label {
       transition: border-color .2s; }
       .container-quizz .section span.checkbox::before span.checkbox:hover::before {
         border: 3px solid #F0FF76; }
-    .container-quizz .section .container span.checkbox::after {
-      content: '\f00c';
-      font-family: "Font Awesome 5 Free";
-      left: -31px;
-      top: 2px;
-      color: transparent;
-      transition: color .2s; }
-    .container-quizz .section input[type="checkbox"]:checked + label span.checkbox::after {
-      color: #62AFFF; }
-
-/* Media queries   */
-@media (max-width: 780px) {
-  .menuflex {
-    flex-flow: column;
-    height: 100vh; }
-    .menuflex .section {
-      /* section de l'ecole */
-      /* fin section One */
-      /* section eleve*/ }
-      .menuflex .section h3 {
-        margin-left: 60px;
-        margin-top: 20px;
-        font-size: 1.8rem;
-        transform: rotate(0deg);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); }
-      .menuflex .section.sectionOne:hover .container-school .card-school {
-        height: 60%; }
-        .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
-          width: 100px;
-          height: 100px; }
-        .menuflex .section.sectionOne:hover .container-school .card-school .info-college {
-          margin-top: 20px; }
-          .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
-            font-size: 1rem;
-            line-height: 0.5rem; }
-        .menuflex .section.sectionOne:hover .container-school .card-school .social {
-          margin-top: 20px; }
-          .menuflex .section.sectionOne:hover .container-school .card-school .social ul li {
-            width: 40px;
-            height: 40px;
-            border: 2px solid #2277dd;
-            margin: 0 10px; }
-            .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab, .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far {
-              font-size: 1rem; }
-      .menuflex .section.sectionTwo:hover .scoring-affichage {
-        width: 100px; }
-        .menuflex .section.sectionTwo:hover .scoring-affichage h4 {
-          top: 14px;
-          left: -20px;
-          font-size: 1.4rem; }
-      .menuflex .section.sectionTwo:hover .container-eleve .card-eleve {
-        height: 70%; }
-        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
-          width: 100px;
-          height: 100px; }
-        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
-          font-size: 2rem; }
-        .menuflex .section.sectionTwo:hover .container-eleve .card-eleve a#profil {
-          padding: 5px 30px;
-          font-size: 14px; }
-      .menuflex .section.sectionThree:hover .slide-jeu {
-        justify-content: center;
-        height: 40%; }
-
-  /*  PROFIL */
-  .container-profil .icone-home {
-    display: none; }
-  .container-profil .maincontainer {
-    width: 90%; }
-    .container-profil .maincontainer .profil-card .bodycard {
-      height: 100%; }
-
-  /* register student*/
-  .container-student {
-    height: 100%; } }
-/* fin media queries */
-@media (max-width: 600px) {
-  .container-student {
-    padding: 60px 60px; } }
+      .container-quizz .section span.checkbox::before .container span.checkbox::after {
+        content: 'k';
+        transition: color .2s; }
+      .container-quizz .section span.checkbox::before input[type="checkbox"]:checked + label span.checkbox::after {
+        color: #62AFFF; }
+    @media (max-width: 780px) {
+      .container-quizz .section {
+        /*  PROFIL */
+        /* register student*/ }
+        .container-quizz .section .menuflex {
+          flex-flow: column;
+          height: 100vh; }
+          .container-quizz .section .menuflex .section {
+            /* section de l'ecole */
+            /* fin section One */
+            /* section eleve*/ }
+            .container-quizz .section .menuflex .section h3 {
+              margin-left: 60px;
+              margin-top: 20px;
+              font-size: 1.8rem;
+              transform: rotate(0deg);
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%); }
+            .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school {
+              height: 60%; }
+              .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .avatar-school {
+                width: 100px;
+                height: 100px; }
+              .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .info-college {
+                margin-top: 20px; }
+                .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .info-college p {
+                  font-size: 1rem;
+                  line-height: 0.5rem; }
+              .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .social {
+                margin-top: 20px; }
+                .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .social ul li {
+                  width: 40px;
+                  height: 40px;
+                  border: 2px solid #2277dd;
+                  margin: 0 10px; }
+                  .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .fab, .container-quizz .section .menuflex .section.sectionOne:hover .container-school .card-school .social ul li .far {
+                    font-size: 1rem; }
+            .container-quizz .section .menuflex .section.sectionTwo:hover .scoring-affichage {
+              width: 100px; }
+              .container-quizz .section .menuflex .section.sectionTwo:hover .scoring-affichage h4 {
+                top: 14px;
+                left: -20px;
+                font-size: 1.4rem; }
+            .container-quizz .section .menuflex .section.sectionTwo:hover .container-eleve .card-eleve {
+              height: 70%; }
+              .container-quizz .section .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .card-avatar-pict {
+                width: 100px;
+                height: 100px; }
+              .container-quizz .section .menuflex .section.sectionTwo:hover .container-eleve .card-eleve .expe i {
+                font-size: 2rem; }
+              .container-quizz .section .menuflex .section.sectionTwo:hover .container-eleve .card-eleve a#profil {
+                padding: 5px 30px;
+                font-size: 14px; }
+            .container-quizz .section .menuflex .section.sectionThree:hover .slide-jeu {
+              justify-content: center;
+              height: 40%; }
+        .container-quizz .section .container-profil .icone-home {
+          display: none; }
+        .container-quizz .section .container-profil .maincontainer {
+          width: 90%; }
+          .container-quizz .section .container-profil .maincontainer .profil-card .bodycard {
+            height: 100%; }
+        .container-quizz .section .container-student {
+          height: 100%; } }
+    @media (max-width: 600px) {
+      .container-quizz .section .container-student {
+        padding: 60px 60px; } }
 
 /*# sourceMappingURL=style.css.map */

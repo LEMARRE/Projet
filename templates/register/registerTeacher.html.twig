@@ -2,23 +2,22 @@
 
 {% block title %}Inscription professeur - {{ parent()}} {% endblock %}
 
-
-
 {% block body %}
 
 <div class="container-teacher">
     <div class="container">
-
-    <h2>Inscription Professeur</h2>
+    
+        <h2>Inscription Professeur</h2>
         <div class="row">
+            
             <div class="col-md-6">
-                
+            
                 {{ form_start(form, {
                 'attr': {'novalidate': 'novalidate'}
                 }) }}
                 {{ form_widget(form) }}
                 {{ form_errors(form) }}
-                <button type="submit" class=".btn-general">S'enregistrer</button>
+                <button type="submit" class="btn-general btn-student">S'enregistrer</button>
                 {{ form_end(form) }}
             </div>
         </div>

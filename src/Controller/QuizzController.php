@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Qcm;
+use App\Entity\User;
 use App\Entity\Choice;
 use App\Entity\Questions;
 use App\Services\QcmService;
@@ -17,22 +18,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class QuizzController extends AbstractController{
 
 
-         /**
-         * @Route("/games/quizz/{id}", name="quizz")
-         */
+    /**
+    * @Route("/games/quizz/{id}", name="quizz")
+    */
         public function quizz(Request $request, $id)
         {
-            // $Qcm = $QcmService->getQcmById($id);
-            // $questions = $QcmService->getByQcm($Qcm);
-            // $choices = $QcmService->getAllChoicesByQuestion($questions);
-            
-            
-
+           
+        // $users = $this->getDoctrine()->getRepository(User::Class);
         $qcms = $this->getDoctrine()->getRepository(Qcm::Class);
         $quizz = $this->getDoctrine()->getRepository(Questions::Class);
         $allChoices = $this->getDoctrine()->getRepository(Choice::Class);
 
+
+            
+        
+
+        
         $qcm = $qcms->find($id);
+        // $user = $user->find();
         $questions = $quizz->findAll();
         $choices = $allChoices->findAll();
         
@@ -41,7 +44,7 @@ class QuizzController extends AbstractController{
             foreach ($request->request as $answer)
             {
                 if($answer == "1"){
-                //  dump($request->request->all());   
+                 dump($request->request->all());   
                 }else if($answer == ""){
                     
                 }
@@ -52,7 +55,7 @@ class QuizzController extends AbstractController{
          
         
             
-        return $this->render('games/quizz.html.twig', [
+    return $this->render('games/quizz.html.twig',[
         'qcm' => $qcm,
         'questions' => $questions,
         'choices' => $choices,
@@ -61,21 +64,5 @@ class QuizzController extends AbstractController{
            
     }  
     
-
-    // public function checkQuizzData(){
-    //     
-    //     {
-    //     foreach ($request.request as $answer)
-    //         {
-    //             if($answer == "1"){
-    //                 dump($answer);
-    //             }else if($answer == ""){
-    //                 echo "vous avez une mauvaise reponse";
-    //             }
-    //         }
-    //     }
-        
-         
-    // }
 }
 ?>

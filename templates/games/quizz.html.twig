@@ -3,23 +3,32 @@
 {% block title %}Connexion - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="container bg-primary " >
+    <div class="container-quizz" >
     {# {{dump(request)}};
     {{dump(qcm)}};
     {{dump(questions)}};
     {{dump(choices)}}; #}
-        <form action="" method="POST">
+
+        <h1> Quizz </h1>
+
+        <div class="logoquizz">
+            <img src="{{ asset('assets/img/logoQuizz.png')}}" alt="logoquizz">
+        </div>
+        
+        
+        
+        <form action="" method="POST" id="second" class="section">
 
             {% for question in qcm.question %}
-                {# {{dump(question)}}
-               #}
-                <div class="container bg-primary">{{question.question}}</div>
+                {# {{dump(question)}}#}
+
+                <h3>{{question.question}}</h3>
 
                 {% for choice in question.choice %}
 
-                    <div class="container bg-danger" >
-                    <input type="radio" value="{{choice.response}}" name="{{question.id}}">
-                    <label> <strong>{{choice.choice}}</strong></label>
+                    <div class="container-check" >
+                    <input type="checkbox" name="group2" id="chekbox" value="{{choice.response}}" name="{{question.id}}">
+                    <label for="checkbox"><span class="checkbox"> <strong>{{choice.choice}}</strong></label>
 
                     {% if choice.response == "1" %}
 

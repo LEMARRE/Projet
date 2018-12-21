@@ -4,22 +4,17 @@
 
 {% block body %}
 
-    {# <div class="overlay"></div>     #}
-        
-    <div class="menuflex">
+<div class="menuflex">
 
+<!-- ************************ -->
+<!--      Partie COLLEGE      -->
+<!-- ************************ -->
         
-        
-        <!-- ************************ -->
-        <!--      Partie COLLEGE      -->
-        <!-- ************************ -->
-        
-        <div class="section sectionOne"> 
+    <div class="section sectionOne"> 
             
-            <h3>College</h3>
+        <h3>College</h3>
         
-                
-            <div class="container-school">
+        <div class="container-school">
                 
                 <div class="card-school">
                     <div class="avatar-school">
@@ -40,39 +35,38 @@
                             <li><i class="fab fa-instagram"></i><i class="fab fa-instagram"></i></li>
                         </ul>
                     </div>
-                </div>
+
+                </div>   <!-- end card -->
             </div>
 
-        </div>   <!-- Fin section 1 -->
+        </div>   <!-- End section 1 -->
         
         
-        <!-- ************************ -->
-        <!--      Partie ELEVE        -->
-        <!-- ************************ -->
+<!-- ************************ -->
+<!--      Partie ELEVE        -->
+<!-- ************************ -->
             
-        <div class="section sectionTwo">
+    <div class="section sectionTwo">
 
-            <div class="container-eleve">
+        <div class="container-eleve">
                 
-                <!--pseudo-->      
-                <div class="pseudo">
-
-
-                    <h3>{{user.firstname}} {{user.lastname}}</h3>
-                    
-                </div>
+            <!--pseudo-->      
+            <div class="pseudo">
+                <h3>{{user.firstname}} {{user.lastname}}</h3>
+            </div>
                 
-                <!--Avatar-->
-                <div class="card-eleve">
-                    {% if user.experience == 0 %}    
+            <!--Avatar-->
+            <div class="card-eleve">
+            
+            {% if user.experience == 0 %}    
                     <div class="scoring-affichage">
                         <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
-                        <h4> 0 point</h4>
+                        <h4> 0 POINT</h4>
                     </div> 
                     {% else %}
                     <div class="scoring-affichage">
                         <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
-                        <h4> {{user.experience}} points</h4>
+                        <h4> {{user.experience}} POINTS</h4>
                     </div> 
                     {% endif %}
             
@@ -81,34 +75,34 @@
                         <img src="{{ asset('assets/img/' ~ avatar.imageUrl)}}" alt="Avatar">
                     </div>
 
-                <!--Etoile-->
-                {% if user.experience < 500 %}    
+            <!--Etoile-->
+            {% if user.experience < 500 %}    
                     
-                    <div class="expe">
-                        <i class="fa fa-star"></i>
-                    </div>
+                <div class="expe">
+                    <i class="fa fa-star"></i>
+                </div>
                 
-                {% elseif user.experience <1000%}
-                    <div class="expe">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
+            {% elseif user.experience <1000%}
+                <div class="expe">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
 
-                {% elseif user.experience <1500 %}
-                    <div class="expe">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
+            {% elseif user.experience <1500 %}
+                <div class="expe">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
 
-                {% elseif user.experience >1500 %}
-                    <div class="expe">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div> 
+            {% elseif user.experience >1500 %}
+                <div class="expe">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div> 
                 
                 
                 {% endif %} 
@@ -117,83 +111,86 @@
                     <div class="NumClassRoom">
                         {% for infos in classroom %}
                         <h2> Classe {{infos.name}}</h2>
-                    {% endfor %}  
-                
+                        {% endfor %}  
                     </div>
-                    
-                    
-                    {# <h4> {{user.email}}</h4> #}
-                    
-                    {# <div class="scoring">
-                        <img src="{{ asset('assets/img/explosion.png')}}" alt="Avatar">
-                        <h4> votre Score : {{user.experience}}</h4>
-                    </div> #}
-
-                    {# <h4>{{user.experience}}</h4>      #}
-                    
-                                
-                    {# <a href="{{ path('event_show', {id: event.id}) }}">Voir plus</a> #}
+            
                     <a href="{{ path('student_profil', {id: user.id}) }}"  class="btn-general" id="profil">Mon Profil</a>
-
-                </div>
-            </div>
-        </div>  
-                    
-        <!--  jeu --> 
-        <div class="section sectionThree">
-            
-            <h3>Le Jeu</h3>
-            
-            <div class="container-jeu">
-            
-                <h2> Nouveautés</h2>
                 
-                <div class="slide-jeu">
+            </div> <!-- fin card  -->
+        </div>
+    </div>  
+
+<!-- ************************ -->
+<!--      Part Game           -->
+<!-- ************************ -->
+                    
+    <!--  jeu --> 
+    <div class="section sectionThree">
+            
+        <h3>Le Jeu</h3>
+        
+        <div class="container-jeu">
+            
+            <h2> Nouveautés</h2>
+                
+                
+            <div class="slide-jeu">
                     {# {% for i in 0..3 %} #}
                     
-                    <div class="box">
-                        <div class="imgBox">
-                            <img src="{{ asset('assets/img/logo-math.png')}}" alt="logo">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                                <h2>QCM Histoire</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                            </div>
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="{{ asset('assets/img/logo-math.png')}}" alt="logo">
+                    </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>QCM Math</h2>
+                            <p>Lorem ipsum dolor sit amet</p>
                         </div>
                     </div>
-
-                    <div class="box">
-                        <div class="imgBox">
-                            <img src="{{ asset('assets/img/logo-hist.png')}}" alt="logo">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                                <h2>QCM Math</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="imgBox">
-                            <img src="{{ asset('assets/img/science.png')}}" alt="science">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                                <h2>QCM Histoire</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
-                            </div>
-                        </div>
-                    </div>
-                    {# {% endfor %} #}
                 </div>
-                {# <a href="{{ path('games2') }}"  class="btn-general">Le Jeu</a> #}
-            </div>
-        
-        </div>
 
-    </div>   <!--fin menu flex-->
+                <div class="box">
+                        <div class="imgBox">
+                            <img src="{{ asset('assets/img/logo-hist.png')}}" alt="logo hist">
+                        </div>
+                        <div class="details">
+                            <div class="content">
+                                <h2>QCM HIST</h2>
+                                <p>Lorem ipsum dolor sit amet,</p>
+                            </div>
+                    </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="imgBox">
+                            <img src="{{ asset('assets/img/science.png')}}" alt="logo science">
+                        </div>
+                        <div class="details">
+                            <div class="content">
+                                <h2>QCM Science</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="imgBox">
+                            <img src="{{ asset('assets/img/math.png')}}" alt="logo math">
+                        </div>
+                        <div class="details">
+                            <div class="content">
+                                <h2>QCM Histoire</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                            </div>
+                        </div>
+                    </div>
+            </div> <!-- end slide -->
+                
+        </div>
+        
+    </div>
+
+</div>   <!--fin menu flex-->
     
     
     {% endblock %}
