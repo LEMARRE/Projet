@@ -23,17 +23,12 @@ class QuizzController extends AbstractController{
     */
         public function quizz(Request $request, $id)
         {
-           
+
         // $users = $this->getDoctrine()->getRepository(User::Class);
         $qcms = $this->getDoctrine()->getRepository(Qcm::Class);
         $quizz = $this->getDoctrine()->getRepository(Questions::Class);
         $allChoices = $this->getDoctrine()->getRepository(Choice::Class);
 
-
-            
-        
-
-        
         $qcm = $qcms->find($id);
         // $user = $user->find();
         $questions = $quizz->findAll();
@@ -44,24 +39,21 @@ class QuizzController extends AbstractController{
             foreach ($request->request as $answer)
             {
                 if($answer == "1"){
-                 dump($request->request->all());   
+
                 }else if($answer == ""){
                     
                 }
             }
         }
+
         
-        
-         
-        
-            
     return $this->render('games/quizz.html.twig',[
         'qcm' => $qcm,
         'questions' => $questions,
         'choices' => $choices,
         'request' => $request
         ]);
-           
+    
     }  
     
 }
