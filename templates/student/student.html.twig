@@ -30,9 +30,9 @@
 
                     <div class="social">
                         <ul>
-                            <li><i class="fab fa-facebook-f"></i><i class="fab fa-facebook-f"></i></li>
-                            <li><i class="far fa-envelope"></i><i class="far fa-envelope"></i></li>
-                            <li><i class="fab fa-instagram"></i><i class="fab fa-instagram"></i></li>
+                            <li><a href="{{ 'https://www.facebook.com' }}"><i class="fab fa-facebook-f"></i><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ 'https://mail.google.com' }}"><i class="far fa-envelope"></i><i class="far fa-envelope"></i></a></li>
+                            <li><a href="{{ 'https://www.instagram.com' }}"><i class="fab fa-instagram"></i><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
 
@@ -186,7 +186,7 @@
                     </div>
             </div> <!-- end slide -->
 
-            <a href="{{ path('quizz', {id:}) }}"  class="btn-general student" id="profil">Mon Profil</a>
+            {# <a href="{{ path('quizz')}}"  class="btn-general student" id="profil">Mon Profil</a> #}
                 
         </div>
         
@@ -195,7 +195,7 @@
 </div>   <!--fin menu flex-->
     
     
-    {% endblock %}
+    {# {% endblock %} #}
     
     
 {% block javascripts %}
@@ -211,5 +211,5 @@
             });
         });
     </script>
-
+ {% endblock %}
 {% endblock %}
