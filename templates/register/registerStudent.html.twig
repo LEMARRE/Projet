@@ -26,7 +26,8 @@
             <div class="alert alert-light">
                 <h2>information de connection</h2>
                 <hr>
-                {{form_row(form.email)}}
+                {{form_row((form.email), {'id': 'email'}) }}
+                <div id="error"></div>
                 {{form_row(form.password)}}
 
                 <button type="submit" class="btn-general btn-student">S'enregistrer</button> 
@@ -38,4 +39,33 @@
 
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+
+    $("#email").on('change', function () {
+        var email = $(this).val();
+        $.ajax({
+            method: "post",
+            url: '{{ path('ajax') }}',
+            dataType: "json",
+            data: {"email": email},
+            success: function($response){
+                if (true == $response['exist']){
+                    $('#error').text('Attention : L\'adresse e-mail est déjà utilisée')
+                } else if (false == $response['valid']) {
+                    $('#error').text('Attention : L\'adresse e-mail n\'est pas valide')
+                } else if ((true == $response['valid']) & (false == $response['exist'])) {
+                    $('#error').text('')
+                };
+            },
+            error: function(err){
+                $('#error').text('Erreur lors de la vérification, merci de rééssayer')
+            },
+        });
+    });
+
+</script>
 {% endblock %}

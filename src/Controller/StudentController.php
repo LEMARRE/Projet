@@ -66,31 +66,3 @@ class StudentController extends AbstractController
     //         ]); 
     // }
 }
-
-    /**
-     * @Route("/student/profil", name="search_profil)
-     * 
-     */
-
-
-    
-
-    // /**
-    //  * @Route("/student/{id}/profil", name="student_profil", requirements={"id"="\d+"})
-    //  * 
-    //  */
-    
-    
-    //  public function search($username, UserService $userService)
-    // {
-        
-    //     $search = $userservice->search($username);
-       
-    //     return $this->render (
-    //         'student/studentProfil.html.twig',
-    //         ['user => $userService->search($username),
-    //         'avatar' => $avatar
-    //         ]); 
-    //     }
- 
-

@@ -18,6 +18,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\QcmController;
 
 class QcmController extends AbstractController
 {
@@ -51,10 +52,10 @@ class QcmController extends AbstractController
             foreach($qcm->getQuestion() as $question){
                 $question->addQcm($qcm);
 
-            //FAIRE UNE SECONDE BOUCLE SUR QUESTION  
-            foreach($question->getChoice() as $choice){
-                $choice->setQuestions($question);
-            }
+                    foreach($question->getChoice() as $choice){
+                        $choice->setQuestions($question);
+                    }
+
                 $manager->persist($question);
             }
 
@@ -62,12 +63,15 @@ class QcmController extends AbstractController
             $manager->flush();
 
             //rediriger vers la page liste QCM
-            //return $this->redirectionToRoute('')
+            return $this->redirectToRoute('listgame');
         }
         
         return $this->render('teacher/createQcm.html.twig', [
             'form' => $form ->createView(),
-            // 'formResp' => $formResp ->createView(),
+            'formResp' => $formResp ->createView(),
+            'user' => $userService->getById($id),
+            'users' => $userService->getAll(),
+            'classrooms' => $classrooms,
         ]);
     }
 

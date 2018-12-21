@@ -41,8 +41,6 @@
       </div>
       <hr>
 
-    {# {{ dump( form.vars.prototype.children['choice'].vars.prototype ) }} #}
-
     {% endblock %}
 
     {#=======================================================#}
@@ -61,11 +59,11 @@
         <div class="row">
             <div class="col">
               <div class="row">
-                <div class="col-10">
+                <div class="col-9">
                   {{ form_widget(form.question)}}
                   {{ form_errors(form.question) }}
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     {{ form_widget(form.experience)}}
                     {{ form_errors(form.experience) }}
                   </div>
@@ -117,7 +115,6 @@
         HandleDeleteButtons();
        
       });
-      //console.log(index);
 
       //fonction de suppression des champs questions
       function HandleDeleteButtons(){
@@ -139,12 +136,10 @@
           console.log(btnRespId);
           
           //Récupère le numéro des futurs champs qui seront créés
-            const index2 = $( '#' + btnRespId + '_choice .response-block').length;//compte le nombre de div adResp contenant les reponses
-            console.log(index2);
-            
-            let name = btnRespId + '_choice_' + index2;
-           // let reg = new RegExp( btnRespId +'_choice_[0-9]*', 'g' );
-          // const tmp2 = $('#' + btnRespId + '_choice' ).data('prototype').replace( reg , name);                        
+          const index2 = $( '#' + btnRespId + '_choice .response-block').length;//compte le nombre de div adResp contenant les reponses
+          console.log(index2);
+          
+          let name = btnRespId + '_choice_' + index2;
             
           let proto = $('.prototypeResponse').data('prototype');
 
@@ -152,9 +147,9 @@
           proto = proto.replace(/\[question\]\[__name__\]/g, '[question]['  + qNumber + ']');
           proto = proto.replace(/__name__/g, index2);
 
-            //injection du code dans la div
-            $('#' + btnRespId +'_choice').append(proto); 
-            HandleDeleteButtonsR();
+          //injection du code dans la div
+          $('#' + btnRespId +'_choice').append(proto); 
+          HandleDeleteButtonsR();
 
           });
 
@@ -167,6 +162,6 @@
           
         };
 
-    </script>
+      </script>
     {% endblock %}
 
